@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2EAAADD916A85D9800D076E3 /* recipes in Resources */ = {isa = PBXBuildFile; fileRef = 2EAAADD816A85D9800D076E3 /* recipes */; };
 		2EAB3D5A166FEF2400FA8572 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EAB3D59166FEF2400FA8572 /* UIKit.framework */; };
 		2EAB3D5C166FEF2400FA8572 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EAB3D5B166FEF2400FA8572 /* Foundation.framework */; };
 		2EAB3D5E166FEF2400FA8572 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EAB3D5D166FEF2400FA8572 /* CoreGraphics.framework */; };
@@ -20,13 +21,13 @@
 		2EAB3D76166FEF2400FA8572 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EAB3D74166FEF2400FA8572 /* ViewController.xib */; };
 		2EAB3D7D166FEF3500FA8572 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EAB3D7C166FEF3500FA8572 /* libsqlite3.0.dylib */; };
 		2EAB3D81166FEF6700FA8572 /* SQLiteReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EAB3D80166FEF6700FA8572 /* SQLiteReader.m */; };
-		2EAB3D84166FF2FD00FA8572 /* Fish.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2EAB3D83166FF2FD00FA8572 /* Fish.txt */; };
 		2EAB3D87166FF31900FA8572 /* TXTParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EAB3D86166FF31900FA8572 /* TXTParser.m */; };
 		2EAB3D8B166FF41B00FA8572 /* Recipe.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EAB3D8A166FF41B00FA8572 /* Recipe.m */; };
 		2EAB3D8E166FF84600FA8572 /* Ingredient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EAB3D8D166FF84600FA8572 /* Ingredient.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2EAAADD816A85D9800D076E3 /* recipes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = recipes; sourceTree = "<group>"; };
 		2EAB3D55166FEF2400FA8572 /* iRecipe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iRecipe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EAB3D59166FEF2400FA8572 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2EAB3D5B166FEF2400FA8572 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -46,7 +47,6 @@
 		2EAB3D7C166FEF3500FA8572 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		2EAB3D7F166FEF6700FA8572 /* SQLiteReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLiteReader.h; sourceTree = "<group>"; };
 		2EAB3D80166FEF6700FA8572 /* SQLiteReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteReader.m; sourceTree = "<group>"; };
-		2EAB3D83166FF2FD00FA8572 /* Fish.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Fish.txt; sourceTree = "<group>"; };
 		2EAB3D85166FF31900FA8572 /* TXTParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXTParser.h; sourceTree = "<group>"; };
 		2EAB3D86166FF31900FA8572 /* TXTParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXTParser.m; sourceTree = "<group>"; };
 		2EAB3D89166FF41B00FA8572 /* Recipe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Recipe.h; sourceTree = "<group>"; };
@@ -115,7 +115,7 @@
 		2EAB3D60166FEF2400FA8572 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				2EAB3D82166FF2E100FA8572 /* Recipe Files */,
+				2EAAADD816A85D9800D076E3 /* recipes */,
 				2EAB3D61166FEF2400FA8572 /* iRecipe-Info.plist */,
 				2EAB3D62166FEF2400FA8572 /* InfoPlist.strings */,
 				2EAB3D65166FEF2400FA8572 /* main.m */,
@@ -137,14 +137,6 @@
 				2EAB3D86166FF31900FA8572 /* TXTParser.m */,
 			);
 			name = "Data Manager";
-			sourceTree = "<group>";
-		};
-		2EAB3D82166FF2E100FA8572 /* Recipe Files */ = {
-			isa = PBXGroup;
-			children = (
-				2EAB3D83166FF2FD00FA8572 /* Fish.txt */,
-			);
-			name = "Recipe Files";
 			sourceTree = "<group>";
 		};
 		2EAB3D88166FF3C400FA8572 /* Data Objects */ = {
@@ -214,7 +206,7 @@
 				2EAB3D6E166FEF2400FA8572 /* Default@2x.png in Resources */,
 				2EAB3D70166FEF2400FA8572 /* Default-568h@2x.png in Resources */,
 				2EAB3D76166FEF2400FA8572 /* ViewController.xib in Resources */,
-				2EAB3D84166FF2FD00FA8572 /* Fish.txt in Resources */,
+				2EAAADD916A85D9800D076E3 /* recipes in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,6 +340,7 @@
 				2EAB3D7B166FEF2400FA8572 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

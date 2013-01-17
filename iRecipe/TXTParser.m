@@ -56,14 +56,19 @@
                 NSMutableArray *ingrTempArr = [[NSMutableArray alloc] init];
                 while (![line isEqualToString:@""]) {
                     NSString* quantityString = [[line substringToIndex:8] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+                    if([quantityString isEqualToString:@""]){
+                        quantityString = @"1";
+                    }
                     NSString* measureString = [[line substringWithRange:NSMakeRange(8, 14)]  stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+                    if([measureString isEqualToString:@""]){
+                        measureString = @"default measure";
+                    }
                     NSString* ingredientName = [[line substringWithRange:NSMakeRange(24, line.length-24)] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
                     
-                    if(![measureString isEqualToString:@""] && ![quantityString isEqualToString:@""] && ![ingredientName isEqualToString:@""]){
-                        
+                    
                         Ingredient *ingredients = [[Ingredient alloc] initWithName:ingredientName amount:quantityString andMeasure:measureString];
                         [ingrTempArr addObject:ingredients];
-                    }
+                    
                     i+=2;
                     line = [lines objectAtIndex:i];
                 }
