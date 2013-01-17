@@ -37,7 +37,7 @@
         NSLog(@"------------------");
         NSLog(@"%d, %@",i, r.name);
         for(Ingredient* i in r.ingredients){
-            NSLog(@"ingredient: %@ %@ %@",i.amount, i.measure, i.name);
+            NSLog(@"ingredient: %@  ==  %f  -> %@ %@",i.amount, i.quantity.doubleValue, i.measure, i.name);
         }
     }
 }

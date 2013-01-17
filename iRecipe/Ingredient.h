@@ -11,6 +11,8 @@
 @interface Ingredient : NSObject
 
 @property (nonatomic, strong) NSString *name;
+
+@property (nonatomic, strong) NSNumber* quantity;
 @property (nonatomic, strong) NSString *amount;
 @property (nonatomic, strong) NSString *measure;
 
