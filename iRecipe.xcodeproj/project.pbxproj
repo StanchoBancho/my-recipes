@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E54278F16A8B44D00085B3C /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E54278E16A8B44D00085B3C /* MainWindow.xib */; };
 		2EAAADD916A85D9800D076E3 /* recipes in Resources */ = {isa = PBXBuildFile; fileRef = 2EAAADD816A85D9800D076E3 /* recipes */; };
 		2EAB3D5A166FEF2400FA8572 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EAB3D59166FEF2400FA8572 /* UIKit.framework */; };
 		2EAB3D5C166FEF2400FA8572 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EAB3D5B166FEF2400FA8572 /* Foundation.framework */; };
@@ -17,8 +18,8 @@
 		2EAB3D6C166FEF2400FA8572 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 2EAB3D6B166FEF2400FA8572 /* Default.png */; };
 		2EAB3D6E166FEF2400FA8572 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2EAB3D6D166FEF2400FA8572 /* Default@2x.png */; };
 		2EAB3D70166FEF2400FA8572 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2EAB3D6F166FEF2400FA8572 /* Default-568h@2x.png */; };
-		2EAB3D73166FEF2400FA8572 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EAB3D72166FEF2400FA8572 /* ViewController.m */; };
-		2EAB3D76166FEF2400FA8572 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EAB3D74166FEF2400FA8572 /* ViewController.xib */; };
+		2EAB3D73166FEF2400FA8572 /* SearchRecipeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EAB3D72166FEF2400FA8572 /* SearchRecipeViewController.m */; };
+		2EAB3D76166FEF2400FA8572 /* SearchRecipeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EAB3D74166FEF2400FA8572 /* SearchRecipeViewController.xib */; };
 		2EAB3D7D166FEF3500FA8572 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EAB3D7C166FEF3500FA8572 /* libsqlite3.0.dylib */; };
 		2EAB3D81166FEF6700FA8572 /* SQLiteReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EAB3D80166FEF6700FA8572 /* SQLiteReader.m */; };
 		2EAB3D87166FF31900FA8572 /* TXTParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EAB3D86166FF31900FA8572 /* TXTParser.m */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2E54278E16A8B44D00085B3C /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		2EAAADD816A85D9800D076E3 /* recipes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = recipes; sourceTree = "<group>"; };
 		2EAB3D55166FEF2400FA8572 /* iRecipe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iRecipe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EAB3D59166FEF2400FA8572 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -41,9 +43,9 @@
 		2EAB3D6B166FEF2400FA8572 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		2EAB3D6D166FEF2400FA8572 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		2EAB3D6F166FEF2400FA8572 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		2EAB3D71166FEF2400FA8572 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		2EAB3D72166FEF2400FA8572 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		2EAB3D75166FEF2400FA8572 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		2EAB3D71166FEF2400FA8572 /* SearchRecipeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchRecipeViewController.h; sourceTree = "<group>"; };
+		2EAB3D72166FEF2400FA8572 /* SearchRecipeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchRecipeViewController.m; sourceTree = "<group>"; };
+		2EAB3D75166FEF2400FA8572 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SearchRecipeViewController.xib; sourceTree = "<group>"; };
 		2EAB3D7C166FEF3500FA8572 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		2EAB3D7F166FEF6700FA8572 /* SQLiteReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLiteReader.h; sourceTree = "<group>"; };
 		2EAB3D80166FEF6700FA8572 /* SQLiteReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteReader.m; sourceTree = "<group>"; };
@@ -70,6 +72,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E54279116A8BBBC00085B3C /* Controller Layer */ = {
+			isa = PBXGroup;
+			children = (
+				2EAB3D71166FEF2400FA8572 /* SearchRecipeViewController.h */,
+				2EAB3D72166FEF2400FA8572 /* SearchRecipeViewController.m */,
+				2EAB3D74166FEF2400FA8572 /* SearchRecipeViewController.xib */,
+			);
+			name = "Controller Layer";
+			sourceTree = "<group>";
+		};
 		2EAB3D4A166FEF2400FA8572 = {
 			isa = PBXGroup;
 			children = (
@@ -103,10 +115,9 @@
 			children = (
 				2EAB3D68166FEF2400FA8572 /* AppDelegate.h */,
 				2EAB3D69166FEF2400FA8572 /* AppDelegate.m */,
-				2EAB3D7E166FEF4F00FA8572 /* Data Manager */,
-				2EAB3D71166FEF2400FA8572 /* ViewController.h */,
-				2EAB3D72166FEF2400FA8572 /* ViewController.m */,
-				2EAB3D74166FEF2400FA8572 /* ViewController.xib */,
+				2E54278E16A8B44D00085B3C /* MainWindow.xib */,
+				2EAB3D7E166FEF4F00FA8572 /* Data Layer */,
+				2E54279116A8BBBC00085B3C /* Controller Layer */,
 				2EAB3D60166FEF2400FA8572 /* Supporting Files */,
 			);
 			path = iRecipe;
@@ -127,7 +138,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		2EAB3D7E166FEF4F00FA8572 /* Data Manager */ = {
+		2EAB3D7E166FEF4F00FA8572 /* Data Layer */ = {
 			isa = PBXGroup;
 			children = (
 				2EAB3D88166FF3C400FA8572 /* Data Objects */,
@@ -136,7 +147,7 @@
 				2EAB3D85166FF31900FA8572 /* TXTParser.h */,
 				2EAB3D86166FF31900FA8572 /* TXTParser.m */,
 			);
-			name = "Data Manager";
+			name = "Data Layer";
 			sourceTree = "<group>";
 		};
 		2EAB3D88166FF3C400FA8572 /* Data Objects */ = {
@@ -205,8 +216,9 @@
 				2EAB3D6C166FEF2400FA8572 /* Default.png in Resources */,
 				2EAB3D6E166FEF2400FA8572 /* Default@2x.png in Resources */,
 				2EAB3D70166FEF2400FA8572 /* Default-568h@2x.png in Resources */,
-				2EAB3D76166FEF2400FA8572 /* ViewController.xib in Resources */,
+				2EAB3D76166FEF2400FA8572 /* SearchRecipeViewController.xib in Resources */,
 				2EAAADD916A85D9800D076E3 /* recipes in Resources */,
+				2E54278F16A8B44D00085B3C /* MainWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,7 +231,7 @@
 			files = (
 				2EAB3D66166FEF2400FA8572 /* main.m in Sources */,
 				2EAB3D6A166FEF2400FA8572 /* AppDelegate.m in Sources */,
-				2EAB3D73166FEF2400FA8572 /* ViewController.m in Sources */,
+				2EAB3D73166FEF2400FA8572 /* SearchRecipeViewController.m in Sources */,
 				2EAB3D81166FEF6700FA8572 /* SQLiteReader.m in Sources */,
 				2EAB3D87166FF31900FA8572 /* TXTParser.m in Sources */,
 				2EAB3D8B166FF41B00FA8572 /* Recipe.m in Sources */,
@@ -238,12 +250,12 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		2EAB3D74166FEF2400FA8572 /* ViewController.xib */ = {
+		2EAB3D74166FEF2400FA8572 /* SearchRecipeViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				2EAB3D75166FEF2400FA8572 /* en */,
 			);
-			name = ViewController.xib;
+			name = SearchRecipeViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

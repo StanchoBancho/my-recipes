@@ -8,12 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@class ViewController;
+@class SearchRecipeViewController;
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, UITabBarControllerDelegate>
 
-@property (strong, nonatomic) UIWindow *window;
-
-@property (strong, nonatomic) ViewController *viewController;
+@property (strong, nonatomic) IBOutlet UIWindow *window;
+@property (strong, nonatomic) IBOutlet UITabBarController *tabBarController;
 
 @end
