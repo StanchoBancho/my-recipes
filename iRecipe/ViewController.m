@@ -32,14 +32,14 @@
         }];
     }
     
-    for(int i = 0; i < [allRecipes count]; i++){
-        Recipe* r = [allRecipes objectAtIndex:i];
-        NSLog(@"------------------");
-        NSLog(@"%d, %@",i, r.name);
-        for(Ingredient* i in r.ingredients){
-            NSLog(@"ingredient: %@  ==  %f  -> %@ %@",i.amount, i.quantity.doubleValue, i.measure, i.name);
-        }
-    }
+//    for(int i = 0; i < [allRecipes count]; i++){
+//        Recipe* r = [allRecipes objectAtIndex:i];
+//        NSLog(@"------------------");
+//        NSLog(@"%d, %@",i, r.name);
+//        for(Ingredient* i in r.ingredients){
+//            NSLog(@"ingredient: %@  ==  %f  -> %@ %@",i.amount, i.quantity.doubleValue, i.measure, i.name);
+//        }
+//    }
 }
 
 - (void)didReceiveMemoryWarning {

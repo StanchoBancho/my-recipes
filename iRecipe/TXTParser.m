@@ -10,6 +10,9 @@
 #import "Recipe.h"
 #import "Ingredient.h"
 
+static int screwedRecipes = 0;
+
+
 @implementation TXTParser
 
 + (NSString*)contentOfTextFile:(NSString*)file {
@@ -52,7 +55,7 @@
                 while ([line isEqualToString:@""] || [line rangeOfString:@"---"].location != NSNotFound) {
                     line = [lines objectAtIndex:++i];
                 }
-                NSPredicate *noEmptyStrings = [NSPredicate predicateWithFormat:@"SELF != ''"];
+                
                 NSMutableArray *ingrTempArr = [[NSMutableArray alloc] init];
                 while (![line isEqualToString:@""]) {
                     NSString* quantityString = [[line substringToIndex:8] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
@@ -65,14 +68,20 @@
                     }
                     NSString* ingredientName = [[line substringWithRange:NSMakeRange(24, line.length-24)] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
                     
-                    
-                        Ingredient *ingredients = [[Ingredient alloc] initWithName:ingredientName amount:quantityString andMeasure:measureString];
-                        [ingrTempArr addObject:ingredients];
+                    if([measureString rangeOfCharacterFromSet:[NSCharacterSet characterSetWithCharactersInString:@"123456789/"]].location != NSNotFound){
+                        NSLog(@"Preebana recepta:%d  %@ | %@ | %@", screwedRecipes, quantityString, measureString, ingredientName);
+                        screwedRecipes ++;
+                    }
+                    Ingredient *ingredients = [[Ingredient alloc] initWithName:ingredientName amount:quantityString andMeasure:measureString];
+                    [ingrTempArr addObject:ingredients];
                     
                     i+=2;
                     line = [lines objectAtIndex:i];
                 }
                 recipe.ingredients = [[NSArray alloc] initWithArray:ingrTempArr];
+                
+                
+                
                 [result addObject:recipe];
                 
             } else {

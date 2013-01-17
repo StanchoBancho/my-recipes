@@ -19,21 +19,13 @@
         self.amount = amount;
         double value = 0.0f;
         if([amount rangeOfString:@" "].location != NSNotFound){
+            //x y/z
             NSArray* allParts = [amount componentsSeparatedByString:@" "];
             NSString* beforeTheDot = ([allParts count] > 0) ? [allParts objectAtIndex:0] : @"0";
             NSString* afterTheDot = ([allParts count] > 1) ? [allParts objectAtIndex:1] : @"0";
-            if([afterTheDot isEqualToString:@"0"]){
-                NSLog(@"losho");
-            }
             NSArray* afterTheDotParts = [afterTheDot componentsSeparatedByString:@"/"];
             NSString* firstSign = ([afterTheDotParts count] > 0) ? [afterTheDotParts objectAtIndex:0] : @"0";
             NSString* secondSign = ([afterTheDotParts count] > 1) ? [afterTheDotParts objectAtIndex:1] : @"1";
-            if([firstSign isEqualToString:@"0"]){
-                NSLog(@"losho");
-            }
-            if([secondSign isEqualToString:@"0"]){
-                NSLog(@"losho");
-            }
             double beforeTheDotDoubleValue = [beforeTheDot doubleValue];
             double firstPart = [firstSign doubleValue];
             double secondPart = [secondSign doubleValue];
@@ -41,31 +33,21 @@
             value = beforeTheDotDoubleValue + afterTheDotDoubleValue;
         }
         else{
+            //just x or just y/x
             if([amount rangeOfString:@"/"].location == NSNotFound){
+               //x
                 value = [self.amount doubleValue];
-                if(value == 0){
-                    NSLog(@"losho");
-                }
             }
-            else
-            {
+            else{
                 NSArray* afterTheDotParts = [self.amount componentsSeparatedByString:@"/"];
                 NSString* firstSign = ([afterTheDotParts count] > 0) ? [afterTheDotParts objectAtIndex:0] : @"0";
                 NSString* secondSign = ([afterTheDotParts count] > 1) ? [afterTheDotParts objectAtIndex:1] : @"1";
-                if([firstSign isEqualToString:@"0"]){
-                    NSLog(@"losho");
-                }
-                if([secondSign isEqualToString:@"0"]){
-                    NSLog(@"losho");
-                }
                 double firstPart = [firstSign doubleValue];
                 double secondPart = [secondSign doubleValue];
                 value = firstPart / secondPart;
             }
-            value = [self.amount doubleValue];
         }
         self.quantity = [NSNumber numberWithDouble:value];
-        
     }
     return self;
 }
