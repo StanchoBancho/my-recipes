@@ -31,6 +31,8 @@
 		2EEF556316A98D3A005AB989 /* IngredientCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EEF556216A98D3A005AB989 /* IngredientCell.m */; };
 		2EEF556516A9979C005AB989 /* AddIngredientCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EEF556416A9979B005AB989 /* AddIngredientCell.xib */; };
 		2EEF556D16A9B448005AB989 /* AddIngredientCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EEF556C16A9B448005AB989 /* AddIngredientCell.m */; };
+		2EEF557116A9C170005AB989 /* AddIngredientViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EEF556F16A9C170005AB989 /* AddIngredientViewController.m */; };
+		2EEF557216A9C170005AB989 /* AddIngredientViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EEF557016A9C170005AB989 /* AddIngredientViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +72,9 @@
 		2EEF556416A9979B005AB989 /* AddIngredientCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddIngredientCell.xib; sourceTree = "<group>"; };
 		2EEF556B16A9B447005AB989 /* AddIngredientCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddIngredientCell.h; sourceTree = "<group>"; };
 		2EEF556C16A9B448005AB989 /* AddIngredientCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddIngredientCell.m; sourceTree = "<group>"; };
+		2EEF556E16A9C170005AB989 /* AddIngredientViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddIngredientViewController.h; sourceTree = "<group>"; };
+		2EEF556F16A9C170005AB989 /* AddIngredientViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddIngredientViewController.m; sourceTree = "<group>"; };
+		2EEF557016A9C170005AB989 /* AddIngredientViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddIngredientViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +189,9 @@
 				2EEF555D16A98673005AB989 /* SuggestFooterView.m */,
 				2EEF555216A9847B005AB989 /* SuggestFooterView.xib */,
 				2EEF556616A9A0DC005AB989 /* Cells */,
+				2EEF556E16A9C170005AB989 /* AddIngredientViewController.h */,
+				2EEF556F16A9C170005AB989 /* AddIngredientViewController.m */,
+				2EEF557016A9C170005AB989 /* AddIngredientViewController.xib */,
 			);
 			name = "View Layer";
 			sourceTree = "<group>";
@@ -262,6 +270,7 @@
 				2EEF555316A9847B005AB989 /* SuggestFooterView.xib in Resources */,
 				2EEF556016A98907005AB989 /* IngredientCell.xib in Resources */,
 				2EEF556516A9979C005AB989 /* AddIngredientCell.xib in Resources */,
+				2EEF557216A9C170005AB989 /* AddIngredientViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +291,7 @@
 				2EEF555E16A98673005AB989 /* SuggestFooterView.m in Sources */,
 				2EEF556316A98D3A005AB989 /* IngredientCell.m in Sources */,
 				2EEF556D16A9B448005AB989 /* AddIngredientCell.m in Sources */,
+				2EEF557116A9C170005AB989 /* AddIngredientViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

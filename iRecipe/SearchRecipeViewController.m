@@ -10,6 +10,7 @@
 #import "SuggestFooterView.h"
 #import "IngredientCell.h"
 #import "Ingredient.h"
+#import "AddIngredientViewController.h"
 
 @interface SearchRecipeViewController ()<UITableViewDataSource, UITabBarDelegate>
 
@@ -135,6 +136,7 @@ static NSString* addIngredientCellName = @"AddIngredientCell";
         return self.footerView.frame.size.height;
     }
 }
+
 
 
 @end
