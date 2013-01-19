@@ -7,7 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Ingredient.h"
+
+@protocol AddIngredientDelegate <NSObject>
+
+-(void)dissmissWithIngredientName:(NSString *)name andQuantity:(NSNumber *)quantity;
+
+@end
+
 
 @interface AddIngredientViewController : UIViewController
+
+@property(nonatomic, weak) id<AddIngredientDelegate> delegate;
 
 @end

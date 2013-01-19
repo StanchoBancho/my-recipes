@@ -98,6 +98,9 @@
 				2EAB3D71166FEF2400FA8572 /* SearchRecipeViewController.h */,
 				2EAB3D72166FEF2400FA8572 /* SearchRecipeViewController.m */,
 				2EAB3D74166FEF2400FA8572 /* SearchRecipeViewController.xib */,
+				2EEF556E16A9C170005AB989 /* AddIngredientViewController.h */,
+				2EEF556F16A9C170005AB989 /* AddIngredientViewController.m */,
+				2EEF557016A9C170005AB989 /* AddIngredientViewController.xib */,
 			);
 			name = "Controller Layer";
 			sourceTree = "<group>";
@@ -189,9 +192,6 @@
 				2EEF555D16A98673005AB989 /* SuggestFooterView.m */,
 				2EEF555216A9847B005AB989 /* SuggestFooterView.xib */,
 				2EEF556616A9A0DC005AB989 /* Cells */,
-				2EEF556E16A9C170005AB989 /* AddIngredientViewController.h */,
-				2EEF556F16A9C170005AB989 /* AddIngredientViewController.m */,
-				2EEF557016A9C170005AB989 /* AddIngredientViewController.xib */,
 			);
 			name = "View Layer";
 			sourceTree = "<group>";

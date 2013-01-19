@@ -12,7 +12,7 @@
 #import "Ingredient.h"
 #import "AddIngredientViewController.h"
 
-@interface SearchRecipeViewController ()<UITableViewDataSource, UITabBarDelegate>
+@interface SearchRecipeViewController ()<UITableViewDataSource, UITabBarDelegate, AddIngredientDelegate>
 
 @property (nonatomic, strong) SuggestFooterView* footerView;
 @property (nonatomic, strong) IBOutlet UITableView* ingredientsTableView;
@@ -39,8 +39,7 @@ static NSString* addIngredientCellName = @"AddIngredientCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UIBarButtonItem* addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addButtonPressed:)];
-    [self.navigationItem setRightBarButtonItem:addButton];
+   
     [self.navigationItem setTitle:@"Ingredients"];
     
     [self.ingredientsTableView setEditing:YES];
@@ -59,11 +58,6 @@ static NSString* addIngredientCellName = @"AddIngredientCell";
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-}
-
--(IBAction)addButtonPressed:(id)sender
-{
-    
 }
 
 
@@ -119,12 +113,7 @@ static NSString* addIngredientCellName = @"AddIngredientCell";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.row == 0){
-        return 42.0;
-    }
-    else{
-        return 72.0;
-    }
+    return 70.0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
@@ -137,6 +126,22 @@ static NSString* addIngredientCellName = @"AddIngredientCell";
     }
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if(indexPath.row == 0){
+        AddIngredientViewController* addIngredientVC = [[AddIngredientViewController alloc] init];
+        [addIngredientVC setDelegate:self];
+        [self.navigationController presentViewController:addIngredientVC animated:YES completion:nil];
+    }
+}
 
+#pragma mark - AddIngredientDelegate
+
+-(void)dissmissWithIngredientName:(NSString *)name andQuantity:(NSNumber *)quantity
+{
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 @end

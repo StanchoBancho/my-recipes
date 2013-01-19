@@ -142,7 +142,7 @@
 				<reference key="IBUIContentView" ref="811049884"/>
 				<string key="IBUIReuseIdentifier">IngredientCell</string>
 				<int key="IBUIEditingAccessoryType">1</int>
-				<real value="72" key="IBUIRowHeight"/>
+				<real value="70" key="IBUIRowHeight"/>
 			</object>
 		</array>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
@@ -195,7 +195,6 @@
 						<int key="objectID">3</int>
 						<reference key="object" ref="489977921"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="73722234"/>
 							<object class="IBNSLayoutConstraint" id="611280426">
 								<reference key="firstItem" ref="489977921"/>
 								<int key="firstAttribute">6</int>
@@ -310,6 +309,7 @@
 							</object>
 							<reference ref="795803858"/>
 							<reference ref="616922190"/>
+							<reference ref="73722234"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
