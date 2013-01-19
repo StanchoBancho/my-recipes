@@ -10,7 +10,6 @@
 
 @implementation Ingredient
 
-
 - (id)initWithName:(NSString*)name amount:(NSString*)amount andMeasure:(NSString*)measure {
     self = [super init];
     if (self) {

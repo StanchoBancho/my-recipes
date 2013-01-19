@@ -16,17 +16,20 @@ static int screwedRecipes = 0;
 @implementation TXTParser
 
 + (NSString*)contentOfTextFile:(NSString*)file {
-    NSString *textFilePath = [[NSBundle mainBundle] pathForResource:file ofType:@"txt"];
+    NSString * resourcePath = [[NSBundle mainBundle] resourcePath];
+    NSString * documentsPath = [resourcePath stringByAppendingPathComponent:@"recipes"];
+    NSString * txtFile = [NSString stringWithFormat:@"%@.txt",file];
+    NSString * filePath = [documentsPath stringByAppendingPathComponent:txtFile];
     NSError *error;
-    NSString *content = [NSString stringWithContentsOfFile:textFilePath encoding:NSUTF8StringEncoding error:&error];
-    if (error) return nil;
+    NSString *content = [NSString stringWithContentsOfFile:filePath encoding:NSISOLatin1StringEncoding error:&error];
+    if (error)
+        return nil;
     return content;
 }
 
 + (void)parseTextFile:(NSString*)file withCompletion:(void(^)(NSArray *result, NSError *error))completion {
     NSString *content = [self contentOfTextFile:file];
     NSMutableArray *result = [[NSMutableArray alloc] init];
-    
     if (content) {
         NSArray *lines = [content componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
         int i = 0;
@@ -45,9 +48,25 @@ static int screwedRecipes = 0;
                 }
                 NSString *name = [line stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
                 recipe.name = name;
+                line = [lines objectAtIndex:++i];
+                
+                //get prepartation time
+                while ([line isEqualToString:@""] || [line rangeOfString:@"Preparation Time :"].location == NSNotFound) {
+                    line = [lines objectAtIndex:++i];
+                }
+                NSRange rangeOfFirstColumn = [line rangeOfString:@"e :"];
+                NSString * theNumberString = [[line substringFromIndex:rangeOfFirstColumn.location+3] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+                NSRange rangeOfSecondColumn = [theNumberString rangeOfString:@":"];
+                NSString* firstPart = [theNumberString substringToIndex:rangeOfSecondColumn.location];
+                NSString* secondPart = [theNumberString substringFromIndex:(rangeOfSecondColumn.location+1)];
+                double hours = [firstPart doubleValue];
+                double minutes = [secondPart doubleValue];
+                double preparationTime = hours * 60.0 + minutes;
+                NSNumber* time = [NSNumber numberWithDouble:preparationTime];
+                [recipe setPreparationTime:time];
+                
                 
                 //get ingredients
-                line = [lines objectAtIndex:++i];
                 while ([line isEqualToString:@""] || [line rangeOfString:@"Amount"].location == NSNotFound) {
                     line = [lines objectAtIndex:++i];
                 }
@@ -55,7 +74,6 @@ static int screwedRecipes = 0;
                 while ([line isEqualToString:@""] || [line rangeOfString:@"---"].location != NSNotFound) {
                     line = [lines objectAtIndex:++i];
                 }
-                
                 NSMutableArray *ingrTempArr = [[NSMutableArray alloc] init];
                 while (![line isEqualToString:@""]) {
                     NSString* quantityString = [[line substringToIndex:8] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
@@ -69,29 +87,32 @@ static int screwedRecipes = 0;
                     NSString* ingredientName = [[line substringWithRange:NSMakeRange(24, line.length-24)] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
                     
                     if([measureString rangeOfCharacterFromSet:[NSCharacterSet characterSetWithCharactersInString:@"123456789/"]].location != NSNotFound){
-                        NSLog(@"Preebana recepta:%d  %@ | %@ | %@", screwedRecipes, quantityString, measureString, ingredientName);
+                        //  NSLog(@"Preebana recepta:%d  %@ | %@ | %@", screwedRecipes, quantityString, measureString, ingredientName);
                         screwedRecipes ++;
                     }
                     Ingredient *ingredients = [[Ingredient alloc] initWithName:ingredientName amount:quantityString andMeasure:measureString];
                     [ingrTempArr addObject:ingredients];
-                    
                     i+=2;
                     line = [lines objectAtIndex:i];
                 }
                 recipe.ingredients = [[NSArray alloc] initWithArray:ingrTempArr];
                 
-                
-                
+                //get how to
+                NSMutableString* howTo = [[NSMutableString alloc] init];
+                while ([line rangeOfString:@"- - - - - - - - - - - - - - - - - - -"].location == NSNotFound) {
+                    [howTo appendString:line];
+                    i+=2;
+                    line = [lines objectAtIndex:i];
+                }
+                NSString* finalHowTo = [howTo stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+                [recipe setHowTo:finalHowTo];
                 [result addObject:recipe];
-                
             } else {
                 i++;
             }
         }
-        
         NSError *error;
         completion(result, error);
     }
 }
-
 @end

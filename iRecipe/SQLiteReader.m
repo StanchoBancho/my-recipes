@@ -8,7 +8,7 @@
 
 #import "SQLiteReader.h"
 
-#define kDBName @"recipes.sqlite"
+#define kDBName @"RecipeDB.sqlite"
 
 @interface SQLiteReader ()
 

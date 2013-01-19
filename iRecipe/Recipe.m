@@ -10,9 +10,4 @@
 
 @implementation Recipe
 
-@synthesize name;
-@synthesize category;
-@synthesize preparation;
-@synthesize ingredients;
-
 @end

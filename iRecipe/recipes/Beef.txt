@@ -4436,16 +4436,13 @@ Serving Size  : 0     Preparation Time : 0:00
 Categories    : 
   Amount  Measure       Ingredient -- Preparation Method
 --------  ------------  --------------------------------
-
-Ingredients:
-
-        1-2 lbs  spare ribs, each cut in thirds for smaller pieces
-
-          1 Tbsp cooking wine (rice wine works well)
-          2 Tbsp sugar
-          3 Tbsp vinegar
-          4 Tbsp soy sauce
-          5 Tbsp water
+    2       pound       spare ribs, each cut in thirds
+                        forsmaller pieces
+    1       Tbsp        cooking wine (rice wine works well)
+    2       Tbsp        sugar
+    3       Tbsp        vinegar
+    4       Tbsp        soy sauce
+    5       Tbsp        water
 
 Directions:
 

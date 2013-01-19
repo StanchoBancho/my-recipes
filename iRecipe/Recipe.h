@@ -11,8 +11,9 @@
 @interface Recipe : NSObject
 
 @property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *howTo;
 @property (nonatomic, strong) NSString *category;
-@property (nonatomic, strong) NSString *preparation;
+@property (nonatomic, strong) NSNumber *preparationTime;
 @property (nonatomic, strong) NSArray *ingredients;
 
 @end

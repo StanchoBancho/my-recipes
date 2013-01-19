@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E2CE72416AAD33400E1534D /* RecipeDB.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2E2CE72316AAD33400E1534D /* RecipeDB.sqlite */; };
 		2E54278F16A8B44D00085B3C /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E54278E16A8B44D00085B3C /* MainWindow.xib */; };
 		2EAAADD916A85D9800D076E3 /* recipes in Resources */ = {isa = PBXBuildFile; fileRef = 2EAAADD816A85D9800D076E3 /* recipes */; };
 		2EAB3D5A166FEF2400FA8572 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EAB3D59166FEF2400FA8572 /* UIKit.framework */; };
@@ -36,6 +37,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2E2CE72316AAD33400E1534D /* RecipeDB.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = RecipeDB.sqlite; sourceTree = "<group>"; };
 		2E54278E16A8B44D00085B3C /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		2EAAADD816A85D9800D076E3 /* recipes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = recipes; sourceTree = "<group>"; };
 		2EAB3D55166FEF2400FA8572 /* iRecipe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iRecipe.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -150,6 +152,7 @@
 		2EAB3D60166FEF2400FA8572 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2E2CE72316AAD33400E1534D /* RecipeDB.sqlite */,
 				2EAAADD816A85D9800D076E3 /* recipes */,
 				2EAB3D61166FEF2400FA8572 /* iRecipe-Info.plist */,
 				2EAB3D62166FEF2400FA8572 /* InfoPlist.strings */,
@@ -271,6 +274,7 @@
 				2EEF556016A98907005AB989 /* IngredientCell.xib in Resources */,
 				2EEF556516A9979C005AB989 /* AddIngredientCell.xib in Resources */,
 				2EEF557216A9C170005AB989 /* AddIngredientViewController.xib in Resources */,
+				2E2CE72416AAD33400E1534D /* RecipeDB.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
