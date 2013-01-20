@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <sqlite3.h>
 
+#define kDBName @"RecipeDB.sqlite"
+
 @interface SQLiteReader : NSObject
 
 - (NSMutableArray*)readDBWithQuery:(NSString*)sqlStatement;
