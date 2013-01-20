@@ -28,12 +28,9 @@ static NSString* addIngredientCellName = @"AddIngredientCell";
 {
     self = [super initWithCoder:aDecoder];
     if(self){
+        [self setView:[[[NSBundle mainBundle] loadNibNamed:@"SearchRecipeViewController" owner:self options:nil] objectAtIndex:0]];
         self.ingredients = [NSMutableArray array];
-        for(int i= 0; i < 10; i++){
-            Ingredient* oneIngredient = [[Ingredient alloc] initWithName:@"Chubrika" amount:@"100" andMeasure:@"kila"];
-            [self.ingredients addObject:oneIngredient];
         }
-    }
     return self;
 }
 
@@ -81,7 +78,7 @@ static NSString* addIngredientCellName = @"AddIngredientCell";
         IngredientCell* cell = [tableView dequeueReusableCellWithIdentifier:ingredientCellName];
         Ingredient* currentIngredient = [self.ingredients objectAtIndex:indexPath.row-1];
         [cell.ingredient setText:currentIngredient.name];
-        [cell.quantity setText:currentIngredient.amount];
+        [cell.quantity setText:[currentIngredient.quantity stringValue]];
         [cell.measure setText:currentIngredient.measure];
         [cell setEditingAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
         [cell setShouldIndentWhileEditing:YES];
@@ -130,7 +127,7 @@ static NSString* addIngredientCellName = @"AddIngredientCell";
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if(indexPath.row == 0){
-        AddIngredientViewController* addIngredientVC = [[AddIngredientViewController alloc] init];
+        AddIngredientViewController* addIngredientVC = [[AddIngredientViewController alloc] initWithNibName:@"AddIngredientViewController" bundle:[NSBundle mainBundle]];
         [addIngredientVC setDelegate:self];
         [self.navigationController presentViewController:addIngredientVC animated:YES completion:nil];
     }
@@ -140,7 +137,11 @@ static NSString* addIngredientCellName = @"AddIngredientCell";
 
 -(void)dissmissWithIngredientName:(NSString *)name andQuantity:(NSNumber *)quantity
 {
-    
+    Ingredient* ingredient = [[Ingredient alloc] init];
+    [ingredient setName:name];
+    [ingredient setQuantity:quantity];
+    [[self ingredients] addObject:ingredient];
+    [[self ingredientsTableView] reloadData];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

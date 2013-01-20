@@ -16,8 +16,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [self parseData];
-    [self.window makeKeyAndVisible];
+  //  [self parseData];
     return YES;
 }
 

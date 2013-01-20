@@ -12,7 +12,7 @@ Categories    :
        1    tablespoon  catsup
        6        dashes  Hot sauce
        4          cups  Pecans -- halves
-                        salt -- to taste
+       1                 salt
 
 Melt butter in a large saucepan; add Worcestershire sauce, , catsup, and hot sauce.  
 
@@ -43,14 +43,14 @@ Serving Size  : 72    Preparation Time : 0:00
 Categories    : 
   Amount  Measure       Ingredient -- Preparation Method
 --------  ------------  --------------------------------
-   2 1/2          cups  vanilla wafer crumbs
+   2 1/2          cup   vanilla wafer crumbs
        1           can  condensed milk, sweetened
        1       package  mince meat -- crumbled
        1           cup  nuts -- chopped
      1/3           cup  Candied cherries -- chopped
        2   tablespoons  cocoa
      1/4      teaspoon  brandy flavoring
-                        confectioner's sugar -- sprinkle
+      1                  confectioner's sugar -- sprinkle
 
 In large bowl, stir together all ingredients except confectioners sugar until well blended.
   
@@ -174,7 +174,7 @@ Serving Size  : 1     Preparation Time : 0:00
 Categories    : 
   Amount  Measure       Ingredient -- Preparation Method
 --------  ------------  --------------------------------
-                        cashews -- amount you want
+       1                cashews -- amount you want
        1           cup  sugar
        1           cup  butter
      1/4           cup  lemon juice
@@ -217,8 +217,8 @@ Categories    :
        1    tablespoon  Louisiana hot sauce
        1    tablespoon  pimientos, mashed
        3   tablespoons  dill relish
-                        salt, to taste
-
+       1                salt
+       
 Cut the eggs in half.  Remove yolk from white and set white aside. Mash yolks with a fork and add the mayonnaise and the rest of the ingredients. Spoon mixture back into egg whites and serve on a bed of lettuce.
 
 
@@ -380,7 +380,7 @@ Categories    :
 --------  ------------  --------------------------------
    1 1/2     teaspoons  curry powder
        1           cup  dry bread crumbs
-                        few grains pepper
+       1                 few grains pepper
        1                egg -- beaten
      3/4      teaspoon  salt
        1         pound  minced steak
@@ -418,8 +418,8 @@ Categories    :
        1          loaf  slice rye bread
      1/4         pound  butter -- softened
        2                cucumbers -- sliced 1/8" thick
-                        mayonnaise
-                        pimiento-stuffed olives -- sliced
+       1                 mayonnaise
+       1                 pimiento-stuffed olives -- sliced
 
 Using a 2" cookie cutter cut rounds from the slices of rye bread. Spread each with butter; top with a slice of cucumber, a dab of mayonnaise and a slice of olive. Yield: 28 appetizers
 
@@ -525,13 +525,13 @@ Serving Size  : 1     Preparation Time : 0:00
 Categories    : 
   Amount  Measure       Ingredient -- Preparation Method
 --------  ------------  --------------------------------
-                        apple
-                        pear
-                        pineapple
-                        grapes
-                        strawberries
-                        lemon juice
-                        dressing
+      1                  apple
+      1                  pear
+      1                  pineapple
+      1                  grapes
+      1                  strawberries
+      1                  lemon juice
+      1                  dressing
    1 1/2          cups  vanilla yogurt
    1 1/2     teaspoons  coconut
    1 1/2     teaspoons  orange marmalade
@@ -569,10 +569,10 @@ Categories    :
   Amount  Measure       Ingredient -- Preparation Method
 --------  ------------  --------------------------------
        1       package  won tongs
-                        beef -- sliced paper-thin
-                        pork -- sliced paper-thin
-                        chicken -- sliced paper-thin
-                        assorted raw vegetables -- chopped fine
+       1                 beef -- sliced paper-thin
+       1                 pork -- sliced paper-thin
+       1                 chicken -- sliced paper-thin
+       1                 assorted raw vegetables -- chopped fine
 
 Fry along or make filling from paper thin meat and raw chopped vegetables.
 
@@ -602,7 +602,7 @@ Categories    :
   Amount  Measure       Ingredient -- Preparation Method
 --------  ------------  --------------------------------
        8                corn tortillas
-                        salad oil
+       1                 salad oil
 
 Arrange 8 corn tortillas in a stack and cut into 6 equal wedges.  Pour about 1/2 inch salad oil in a deep 2 or 3-quart pan and set on medium-high to high heat.  When oil is hot enough to make a piece of tortilla sizzle, add tortilla pieces, a handful at a time, and stir to separate. Cook until crisp (1 to 1-1/2 minutes); lift from oil with slotted spoon and drain on paper towels.
 
@@ -720,7 +720,7 @@ Categories    :
    1 1/2          cups  chopped pecans
        2          cups  rice krispies.
    1 1/2   tablespoons  rum
-                        confectioner's sugar -- optional
+      1                  confectioner's sugar -- optional
 
 Melt butter in a pan.   Add sugar, salt and dates.  Cook stirring until smooth and thick.  Remove from heat and stir in nuts, rice krispies and rum.  Stir well.  Let cool and form into balls.  Roll in confectioners' sugar if you like.  Keep in a covered container.
 
@@ -879,13 +879,13 @@ Categories    :
       12        ounces  dried apricots
    1 1/2          cups  pecans
        2          cups  fresh cranberries -- rinsed and drained
-                        grated orange peel -- from 1 orange
+       1                 grated orange peel
      1/4           cup  butter
        1         pound  confectioner's sugar
   13 1/2        ounces  graham cracker crumbs
        7        ounces  coconut flakes
-                        red food coloring
-                        green food coloring
+       1                 red food coloring
+       1                 green food coloring
 
 Coarsely grind apricots with pecans and cranberries.  Stir in orange rind, butter, sugar and crumbs.  
 wrap and chill for 2 hours.
@@ -961,8 +961,8 @@ Categories    :
      1/4           cup  lime juice
        2   tablespoons  onion -- chopped
        1         clove  garlic -- finely chopped
-                        pepper -- dash of
-                        lemon or lime wedges
+       1                 pepper -- dash of
+       1                 lemon or lime wedges
        2                avocados -- peeled & chopped
      1/4           cup  tomato; chopped -- 1 small
        2   tablespoons  olive or vegetable oil
@@ -1242,8 +1242,8 @@ Serving Size  : 25    Preparation Time : 0:00
 Categories    : 
   Amount  Measure       Ingredient -- Preparation Method
 --------  ------------  --------------------------------
-                        bread
-                        butter -- softened
+      1                  bread
+      1                  butter -- softened
      1/2           cup  roasted blanched almonds -- slivered
      1/2           cup  chopped celery
        1           cup  cooked diced chicken
@@ -1286,7 +1286,7 @@ Categories    :
        2          cups  sharp cheddar cheese -- grated
      1/2           cup  butter
        1           cup  flour -- sifted
-                        olives
+       4                 olives
 
 Mix ingredientsexcept olives  like a pie crust.  Wrap each olive with mixture.  spread the little balls on a pan and freeze.  Bake at 425 degrees for 12 minutes. Can be keep frozen in a bag. Serve hot.
 
@@ -1389,7 +1389,7 @@ Categories    :
        1                egg
      1/2      teaspoon  garlic powder
      1/4      teaspoon  garlic salt
-                        sweet-sour sauce -- see recipe
+       1                 sweet-sour sauce
 
 Heat oven to 400 degrees. Mix all ingredients except sweet-sour sauce until well mixed. Shape into about sixty 1" balls (for ease in shaping meatballs, wet hands slightly). Bake in ungreased jelly roll pan until brown, 15 to 20 minutes. Prepare sweet-sour sauce; serve with meatballs Makes about 60 appetizers. DO-AHEAD NOTE: Cool and freeze meatballs. To serve, prepare sweet and sour sauce; stir in frozen meatballs. Cover and cook over medium heat, stirring occasionally, until meatballs are hot, about 20 minutes.
 
@@ -1499,7 +1499,7 @@ Categories    :
      1/2      teaspoon  salt
        1      envelope  Chile mix -- 1 3/4 ounces
      1/2           cup  cornmeal -- or fine dry
-                        breadcrumb
+      1                  breadcrumb
    1 1/2        pounds  ground beef
        2          cups  tomato juice
        1    tablespoon  lemon juice
@@ -1628,13 +1628,9 @@ Categories    :
 --------  ------------  --------------------------------
 
 Roll 1/2 strip bacon around large stuffed olives, broil 5 minutes.  Serve hot.
-
 Balls of softened cream cheese on toothpicks, rooled in minced olives, parsley, dried beer or grated carrots.
-
 Roll cocktail size shrimp in half slices of bacon, broil until crisp.  Serve hot.
-
 Spread 4 squares ham slices with softened cream cheese seasoned onion, olives, mustard. Place slices together like a layer cake.  Spread cheese over top and sides. Decorate with diced olives.  Chill.  cut into wedges.
-
 Cur crusts from sliced bread. Mix mayonnaise and minced onions.  Spread on bread.  roll around canned asparagus spears.  chill and slice into rounds before serving.
 
 
@@ -1660,24 +1656,20 @@ Serving Size  : 16    Preparation Time : 0:00
 Categories    : 
   Amount  Measure       Ingredient -- Preparation Method
 --------  ------------  --------------------------------
-      10                yellow bell peppers -- cut
-                        lengthwise into thirds
-      10                red bell peppers -- cut
-                        lengthwise into thirds
+      10                yellow bell peppers -- cut lengthwise into thirds
+      10                red bell peppers -- cut lengthwise into thirds
        1           cup  plus
        2   tablespoons  olive oil
        5   tablespoons  fresh lemon juice
        5                garlic cloves -- pressed
-                        salt and freshly
-                        ground pepper
+       1                 salt
+       1                 pepper
        3          cans  albacore tuna packed in
-                        water -- drained
+       1           cup  water
      1/2           cup  chopped fresh parsley
        5   tablespoons  drained capers
-                        fresh parsley sprigs
-                        imported black olives
-                        (such as kalamata or
-                        nicoise)
+       1                 fresh parsley sprigs
+       1                 imported black olives (such as kalamata or nicoise)
 
 Arrange pepper skin side up in broiler pan (in batches if necessary) and broil until blackened.  Wrap in paper bag and let stand 10 minutes to steam.  Peel and pat dry. Mix olive oil, lemon juice and garlic in large bowl. Season with salt and pepper. Add peppers and marinate at least 30 minutes. (Can be prepared 1 day ahead. Cover and refrigerate. Bring to room temperature before continuing.) Drain peppers, reserving marinade. Combine tuna, chopped parsley and capers in another bowl, breaking up tuna with a fork. Mix in enough reserved marinade to season to taste. Season with salt and pepper. Place 1 tablespoon tuna mixture on inside of each piece of pepper at one end. Roll up. Arrange seam side down on serving platter. Pour remaining marinade over rolls. (Can be prepared 6 hours ahead. Cover and refrigerate.) Garnish with parsley sprigs and olives before serving. 16 appetizer servings.
 
@@ -1708,12 +1700,9 @@ Categories    :
        3                eggs, hard-cooked -- chopped
        3   tablespoons  mayonnaise -- more if needed
      1/2      teaspoon  mustard
-       1                celery stalk -- chopped (may
-                        -- use 2)
-     1/2                onion, chopped -- if desired
-                        lettuce leaves cut into 3"
-                        -- wide strips
-                        decorative toothpicks
+   1 1/2                celery stalk chopped
+    1/2                 onion
+     1                   decorative toothpicks
 
 Mix all ingredients together as in tuna salad.  Place one or two tablespoons of mixture on a cut lettuce leaf and roll into a log. Pierce with a decorative toothpick. Chicken, ham, shrimp, etc., can be used in place of tuna.  Makes 2 dozen or more.
 
@@ -1780,7 +1769,7 @@ Categories    :
        2          cups  bite-size oat cereal rings
        1           cup  pretzel sticks
        1           cup  shelled peanuts
-       2          cups  bite-size shredded wheat
+       2          cup   bite-size shredded wheat
 
 Mix first five ingredients. Pour this mixture over other ingredients in large bowl. Stir gently to coat all pieces. Bake in large shallow baking pan at 300 degrees for 1 hour. Stir every 10 minutes.
 
@@ -1814,10 +1803,8 @@ Serving Size  : 1     Preparation Time : 0:00
 Categories    : 
   Amount  Measure       Ingredient -- Preparation Method
 --------  ------------  --------------------------------
-       2        pounds  bulk sausage -- rolled into 1 1/2"
-                        -- balls
-      40        ounces  canned pineapple chunks -- drained, reserving
-                        -- 1 cup liquid
+       2        pounds  bulk sausage -- rolled into 1 1/2" balls
+      40        ounces  canned pineapple chunks drained, reserving 1 cup liquid
        1           cup  ReaLemon reconstituted lemon juice
      1/3           cup  firmly packed light brown sugar
        2   tablespoons  soy sauce
@@ -2016,16 +2003,16 @@ Serving Size  : 12    Preparation Time : 0:00
 Categories    : 
   Amount  Measure       Ingredient -- Preparation Method
 --------  ------------  --------------------------------
-      24                mushrooms; medium
+      24                mushrooms medium
        2   tablespoons  margarine
-     1/4           cup  onion; chopped, 1 medium
-       2   tablespoons  white wine; dry
-     1/4           cup  bread crumbs; dry
-     1/4           cup  cooked smoked ham; fine chop
-       2   tablespoons  parsley; snipped
+     1/4           cup  onion chopped, 1 medium
+       2   tablespoons  white wine dry
+     1/4           cup  bread crumbs dry
+     1/4           cup  cooked smoked ham fine chop
+       2   tablespoons  parsley snipped
        1    tablespoon  lime juice
-       1         clove  garlic; finely chopped
-       1      teaspoon  oregano leaves; dried
+       1         clove  garlic finely chopped
+       1      teaspoon  oregano leaves dried
        1          dash  pepper
      1/2           cup  monterey jack cheese,shredded
 
@@ -2058,7 +2045,7 @@ Categories    :
      1/2           cup  sour cream
      1/4           cup  crumbled blue cheese
        3   tablespoons  prepared mustard
-                        paprika
+       1                 paprika
 
 Cut thin slice off top of each cheese.  Using grapefruit knife or metal spoon, scoop out center of cheese, leaving red wax-covered shell about 1/4 inch in diameter.  Shred cheese; combine with sour cream, blue cheese and mustard; beat until well blended.  Spoon into cheese shell; sprinkle with paprika.  Serve with assorted crackers.  
 Makes 2 cheese balls.
@@ -2130,9 +2117,8 @@ Categories    :
        1           cup  hot chili sauce
        2   tablespoons  cider vinegar
        2   tablespoons  worcestershire sauce
-       2                green-skinned apples -- unpeeled and cut in
-                        -- 1" chunks
-                        toothpicks
+       2                green-skinned apples
+       5                 toothpicks
 
 Cut each frankfurter into 4 pieces. Heat the oil in a skillet and saute the frankfurters for about 4 minutes, turning to cook each side evenly. In a saucepan or chafing dish, combine the jelly, chili sauce, vinegar and worcestershire sauce. Heat gently, stirring often, until hot and the jelly is melted and smooth. At serving time, add the cooked frankfurters and the apple pieces to the sauce. Heat about 5 minutes until the apples and frankfurters are thoroughly warmed. Serve hot with toothpicks for spearing the frankfurters and apples. Yield: 8 - 10 hors d'oeuvre servings.
 
@@ -2172,27 +2158,22 @@ Serving Size  : 70    Preparation Time : 0:00
 Categories    : 
   Amount  Measure       Ingredient -- Preparation Method
 --------  ------------  --------------------------------
-       2         whole  skinless boneless chicken breast -- cooked, shredded
-                        -- and chopped
+       2         whole  skinless boneless chicken breast -- cooked, shredded and chopped
      1/2           cup  monterey jack cheese -- grated
-       1                red bell pepper -- seeded
-                        -- finely chopped
-       4                roma tomato -- peeled, seeded and
-                        -- chopped
+       1                red bell pepper -- seeded finely chopped
+       4                roma tomato -- peeled, seeded and chopped
        4        ounces  chopped green chilies, canned
        1    tablespoon  fresh cilantro -- finely minced
-      16        ounces  phyllo dough -- thawed
-                        -- in refrigerator
+      16        ounces  phyllo dough -- thawed in refrigerator
        1           cup  butter -- or as needed, melted
-                        -------relish-----
        2   tablespoons  olive oil
        4           ear  corn -- kernels scraped off
        6                roma tomatoes -- finely chopped
        1         large  onion -- finely chopped
        1    tablespoon  fresh cilantro -- minced
-                        salt -- to taste
-                        black pepper -- to taste
-
+       1                salt
+       1                pepper
+       
 Cut dough crosswise into 5 equal sections. If you want to serve it as an entree, then cut the filo dough into 4 sections so that the triangles will be larger. Make 4 or 5 of them per serving.     
 
 In a medium bowl place the chicken, cheese, red bell peppers, Roma tomatoes, green chile peppers, and cilantro. Mix the ingredients together well.     
@@ -2234,7 +2215,7 @@ Serving Size  : 1     Preparation Time : 0:00
 Categories    : 
   Amount  Measure       Ingredient -- Preparation Method
 --------  ------------  --------------------------------
-                        Lemon-Dill spread -- see recipe
+      1                  Lemon-Dill spread
       24        slices  rye bread
       24        slices  cucumber -- thinly sliced
 
@@ -2266,7 +2247,7 @@ Categories    :
 --------  ------------  --------------------------------
    3 1/2        ounces  smoked oysters -- canned
        1          pint  cherry tomato, whole
-                        parsley -- or salad greens
+       1                parsley
 
 Spear a smoked oyster with a toothpick; add a cherry tomato.  Repeat until all tomatoes and oysters have been used.  Serve on a bed of parsley or salad greens such as romaine.
 
@@ -2332,15 +2313,14 @@ Categories    :
      1/2           cup  chopped scallions
        1         pound  raw medium-size shrimp -- peeled & deveined
        1         pound  raw bay scallops
-       1         pound  white mushrooms -- washed with lemon
-                        -- and water
-       1                lemon -- juice of
+       1         pound  white mushrooms
+       1                lemon juice
        4        ounces  dry vermouth
      1/2      teaspoon  dill weed
      1/8      teaspoon  cayenne pepper
    1 1/2        ounces  brandy
 
-Melt butter in large skillet; add garlic, scallions, shrimp and scallops; saute for 3 minutes. Add mushrooms and saute for 2 minutes. Add lemon juice, vermouth and spices. Simmer for 5 minutes; add brandy and serve with French bread.
+Wash thr white mushrooms with lemon and water. Melt butter in large skillet; add garlic, scallions, shrimp and scallops; saute for 3 minutes. Add mushrooms and saute for 2 minutes. Add lemon juice, vermouth and spices. Simmer for 5 minutes; add brandy and serve with French bread.
 
 Busted by Barb at Possum Kingdom Lake Texas
 
@@ -2375,8 +2355,8 @@ Categories    :
        8        ounces  cream cheese
        4        cloves  garlic -- minced
      1/2           cup  chopped pecans -- or walnuts
-                        minced nuts
-                        paprika
+       1                 minced nuts
+       1                 paprika
 
 Mix cheeses together, mix in garlic and nuts.  Chill several hours.  Roll into ball and roll in minced nuts, sprinkle with Paprika.
 
@@ -2477,9 +2457,9 @@ Categories    :
   Amount  Measure       Ingredient -- Preparation Method
 --------  ------------  --------------------------------
       16        ounces  waterchestnuts, canned -- drained
-                        soy sauce
+       1                 soy sauce
        1         pound  bacon
-                        brown sugar
+       1                 brown sugar
 
 Place waterchestnuts in a tightly covered jar with a generous amount of soy sauce.  Refrigerate and marinate, shaking occasionally, for at least four hours.  Drain off soy sauce. (save in refrigerator and use in another recipe, if desired.)
 
@@ -2524,7 +2504,7 @@ Categories    :
        1           cup  chopped nuts
        1      teaspoon  vanilla
        3          cups  rice krispies
-                        flake coconut
+       1                 flake coconut
 
 Stir oleo, sugar, eggs and dates together in iron skillet over low heat, cook 20 minutes, stir constantly, take off fire. Stir in vanilla, chopped nuts and rice Krispies. Shape into balls and roll in coconut.
 
@@ -2597,9 +2577,9 @@ Categories    :
        1      teaspoon  worcestershire sauce
      1/4      teaspoon  garlic powder
      1/4      teaspoon  salt
-                        nuts -- finely chopped
+       1                 nuts
 
-Mix all ingredients except nuts with a mixer.  Shape into a ball and roll in chopped nuts.
+Finely chop the nuts. Mix all ingredients except nuts with a mixer.  Shape into a ball and roll in chopped nuts.
 
 
 
@@ -2631,8 +2611,8 @@ Categories    :
      1/4      teaspoon  chili powder
      1/4      teaspoon  lemon-pepper
      1/4      teaspoon  celery salt
-      16                Alaska snow crab or blue -- crab cocktail claws
-                        blue cheese dipping sauce
+      16                Alaska snow crab or blue crab cocktail claws
+       1                 blue cheese dipping sauce
        3   tablespoons  mayo
        2   tablespoons  nonfat plain yogurt
        1    tablespoon  blue cheese -- crumbled
@@ -2758,8 +2738,7 @@ Categories    : Appetizer                        Chinese
   Amount  Measure       Ingredient -- Preparation Method
 --------  ------------  --------------------------------
       24                won-ton wrappers
-                        oil -- for frying
-                        FILLING
+       1                 oil
      1/3           cup  chopped walnuts
        6                medjool dates -- pitted, coarsely chopped
        3   tablespoons  crystallized ginger -- chopped
@@ -2797,8 +2776,7 @@ Categories    : Appetizers                       Garlic
 --------  ------------  --------------------------------
        8         heads  Garlic
        4   tablespoons  Butter
-                        Springs of Fresh Rosemary -- (Fresh oregano also
-                        may be used)
+       1                 Springs of Fresh Rosemary or Fresh oregano
 
 Place whole heads of garlic, prepared as for Roasted Garlic, on a sheet of heavy-duty foil. Top with butter (4 tablespoons per 8 Heads) and a few sprigs of fresh rosemary or oregano. If fresh herbs are unavailable, substitute dried (2 teaspoons of dried herbs for 8 heads of garlic). Fold the foil over the garlic and seal the package well. Cook over hot coals for about 45 minutes, turning the package occasionally with tongs.
 
@@ -2829,7 +2807,6 @@ Categories    : Chicken                          Main course
        1    tablespoon  fresh ginger -- minced
        1    tablespoon  brown sugar
        1         bunch  scallions -- cut into thin sticks
-                        DIPPING SAUCE
      2/3           cup  creamy peanut butter
      1/4           cup  unsweetened coconut milk
      1/2           cup  pineapple juice
@@ -2974,7 +2951,7 @@ Categories    :
      1/2      teaspoon  oregano leaves -- crushed
      1/8      teaspoon  ground black pepper
        4        ounces  crumbled Feta (plain or flavored) or goat
-                        cheese -- about 3/4 cup
+    3/4          cup    cheese
 
 Heat oven to 400:F. Remove mushroom stems. Chop stems (makes about 1 cup);
 reserve. In a medium bowl, place caps; toss with 1 tablespoon of the oil.
@@ -3016,10 +2993,8 @@ Categories    :
        8        ounces  fresh white mushrooms -- sliced (2-1/2 cups)
        1      teaspoon  minced garlic
        2                (10-inch) flour tortillas
-                        OR
-       2                mountain bread*
+       2                mountain bread
      1/2         pound  fresh spinach -- trimmed, steamed
-                        OR
      1/2         pound  arugula -- trimmed, steamed
        1                plum tomato -- diced
      1/2           cup  shredded part-skim mozzarella cheese (2 ou
@@ -3053,18 +3028,18 @@ Serving Size  : 32    Preparation Time : 0:00
 Categories    : 
   Amount  Measure       Ingredient -- Preparation Method
 --------  ------------  --------------------------------
-                        ONION DILL SALT
+      1                  ONION DILL SALT
      1/4           cup  coarse salt
        2     teaspoons  dried onion flakes
        2     teaspoons  dried dillweed
      1/4      teaspoon  garlic powder
-                        HERBED SALT
+      1                  HERBED SALT
      1/4           cup  coarse salt
        1      teaspoon  dried basil leaves
      1/2      teaspoon  dried tarragon
      1/2      teaspoon  dried chives
      1/4      teaspoon  oregano leaves
-                        SESAME SALT
+       1                 SESAME SALT
        2   tablespoons  coarse salt
      1/4      teaspoon  ground turmeric
        2   tablespoons  toasted sesame seeds
@@ -3100,9 +3075,8 @@ Categories    :
 --------  ------------  --------------------------------
        2                rice paper wrappers - 6"
        2                California Fresh Eggs
-                        OR
-       1  3 1/2 ounces  egg product -- liquid or frozen
-       1      teaspoon  soy sauce
+   3 1/2                eggs
+      1      teaspoon   soy sauce
      1/4      teaspoon  jalapeqo pepper -- minced
        1    tablespoon  green onions -- chopped
        1      teaspoon  cilantro -- minced
@@ -3111,7 +3085,6 @@ Categories    :
        4                pea pods -- pre-blanched
        2        sprigs  mint leaves
        2                lettuce leaves
-                        DIPPING SAUCE
      1/4           cup  soy sauce
        2   tablespoons  lime juice
        1                garlic clove -- crushed
@@ -3214,7 +3187,7 @@ Categories    :
      1/2      teaspoon  salt
      1/2      teaspoon  orange peel -- grated
      1/2      teaspoon  hot chili oil
-                        cornstarch
+      1                  cornstarch
       40                won-ton wrappers -- cut into circles
      1/2           cup  peanut oil
        1           cup  water
@@ -3402,13 +3375,11 @@ Categories    :
 --------  ------------  --------------------------------
        4         bulbs  garlic -- left whole
        2   tablespoons  olive oil
-                        OR
        2   tablespoons  clarified butter
      1/8      teaspoon  salt
      1/8      teaspoon  black pepper
        1                French bread loaf -- sliced and heated
        6        ounces  cream cheese or soft cheese (optional)
-                        OR
      1/2           cup  butter -- softened
 
 Heat the oven to 350:F. Trim the tops of the garlic heads, leaving them
@@ -3484,14 +3455,13 @@ Categories    :
   Amount  Measure       Ingredient -- Preparation Method
 --------  ------------  --------------------------------
        1                tomato
-       1                orange -- peeled and
-                        segmented
+       1                orange -- peeled and segmented
        2                kiwis -- peeled and sliced
        1                red onion -- coarsely chopped
        1                avocado -- peeled and pitted
        1         bunch  cilantro
        2                jalapeno chile peppers
-                        garlic salt to taste
+       1                garlic salt to taste
 
  In a food processor, place tomato, orange, kiwis, red onion, avocado,
 cilantro, and jalapeno chile peppers. Process using pulse setting until
@@ -3519,7 +3489,8 @@ Categories    : Side Dish
        6          cups  sliced wild mushrooms (Oyster, Shiitake)
        1      teaspoon  minced garlic
        2   tablespoons  butter
-                        Salt & pepper
+       1                salt
+       1                pepper
        1  (11-ounce) p  refrigerated French bread
      1/4           cup  pesto sauce
        3        ounces  white Cheddar cheese -- crumbled
@@ -3590,8 +3561,8 @@ Categories    :
        1            pn  Fennel
        1            pn  Salt -- pepper
        1            pk  Phyllo -- whole wheat
-     1/4             c  Corn oil or soy margarine
-                        melted
+     1/4             c  Corn oil or soy margarine melted
+
 
   Preheat oven to 375.
 
@@ -3719,7 +3690,6 @@ Categories    : Side Dish
        8        ounces  smoked mozzarella cheese -- cut into 3/4 cubes
        2   tablespoons  balsamic vinegar -- optional
      1/4           cup  julienned fresh basil leaves
-                        OR
        1    tablespoon  dried basil -- optional
 
 Place greens on large serving platter. Arrange artichoke hearts, peppers, sun-dried tomatoes and olives over greens.
@@ -3837,19 +3807,16 @@ Categories    : Soups
        1         Clove  Garlic -- halved
      1/2           Cup  Green Pepper -- chopped
    1 1/2          Cups  Tomato Juice
-                        OR
                         Vegetable Juice
      1/2           Cup  Bell Pepper -- minced
      1/4           Cup  Red Onion -- minced
        1           Cup  Cucumber -- peel, seed, slice
    1 1/2          Cups  Filtered Water
        1      Teaspoon  Basil
-                        or
-                        Dill
+       1                 Dill
      1/4           Cup  Green Onions -- minced (garnish)
        1          Dash  Cayenne
-                        OR
-                        Paprika
+    1                   Paprika
 
 Put first 5 ingredients into a food processor and puree.  Transfer to a large bowl.  Stir in remaining ingredients and chill for several hours before serving. 
 
@@ -3880,7 +3847,7 @@ Categories    : Appetizer
    1 1/2          cups  cooked rice
        1    tablespoon  minced fresh basil
      1/8      teaspoon  ground white pepper
-                        Fresh basil -- chopped, for garnish
+      1                  Fresh basil -- chopped, for garnish
 
 Clean mushrooms with damp paper towel. Remove mushroom stems; finely chop stems and set aside. Saute mushroom caps in butter in skillet until almost tender; drain on paper towels. Saute mushroom stems and red pepper in skillet.
 
