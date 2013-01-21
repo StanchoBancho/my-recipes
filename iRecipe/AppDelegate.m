@@ -16,7 +16,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  //  [self parseData];
+//    [self parseData];
     return YES;
 }
 
@@ -48,7 +48,7 @@
     for(int i = 0; i < [allRecipes count]; i++){
         Recipe* r = [allRecipes objectAtIndex:i];
         //insert recipe
-        NSString* insertStatement = [NSString stringWithFormat:@"INSERT INTO Recipe (name, howTo, time) VALUES ('%@', '%@', %f);",r.name, r.howTo, [r.preparationTime doubleValue]];
+        NSString* insertStatement = [NSString stringWithFormat:@"INSERT INTO Recipe (name, howTo, time, category) VALUES ('%@', '%@', %f, '%@');",r.name, r.howTo, [r.preparationTime doubleValue], r.category];
         BOOL result = [dbReader executeSQLStatement:insertStatement];
         if(result){
             NSMutableArray* lastRecipeIdRaw = [dbReader readDBWithQuery:@"SELECT MAX(id) FROM Recipe"];

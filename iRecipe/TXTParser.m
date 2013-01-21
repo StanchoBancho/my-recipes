@@ -65,6 +65,9 @@ static int screwedRecipes = 0;
                 NSNumber* time = [NSNumber numberWithDouble:preparationTime];
                 [recipe setPreparationTime:time];
                 
+                @try {
+                    
+                
                 
                 //get ingredients
                 while ([line isEqualToString:@""] || [line rangeOfString:@"Amount"].location == NSNotFound) {
@@ -75,7 +78,8 @@ static int screwedRecipes = 0;
                     line = [lines objectAtIndex:++i];
                 }
                 NSMutableArray *ingrTempArr = [[NSMutableArray alloc] init];
-                while (![line isEqualToString:@""]) {
+                
+                    while (![[line stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] isEqualToString:@""]) {
                     NSString* quantityString = [[line substringToIndex:8] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
                     if([quantityString isEqualToString:@""]){
                         quantityString = @"1";
@@ -96,7 +100,10 @@ static int screwedRecipes = 0;
                     line = [lines objectAtIndex:i];
                 }
                 recipe.ingredients = [[NSArray alloc] initWithArray:ingrTempArr];
-                
+                }
+                @catch (NSException *exception) {
+                    
+                }
                 //get how to
                 NSMutableString* howTo = [[NSMutableString alloc] init];
                 while ([line rangeOfString:@"- - - - - - - - - - - - - - - - - - -"].location == NSNotFound) {

@@ -8,7 +8,7 @@
         <scene sceneID="AKo-iP-Ycj">
             <objects>
                 <tabBarController definesPresentationContext="YES" id="4ms-tk-r40" sceneMemberID="viewController">
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="XlB-Of-GOH">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -16,17 +16,18 @@
                     </tabBar>
                     <connections>
                         <segue destination="iO9-AI-ged" kind="relationship" relationship="viewControllers" id="jII-hA-HbM"/>
+                        <segue destination="kYw-u7-t1c" kind="relationship" relationship="viewControllers" id="iJB-Uu-hef"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OYv-Bv-AMd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4" y="20"/>
+            <point key="canvasLocation" x="62" y="90"/>
         </scene>
-        <!--Navigation Controller - Item-->
+        <!--Navigation Controller - Suggest-->
         <scene sceneID="43r-bI-nhX">
             <objects>
                 <navigationController definesPresentationContext="YES" id="iO9-AI-ged" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="ALa-18-4LV"/>
+                    <tabBarItem key="tabBarItem" title="Suggest" id="ALa-18-4LV"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="f8h-2E-LSm">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -53,8 +54,42 @@
             </objects>
             <point key="canvasLocation" x="899" y="-351"/>
         </scene>
+        <!--Navigation Controller - Browse-->
+        <scene sceneID="NCD-31-pgh">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="kYw-u7-t1c" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Browse" id="cRW-4W-xef"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="LWL-4W-Qsy">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="NCF-It-bMd" kind="relationship" relationship="rootViewController" id="hYZ-Ou-eP4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QVe-N7-DMz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="517" y="325"/>
+        </scene>
+        <!--Browse View Controller-->
+        <scene sceneID="hzd-sV-SaB">
+            <objects>
+                <viewController id="NCF-It-bMd" customClass="BrowseViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="s6P-zc-dwa">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="7rj-Mk-Aup"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ogv-nc-cHQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="901" y="325"/>
+        </scene>
     </scenes>
     <classes>
+        <class className="BrowseViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BrowseViewController.h"/>
+        </class>
         <class className="SearchRecipeViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchRecipeViewController.h"/>
             <relationships>
