@@ -2251,7 +2251,7 @@ Categories    :
   Amount  Measure       Ingredient -- Preparation Method
 --------  ------------  --------------------------------
        4    tablespoon  green pepper
-       1         small  onion
+       1                onion
        2    tablespoon  butter
      1/4           cup  mushroom
        2                tomato
@@ -3084,8 +3084,8 @@ Serving Size  : 0     Preparation Time : 0:00
 Categories    : Soups                            
   Amount  Measure       Ingredient -- Preparation Method
 --------  ------------  --------------------------------
-       3         small  carrot
-       2         small  parsnip
+       3                carrot
+       2                parsnip
        1                turnip
        2         stalk  celery
        1                onion

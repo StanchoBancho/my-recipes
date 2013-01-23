@@ -1854,7 +1854,7 @@ Categories    :
        1       package  pudding mix
        1           cup  marshmallow
      1/2           cup  nut
-       1         small  Whip
+       1                Whip
 
 Mix pineapple, dry pudding mix, marshmallows and nuts.
 
@@ -3109,7 +3109,7 @@ Categories    :
        1         clove  garlic
        1    tablespoon  tarragon leaf
        4          cups  rotini pasta
-       1         small  red onion
+       1                red onion
        1      teaspoon  Salt
        1      teaspoon  Pepper
 

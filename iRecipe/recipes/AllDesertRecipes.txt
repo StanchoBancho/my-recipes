@@ -4380,7 +4380,7 @@ Categories    : Dessert
        8        ounces  cream cheese 
        2     teaspoons  pineapple juice
        1           cup  strawberry
-      34        pieces  pineapple
+      5                 pineapple
       53                blueberry
        1                kiwi
       14                mandarin
