@@ -67,39 +67,48 @@ static int screwedRecipes = 0;
                 
                 @try {
                     
-                
-                
-                //get ingredients
-                while ([line isEqualToString:@""] || [line rangeOfString:@"Amount"].location == NSNotFound) {
-                    line = [lines objectAtIndex:++i];
-                }
-                line = [lines objectAtIndex:++i];
-                while ([line isEqualToString:@""] || [line rangeOfString:@"---"].location != NSNotFound) {
-                    line = [lines objectAtIndex:++i];
-                }
-                NSMutableArray *ingrTempArr = [[NSMutableArray alloc] init];
-                
-                    while (![[line stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] isEqualToString:@""]) {
-                    NSString* quantityString = [[line substringToIndex:8] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-                    if([quantityString isEqualToString:@""]){
-                        quantityString = @"1";
+                    //get ingredients
+                    while ([line isEqualToString:@""] || [line rangeOfString:@"Amount"].location == NSNotFound) {
+                        line = [lines objectAtIndex:++i];
                     }
-                    NSString* measureString = [[line substringWithRange:NSMakeRange(8, 14)]  stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-                    if([measureString isEqualToString:@""]){
-                        measureString = @"default measure";
+                    line = [lines objectAtIndex:++i];
+                    while ([line isEqualToString:@""] || [line rangeOfString:@"---"].location != NSNotFound) {
+                        line = [lines objectAtIndex:++i];
                     }
-                    NSString* ingredientName = [[line substringWithRange:NSMakeRange(24, line.length-24)] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+                    NSMutableArray *ingrTempArr = [[NSMutableArray alloc] init];
                     
-                    if([measureString rangeOfCharacterFromSet:[NSCharacterSet characterSetWithCharactersInString:@"123456789/"]].location != NSNotFound){
-                        //  NSLog(@"Preebana recepta:%d  %@ | %@ | %@", screwedRecipes, quantityString, measureString, ingredientName);
-                        screwedRecipes ++;
+                    while (![[line stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] isEqualToString:@""]) {
+                        NSString* quantityString = [[line substringToIndex:8] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+                        if([quantityString isEqualToString:@""]){
+                            quantityString = @"1";
+                        }
+                        NSString* measureString = [[line substringWithRange:NSMakeRange(8, 14)]  stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+                        if([measureString isEqualToString:@""]){
+                            measureString = @"default measure";
+                        }
+                        NSLog(@"line is:%@",line);
+                        NSString* ingredientName = [[line substringWithRange:NSMakeRange(24, line.length-24)] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+                        measureString = [measureString lowercaseString];
+                        if([measureString rangeOfCharacterFromSet:[NSCharacterSet characterSetWithCharactersInString:@"123456789/"]].location != NSNotFound){
+                            //  NSLog(@"Preebana recepta:%d  %@ | %@ | %@", screwedRecipes, quantityString, measureString, ingredientName);
+                            screwedRecipes ++;
+                        }
+                        //capitalize ingredient name
+                        ingredientName = [ingredientName capitalizedString];
+                        
+                        //remove the s at the end (cups == cup)?
+                        if([measureString characterAtIndex:(measureString.length - 1)] == 's'){
+                            NSMutableString* measureStringTemp = [NSMutableString stringWithString:measureString];
+                            [measureStringTemp replaceCharactersInRange:NSMakeRange(measureStringTemp.length - 1, 1) withString:@""];
+                            measureString = [NSString stringWithString:measureStringTemp];
+                        }
+                        
+                        Ingredient *ingredients = [[Ingredient alloc] initWithName:ingredientName amount:quantityString andMeasure:measureString];
+                        [ingrTempArr addObject:ingredients];
+                        i+=2;
+                        line = [lines objectAtIndex:i];
                     }
-                    Ingredient *ingredients = [[Ingredient alloc] initWithName:ingredientName amount:quantityString andMeasure:measureString];
-                    [ingrTempArr addObject:ingredients];
-                    i+=2;
-                    line = [lines objectAtIndex:i];
-                }
-                recipe.ingredients = [[NSArray alloc] initWithArray:ingrTempArr];
+                    recipe.ingredients = [[NSArray alloc] initWithArray:ingrTempArr];
                 }
                 @catch (NSException *exception) {
                     

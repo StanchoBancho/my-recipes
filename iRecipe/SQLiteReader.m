@@ -30,7 +30,7 @@
 
 - (NSMutableArray*)readDBWithQuery:(NSString*)sqlStatement {
     NSMutableArray* result = [[NSMutableArray alloc] init];
-    NSLog(@"%@",sqlStatement);
+    //NSLog(@"%@",sqlStatement);
     
     if([self openDataBaseWithName:kDBName]) {
         const char *newSqlStatement = [sqlStatement cStringUsingEncoding:NSUTF8StringEncoding];
