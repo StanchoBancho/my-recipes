@@ -13,6 +13,8 @@
 		2E50941016AC464500EABF2D /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E50940F16AC464500EABF2D /* MainStoryboard.storyboard */; };
 		2E6A737316B188D40040FE7D /* Node.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E6A737216B188D40040FE7D /* Node.m */; };
 		2E6A737616B18D860040FE7D /* KDTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E6A737516B18D860040FE7D /* KDTree.m */; };
+		2E8C9B0716B1D4D600E08D7A /* AddAmountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E8C9B0516B1D4D600E08D7A /* AddAmountViewController.m */; };
+		2E8C9B0816B1D4D600E08D7A /* AddAmountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E8C9B0616B1D4D600E08D7A /* AddAmountViewController.xib */; };
 		2EAAADD916A85D9800D076E3 /* recipes in Resources */ = {isa = PBXBuildFile; fileRef = 2EAAADD816A85D9800D076E3 /* recipes */; };
 		2EAB3D5A166FEF2400FA8572 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EAB3D59166FEF2400FA8572 /* UIKit.framework */; };
 		2EAB3D5C166FEF2400FA8572 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EAB3D5B166FEF2400FA8572 /* Foundation.framework */; };
@@ -50,6 +52,9 @@
 		2E6A737216B188D40040FE7D /* Node.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Node.m; sourceTree = "<group>"; };
 		2E6A737416B18D860040FE7D /* KDTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KDTree.h; sourceTree = "<group>"; };
 		2E6A737516B18D860040FE7D /* KDTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KDTree.m; sourceTree = "<group>"; };
+		2E8C9B0416B1D4D600E08D7A /* AddAmountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddAmountViewController.h; sourceTree = "<group>"; };
+		2E8C9B0516B1D4D600E08D7A /* AddAmountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddAmountViewController.m; sourceTree = "<group>"; };
+		2E8C9B0616B1D4D600E08D7A /* AddAmountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddAmountViewController.xib; sourceTree = "<group>"; };
 		2EAAADD816A85D9800D076E3 /* recipes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = recipes; sourceTree = "<group>"; };
 		2EAB3D55166FEF2400FA8572 /* iRecipe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iRecipe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EAB3D59166FEF2400FA8572 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -114,6 +119,9 @@
 				2EEF556E16A9C170005AB989 /* AddIngredientViewController.h */,
 				2EEF556F16A9C170005AB989 /* AddIngredientViewController.m */,
 				2EEF557016A9C170005AB989 /* AddIngredientViewController.xib */,
+				2E8C9B0416B1D4D600E08D7A /* AddAmountViewController.h */,
+				2E8C9B0516B1D4D600E08D7A /* AddAmountViewController.m */,
+				2E8C9B0616B1D4D600E08D7A /* AddAmountViewController.xib */,
 			);
 			name = "Sugest Tab";
 			sourceTree = "<group>";
@@ -318,6 +326,7 @@
 				2E2CE72416AAD33400E1534D /* RecipeDB.sqlite in Resources */,
 				2E50941016AC464500EABF2D /* MainStoryboard.storyboard in Resources */,
 				2E30873516ADF11E0071EB5A /* BrowseViewController.xib in Resources */,
+				2E8C9B0816B1D4D600E08D7A /* AddAmountViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +351,7 @@
 				2E30873416ADF11E0071EB5A /* BrowseViewController.m in Sources */,
 				2E6A737316B188D40040FE7D /* Node.m in Sources */,
 				2E6A737616B18D860040FE7D /* KDTree.m in Sources */,
+				2E8C9B0716B1D4D600E08D7A /* AddAmountViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

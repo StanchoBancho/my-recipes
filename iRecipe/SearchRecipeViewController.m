@@ -11,6 +11,7 @@
 #import "IngredientCell.h"
 #import "Ingredient.h"
 #import "AddIngredientViewController.h"
+#import "KDTree.h"
 
 @interface SearchRecipeViewController ()<UITableViewDataSource, UITabBarDelegate, AddIngredientDelegate>
 
@@ -34,7 +35,8 @@ static NSString* addIngredientCellName = @"AddIngredientCell";
     return self;
 }
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
    
     [self.navigationItem setTitle:@"Ingredients"];
@@ -48,7 +50,8 @@ static NSString* addIngredientCellName = @"AddIngredientCell";
     
     NSArray *nibObjects = [[NSBundle mainBundle] loadNibNamed:@"SuggestFooterView" owner:self options:nil];
     self.footerView = [nibObjects objectAtIndex:0];
-
+    [self.footerView.sugestButton addTarget:self action:@selector(suggestButtonPressed:) forControlEvents:UIControlEventTouchDown];
+    
     [self.ingredientsTableView reloadData];
     
     }
@@ -57,6 +60,19 @@ static NSString* addIngredientCellName = @"AddIngredientCell";
     [super didReceiveMemoryWarning];
 }
 
+
+#pragma mark - Action methods 
+
+-(IBAction)suggestButtonPressed:(id)sender
+{
+    NSTimeInterval timeNeededForKDTreeInit = 0.0f;
+    NSDate* startDate = [NSDate date];
+    KDTree* aTree = [[KDTree alloc] initWithIngredients:self.ingredients];
+    NSDate* endDate = [NSDate date];
+    timeNeededForKDTreeInit = [endDate timeIntervalSinceDate:startDate];
+    NSLog(@"Time For KD Tree creation is: %f", timeNeededForKDTreeInit);
+    [aTree print];
+}
 
 #pragma mark - UITableView DataSource
 
@@ -129,18 +145,17 @@ static NSString* addIngredientCellName = @"AddIngredientCell";
     if(indexPath.row == 0){
         AddIngredientViewController* addIngredientVC = [[AddIngredientViewController alloc] initWithNibName:@"AddIngredientViewController" bundle:[NSBundle mainBundle]];
         [addIngredientVC setDelegate:self];
-        [self.navigationController presentViewController:addIngredientVC animated:YES completion:nil];
+        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:addIngredientVC];
+
+        [self.navigationController presentViewController:navController animated:YES completion:nil];
     }
 }
 
 #pragma mark - AddIngredientDelegate
 
--(void)dissmissWithIngredientName:(NSString *)name andQuantity:(NSNumber *)quantity
+-(void)dissmissWithIngredient:(Ingredient*)newIngredient
 {
-    Ingredient* ingredient = [[Ingredient alloc] init];
-    [ingredient setName:name];
-    [ingredient setQuantity:quantity];
-    [[self ingredients] addObject:ingredient];
+    [[self ingredients] addObject:newIngredient];
     [[self ingredientsTableView] reloadData];
     [self dismissViewControllerAnimated:YES completion:nil];
 }

@@ -10,4 +10,6 @@
 
 @interface SuggestFooterView : UIView
 
+@property(nonatomic, strong) IBOutlet UIButton* sugestButton;
+
 @end

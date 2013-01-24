@@ -11,10 +11,9 @@
 
 @protocol AddIngredientDelegate <NSObject>
 
--(void)dissmissWithIngredientName:(NSString *)name andQuantity:(NSNumber *)quantity;
+-(void)dissmissWithIngredient:(Ingredient*)newIngredient;
 
 @end
-
 
 @interface AddIngredientViewController : UIViewController
 

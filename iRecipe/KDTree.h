@@ -7,9 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Node.h"
 
 @interface KDTree : NSObject
 
--(id)initWithRecipes:(NSMutableArray*)recipes andIngredients:(NSMutableArray*)ingredients;
+@property(nonatomic, strong) Node* root;
+
+-(id)initWithIngredients:(NSMutableArray*)ingredients;
+
+-(void)print;
 
 @end

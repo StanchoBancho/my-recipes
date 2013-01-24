@@ -18,7 +18,7 @@ static int maxIngredients = 0;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [self secondParseData];
+   // [self secondParseData];
     return YES;
 }
 

@@ -14,6 +14,11 @@
 @property(nonatomic, strong) Node* leftChild;
 @property(nonatomic, strong) Node* rightChild;
 @property(nonatomic, strong) Recipe* location;
-@property(nonatomic, assign) NSInteger* depth;
+@property(nonatomic, assign) NSInteger depth;
+
+//this will work ONLY with some ingredients in ingredients array
+-(id)initWithRecipes:(NSMutableArray*)recipes andIngredients:(NSMutableArray*)ingredients andDepth:(NSInteger) depth;
+
+-(void)print;
 
 @end
