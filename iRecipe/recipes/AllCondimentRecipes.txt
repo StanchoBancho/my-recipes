@@ -1508,7 +1508,7 @@ Saute garlic in a skillet with olive oil until they are brown at medium heat.
 
 
 
-Reduce heat and add tomatoes, oregano and bay leaves.  Let it simmer until sauce is thick. 
+Reduce heat and add tomatoes, oregano and bay leaf.  Let it simmer until sauce is thick. 
 
 
 
@@ -2730,7 +2730,7 @@ Serving Size  : 4     Preparation Time : 0:00
 Categories    : 
   Amount  Measure       Ingredient -- Preparation Method
 --------  ------------  --------------------------------
-       2                avocados
+       2                avocado
      1/2           cup  raisin
      1/2           cup  oil
      1/4           cup  lime juice

@@ -14,6 +14,8 @@
 
 @implementation AppDelegate
 
+static int maxIngredients = 0;
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [self secondParseData];
@@ -133,14 +135,17 @@
         }];
     }
     //put the data in the sqlite file
-    [self insertRecipesInDataBase:allRecipes];
+    [self putRecipesInDataBase:allRecipes];
 }
 
--(void)insertRecipesInDataBase:(NSMutableArray*)allRecipes
+-(void)putRecipesInDataBase:(NSMutableArray*)allRecipes
 {
     SQLiteReader* dbReader = [[SQLiteReader alloc] init];
     for(int i = 0; i < [allRecipes count]; i++){
         Recipe* r = [allRecipes objectAtIndex:i];
+        if([r.ingredients count] > maxIngredients){
+            maxIngredients = [r.ingredients count];
+        }
         //insert recipe
         NSString* insertStatement = [NSString stringWithFormat:@"INSERT INTO Recipe (name, howTo, time, category) VALUES ('%@', '%@', %f, '%@');",r.name, r.howTo, [r.preparationTime doubleValue], r.category];
         BOOL resultOfAddRecipe = [dbReader executeSQLStatement:insertStatement];
@@ -148,9 +153,9 @@
             NSMutableArray* lastRecipeIdRaw = [dbReader readDBWithQuery:@"SELECT MAX(id) FROM Recipe"];
             NSString* recipeId = [[lastRecipeIdRaw objectAtIndex:0] objectAtIndex:0];
             for(Ingredient* i in r.ingredients){
-                NSString* ingredientId = [self insertIngredient:i ifNeededAndReadItsId:dbReader];
+                NSString* ingredientId = [self putIngredient:i ifNeededAndReadItsId:dbReader];
                 if(ingredientId){
-                    NSString* insertSetStatement = [NSString stringWithFormat:@"INSERT INTO 'Set' (ingredientFk, recipeFk, quantity) VALUES (%d, %d, %f)",[ingredientId intValue], [recipeId intValue], [i.quantity floatValue]];
+                    NSString* insertSetStatement = [NSString stringWithFormat:@"INSERT INTO 'Relation' (ingredientFk, recipeFk, quantity, measure, realValue) VALUES (%d, %d, %f, '%@', %f)",[ingredientId intValue], [recipeId intValue], [i.quantity floatValue], i.measure, [i.realValue doubleValue]];
                     BOOL resultOfAddInSet = [dbReader executeSQLStatement:insertSetStatement];
                     if (!resultOfAddInSet) {
                         NSLog(@"losho");
@@ -162,21 +167,21 @@
     }
 }
 
--(NSString*)insertIngredient:(Ingredient*) ingredient ifNeededAndReadItsId:(SQLiteReader*)dbReader
+-(NSString*)putIngredient:(Ingredient*) ingredient ifNeededAndReadItsId:(SQLiteReader*)dbReader
 {
     NSString* result = nil;
     
     //check is there such ingredient
-    NSString* checkForThisIngredientStatement = [NSString stringWithFormat:@"SELECT * FROM Ingredient WHERE name = '%@' AND measure = '%@'",ingredient.name, ingredient.measure];
+    NSString* checkForThisIngredientStatement = [NSString stringWithFormat:@"SELECT * FROM Ingredient WHERE name = '%@'",ingredient.name];
     NSMutableArray* ingredientCheck = [dbReader readDBWithQuery:checkForThisIngredientStatement];
     BOOL isThisIngredientExisting = [ingredientCheck count] > 0;
     if(isThisIngredientExisting){
         NSMutableArray* ingredient = [ingredientCheck objectAtIndex:0];
-        isThisIngredientExisting = [ingredient count] == 3;
+        isThisIngredientExisting = ingredient && [ingredient count] == 2;
     }
     if(!isThisIngredientExisting){
         //there is NO such ingredient
-        NSString* insertIngredientStatement = [NSString stringWithFormat:@"INSERT INTO Ingredient (name, measure) VALUES ('%@', '%@')",ingredient.name, ingredient.measure];
+        NSString* insertIngredientStatement = [NSString stringWithFormat:@"INSERT INTO Ingredient (name) VALUES ('%@')",ingredient.name];
         BOOL resultOfAddIngredient = [dbReader executeSQLStatement:insertIngredientStatement];
         if(resultOfAddIngredient){
             NSMutableArray* lastRecipeIdRaw = [dbReader readDBWithQuery:@"SELECT MAX(id) FROM Ingredient"];

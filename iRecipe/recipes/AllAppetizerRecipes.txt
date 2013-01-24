@@ -957,7 +957,7 @@ Categories    :
        1         clove  garlic
        1                pepper
        1                lemon
-       2                avocados
+       2                avocado
      1/4           cup  tomato
        2    tablespoon  oil
        2    tablespoon  cilantro
@@ -3293,7 +3293,7 @@ Categories    : Soups
        1           cup  water
        2   tablespoons  jalapeno sauce
 
-Blend buttermilk and avocados in blender then add cucumber, onion, lime
+Blend buttermilk and avocado in blender then add cucumber, onion, lime
 juice (reserving the zest), salt and pepper.  With blender running, add
 milk, water and hot sauce.  Chill soup.  Serve garnished with a dollop of sour
 cream and a little lime zest. 

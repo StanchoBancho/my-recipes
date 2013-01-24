@@ -8,6 +8,12 @@
 
 #import "Ingredient.h"
 
+@interface Ingredient()
+
+@property (nonatomic, strong) NSString *amount;
+
+@end
+
 @implementation Ingredient
 
 -(double)calculateQuantity
@@ -58,43 +64,43 @@
     } else if([self.measure isEqualToString:@"ounce"]){
         multiplier = 28.3495;
     } else if([self.measure isEqualToString:@"teaspoon"]){
-        multiplier = 5;
+        multiplier = 5.0;
     } else if([self.measure isEqualToString:@"pound"]){
         multiplier = 373.2417216;
     } else if([self.measure isEqualToString:@"drop"]){
         multiplier = 0.5;
     } else if([self.measure isEqualToString:@"can"]){
-        multiplier = 300;
+        multiplier = 300.0;
     } else if([self.measure isEqualToString:@"package"]){
-        multiplier = 300;
+        multiplier = 300.0;
     } else if([self.measure isEqualToString:@"square"]){
-        multiplier = 15;
+        multiplier = 15.0;
     } else if([self.measure isEqualToString:@"jar"]){
-        multiplier = 250;
+        multiplier = 250.0;
     } else if([self.measure isEqualToString:@"pinch"]){
         multiplier = 0.20;
     } else if([self.measure isEqualToString:@"sprig"]){
-        multiplier = 10;
+        multiplier = 10.0;
     } else if([self.measure isEqualToString:@"stalk"]){
-        multiplier = 10;
+        multiplier = 10.0;
     } else if([self.measure isEqualToString:@"stalk"]){
-        multiplier = 40;
+        multiplier = 40.0;
     } else if([self.measure isEqualToString:@"box"]){
-        multiplier = 250;
+        multiplier = 250.0;
     } else if([self.measure isEqualToString:@"bag"]){
-        multiplier = 250;
+        multiplier = 250.0;
     } else if([self.measure isEqualToString:@"tablespoo"]){
-        multiplier = 15;
+        multiplier = 15.0;
     }  else if([self.measure isEqualToString:@"spray"]){
-        multiplier = 50;
+        multiplier = 50.0;
     } else if([self.measure isEqualToString:@"gallon"]){
         multiplier = 4404.8838;
     } else if([self.measure isEqualToString:@"large can"]){
-        multiplier = 800;
+        multiplier = 800.0;
     }  else if([self.measure isEqualToString:@"carton"]){
-        multiplier = 250;
+        multiplier = 250.0;
     } else if([self.measure isEqualToString:@"container"]){
-        multiplier = 250;
+        multiplier = 250.0;
     }
     
     //exceptions

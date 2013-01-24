@@ -11,6 +11,8 @@
 		2E30873416ADF11E0071EB5A /* BrowseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E30873216ADF11E0071EB5A /* BrowseViewController.m */; };
 		2E30873516ADF11E0071EB5A /* BrowseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E30873316ADF11E0071EB5A /* BrowseViewController.xib */; };
 		2E50941016AC464500EABF2D /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E50940F16AC464500EABF2D /* MainStoryboard.storyboard */; };
+		2E6A737316B188D40040FE7D /* Node.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E6A737216B188D40040FE7D /* Node.m */; };
+		2E6A737616B18D860040FE7D /* KDTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E6A737516B18D860040FE7D /* KDTree.m */; };
 		2EAAADD916A85D9800D076E3 /* recipes in Resources */ = {isa = PBXBuildFile; fileRef = 2EAAADD816A85D9800D076E3 /* recipes */; };
 		2EAB3D5A166FEF2400FA8572 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EAB3D59166FEF2400FA8572 /* UIKit.framework */; };
 		2EAB3D5C166FEF2400FA8572 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EAB3D5B166FEF2400FA8572 /* Foundation.framework */; };
@@ -44,6 +46,10 @@
 		2E30873216ADF11E0071EB5A /* BrowseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrowseViewController.m; sourceTree = "<group>"; };
 		2E30873316ADF11E0071EB5A /* BrowseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BrowseViewController.xib; sourceTree = "<group>"; };
 		2E50940F16AC464500EABF2D /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
+		2E6A737116B188D40040FE7D /* Node.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Node.h; sourceTree = "<group>"; };
+		2E6A737216B188D40040FE7D /* Node.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Node.m; sourceTree = "<group>"; };
+		2E6A737416B18D860040FE7D /* KDTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KDTree.h; sourceTree = "<group>"; };
+		2E6A737516B18D860040FE7D /* KDTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KDTree.m; sourceTree = "<group>"; };
 		2EAAADD816A85D9800D076E3 /* recipes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = recipes; sourceTree = "<group>"; };
 		2EAB3D55166FEF2400FA8572 /* iRecipe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iRecipe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EAB3D59166FEF2400FA8572 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -131,6 +137,17 @@
 			name = "Controller Layer";
 			sourceTree = "<group>";
 		};
+		2E6A736F16B1887E0040FE7D /* k-d Tree */ = {
+			isa = PBXGroup;
+			children = (
+				2E6A737116B188D40040FE7D /* Node.h */,
+				2E6A737216B188D40040FE7D /* Node.m */,
+				2E6A737416B18D860040FE7D /* KDTree.h */,
+				2E6A737516B18D860040FE7D /* KDTree.m */,
+			);
+			name = "k-d Tree";
+			sourceTree = "<group>";
+		};
 		2EAB3D4A166FEF2400FA8572 = {
 			isa = PBXGroup;
 			children = (
@@ -192,6 +209,7 @@
 		2EAB3D7E166FEF4F00FA8572 /* Data Layer */ = {
 			isa = PBXGroup;
 			children = (
+				2E6A736F16B1887E0040FE7D /* k-d Tree */,
 				2EAB3D88166FF3C400FA8572 /* Data Objects */,
 				2EAB3D7F166FEF6700FA8572 /* SQLiteReader.h */,
 				2EAB3D80166FEF6700FA8572 /* SQLiteReader.m */,
@@ -322,6 +340,8 @@
 				2EEF556D16A9B448005AB989 /* AddIngredientCell.m in Sources */,
 				2EEF557116A9C170005AB989 /* AddIngredientViewController.m in Sources */,
 				2E30873416ADF11E0071EB5A /* BrowseViewController.m in Sources */,
+				2E6A737316B188D40040FE7D /* Node.m in Sources */,
+				2E6A737616B18D860040FE7D /* KDTree.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

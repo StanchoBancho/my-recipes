@@ -2118,7 +2118,7 @@ Serving Size  : 1     Preparation Time : 0:00
 Categories    : 
   Amount  Measure       Ingredient -- Preparation Method
 --------  ------------  --------------------------------
-       2                avocados
+       2                avocado
        1    tablespoon  lemon juice
        4        ounces  chili
        2     teaspoons  taco sauce
@@ -2952,11 +2952,11 @@ Categories    :
        1                Lettuce
      1/4           Cup  Lemon Juice
 
-Peel and cube avocados; dip in lemon juice to prevent browning.
+Peel and cube avocado; dip in lemon juice to prevent browning.
 
 Cut honeydew into bite-sized chunks.
 
-Combine avocados and honeydew.
+Combine avocado and honeydew.
 
 Line large platter with lettuce leaves; top with fruit.
 
@@ -3553,7 +3553,7 @@ Categories    : 8/21-8/27
 
 TO PREPARE: Bring milk and 2 quarts water to boil in a soup kettle. Add 1 tablespoon salt and bananas. Bring to boil and simmer until bananas are cooked but still firm, 20 to 25 minutes. Drain, peel, and cut bananas, crosswise, into 1/2-inch thick slices.
 
-Mix vinegar and 1 tablespoon pepper in a large nonreactive bowl. Whisk in oil in a slow, steady stream. Stir in olives, bay leaves, and banana slices. Let stand at room temperature at least 1 hour, then serve.
+Mix vinegar and 1 tablespoon pepper in a large nonreactive bowl. Whisk in oil in a slow, steady stream. Stir in olives, bay leaf, and banana slices. Let stand at room temperature at least 1 hour, then serve.
 
 (Can be refrigerated overnight.)
 
@@ -3585,7 +3585,7 @@ Serving Size  : 6     Preparation Time : 0:00
 Categories    : 
   Amount  Measure       Ingredient -- Preparation Method
 --------  ------------  --------------------------------
-       2          cans  beans
+       2          cans  bean
        1           can  garbanzo bean
        1           can  kidney bean
        1                purple onion
