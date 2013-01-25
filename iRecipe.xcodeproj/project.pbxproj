@@ -38,6 +38,7 @@
 		2ECAA0E416B3149200308098 /* ShowRecipesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2ECAA0E216B3149200308098 /* ShowRecipesViewController.xib */; };
 		2ECAA0E916B3189700308098 /* RecipeDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ECAA0E716B3189700308098 /* RecipeDetailsViewController.m */; };
 		2ECAA0EA16B3189700308098 /* RecipeDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2ECAA0E816B3189700308098 /* RecipeDetailsViewController.xib */; };
+		2ECAA0F916B332D700308098 /* RecipeDB.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2ECAA0F816B332D700308098 /* RecipeDB.sqlite */; };
 		2EEF555316A9847B005AB989 /* SuggestFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EEF555216A9847B005AB989 /* SuggestFooterView.xib */; };
 		2EEF555E16A98673005AB989 /* SuggestFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EEF555D16A98673005AB989 /* SuggestFooterView.m */; };
 		2EEF556016A98907005AB989 /* IngredientCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EEF555F16A98907005AB989 /* IngredientCell.xib */; };
@@ -97,6 +98,7 @@
 		2ECAA0E616B3189700308098 /* RecipeDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeDetailsViewController.h; sourceTree = "<group>"; };
 		2ECAA0E716B3189700308098 /* RecipeDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeDetailsViewController.m; sourceTree = "<group>"; };
 		2ECAA0E816B3189700308098 /* RecipeDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecipeDetailsViewController.xib; sourceTree = "<group>"; };
+		2ECAA0F816B332D700308098 /* RecipeDB.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = RecipeDB.sqlite; sourceTree = "<group>"; };
 		2EEF555216A9847B005AB989 /* SuggestFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SuggestFooterView.xib; sourceTree = "<group>"; };
 		2EEF555C16A98673005AB989 /* SuggestFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuggestFooterView.h; sourceTree = "<group>"; };
 		2EEF555D16A98673005AB989 /* SuggestFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuggestFooterView.m; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 		2EAB3D60166FEF2400FA8572 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2ECAA0F816B332D700308098 /* RecipeDB.sqlite */,
 				2E2CE72316AAD33400E1534D /* BlankRecipeDB.sqlite */,
 				2EAAADD816A85D9800D076E3 /* recipes */,
 				2EAB3D61166FEF2400FA8572 /* iRecipe-Info.plist */,
@@ -363,6 +366,7 @@
 				2E8C9B0816B1D4D600E08D7A /* AddAmountViewController.xib in Resources */,
 				2ECAA0E416B3149200308098 /* ShowRecipesViewController.xib in Resources */,
 				2ECAA0EA16B3189700308098 /* RecipeDetailsViewController.xib in Resources */,
+				2ECAA0F916B332D700308098 /* RecipeDB.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,13 +8,17 @@
 
 #import <Foundation/Foundation.h>
 #import "Recipe.h"
+#import "JCPriorityQueue.h"
 
-@interface Node : NSObject
+@interface Node : NSObject<JCPriorityQueueObject>
+
 @property(nonatomic, weak) Node* parent;
 @property(nonatomic, strong) Node* leftChild;
 @property(nonatomic, strong) Node* rightChild;
 @property(nonatomic, strong) Recipe* location;
 @property(nonatomic, assign) NSUInteger depth;
+
+@property(nonatomic, assign) double distanceToSearchPoint;
 
 //this will work ONLY with some ingredients in ingredients array
 -(id)initWithRecipes:(NSMutableArray*)recipes andIngredients:(NSMutableArray*)ingredients andDepth:(NSInteger) depth;

@@ -18,8 +18,8 @@ static int maxIngredients = 0;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-//    [self copyDBFromBundleToDocumentsIfNeeded];
-    [self secondParseData];
+    [self copyDBFromBundleToDocumentsIfNeeded];
+//    [self secondParseData];
     return YES;
 }
 #pragma mark - Use Already existing Data Base 
@@ -27,8 +27,15 @@ static int maxIngredients = 0;
 -(void)copyDBFromBundleToDocumentsIfNeeded
 {
     NSFileManager* fileManager = [[NSFileManager alloc] init];
-    
-
+    NSError *error;
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *dataBasePath = [documentsDirectory stringByAppendingPathComponent:kDBName];
+    BOOL isExisting = [fileManager fileExistsAtPath:dataBasePath];
+    if(!isExisting){
+        NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"RecipeDB" ofType:@"sqlite"];
+        [fileManager copyItemAtPath:bundlePath toPath: dataBasePath error:&error];
+    }
 }
 
 #pragma mark - SECOND WAY OF Parsing DATA BASE
@@ -41,7 +48,7 @@ static int maxIngredients = 0;
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSString *dataBasePath = [documentsDirectory stringByAppendingPathComponent:kDBName];
-    NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"RecipeDB" ofType:@"sqlite"];
+    NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"BlankRecipeDB" ofType:@"sqlite"];
     [fileManager removeItemAtPath:dataBasePath error:&error];
     
     [fileManager copyItemAtPath:bundlePath toPath: dataBasePath error:&error];

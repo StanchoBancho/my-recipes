@@ -100,6 +100,7 @@
         else{
             [self setDepth:depth];
         }
+        self.distanceToSearchPoint = DBL_MAX;
         if([recipes count] == 1){
             self.location = [recipes lastObject];
         }
@@ -139,6 +140,11 @@
     printf("%s",[self.location.name UTF8String]);
     [self.rightChild print];
     printf(")");
+}
+
+- (NSInteger)value
+{
+    return (NSInteger)floor(self.distanceToSearchPoint);
 }
 
 @end

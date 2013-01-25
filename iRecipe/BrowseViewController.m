@@ -35,6 +35,10 @@ static NSString* categoryCellIdentifier = @"categoryCellIdentifier";
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self.categoryTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:categoryCellIdentifier];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
     SQLiteReader* reader = [[SQLiteReader alloc] init];
     NSString* selectStatement = @"SELECT DISTINCT category FROM Recipe";
     NSMutableArray* rowData = [reader readDBWithQuery:selectStatement];
@@ -43,7 +47,6 @@ static NSString* categoryCellIdentifier = @"categoryCellIdentifier";
         [self.categories addObject:categoryName];
     }
 }
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
