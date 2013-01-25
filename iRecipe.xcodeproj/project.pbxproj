@@ -39,6 +39,11 @@
 		2ECAA0E916B3189700308098 /* RecipeDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ECAA0E716B3189700308098 /* RecipeDetailsViewController.m */; };
 		2ECAA0EA16B3189700308098 /* RecipeDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2ECAA0E816B3189700308098 /* RecipeDetailsViewController.xib */; };
 		2ECAA0F916B332D700308098 /* RecipeDB.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2ECAA0F816B332D700308098 /* RecipeDB.sqlite */; };
+		2ECAA0FC16B3442B00308098 /* UIView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ECAA0FB16B3442B00308098 /* UIView+Additions.m */; };
+		2ECAA10216B34B1000308098 /* book.png in Resources */ = {isa = PBXBuildFile; fileRef = 2ECAA0FE16B34B1000308098 /* book.png */; };
+		2ECAA10316B34B1000308098 /* book@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2ECAA0FF16B34B1000308098 /* book@2x.png */; };
+		2ECAA10416B34B1000308098 /* magnifier.png in Resources */ = {isa = PBXBuildFile; fileRef = 2ECAA10016B34B1000308098 /* magnifier.png */; };
+		2ECAA10516B34B1000308098 /* magnifier@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2ECAA10116B34B1000308098 /* magnifier@2x.png */; };
 		2EEF555316A9847B005AB989 /* SuggestFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EEF555216A9847B005AB989 /* SuggestFooterView.xib */; };
 		2EEF555E16A98673005AB989 /* SuggestFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EEF555D16A98673005AB989 /* SuggestFooterView.m */; };
 		2EEF556016A98907005AB989 /* IngredientCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EEF555F16A98907005AB989 /* IngredientCell.xib */; };
@@ -99,6 +104,12 @@
 		2ECAA0E716B3189700308098 /* RecipeDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeDetailsViewController.m; sourceTree = "<group>"; };
 		2ECAA0E816B3189700308098 /* RecipeDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecipeDetailsViewController.xib; sourceTree = "<group>"; };
 		2ECAA0F816B332D700308098 /* RecipeDB.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = RecipeDB.sqlite; sourceTree = "<group>"; };
+		2ECAA0FA16B3442B00308098 /* UIView+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Additions.h"; sourceTree = "<group>"; };
+		2ECAA0FB16B3442B00308098 /* UIView+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Additions.m"; sourceTree = "<group>"; };
+		2ECAA0FE16B34B1000308098 /* book.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = book.png; sourceTree = "<group>"; };
+		2ECAA0FF16B34B1000308098 /* book@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "book@2x.png"; sourceTree = "<group>"; };
+		2ECAA10016B34B1000308098 /* magnifier.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = magnifier.png; sourceTree = "<group>"; };
+		2ECAA10116B34B1000308098 /* magnifier@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "magnifier@2x.png"; sourceTree = "<group>"; };
 		2EEF555216A9847B005AB989 /* SuggestFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SuggestFooterView.xib; sourceTree = "<group>"; };
 		2EEF555C16A98673005AB989 /* SuggestFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuggestFooterView.h; sourceTree = "<group>"; };
 		2EEF555D16A98673005AB989 /* SuggestFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuggestFooterView.m; sourceTree = "<group>"; };
@@ -236,6 +247,7 @@
 		2EAB3D60166FEF2400FA8572 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2ECAA0FD16B34A8F00308098 /* Tabbar Icons */,
 				2ECAA0F816B332D700308098 /* RecipeDB.sqlite */,
 				2E2CE72316AAD33400E1534D /* BlankRecipeDB.sqlite */,
 				2EAAADD816A85D9800D076E3 /* recipes */,
@@ -275,9 +287,22 @@
 			name = "Data Objects";
 			sourceTree = "<group>";
 		};
+		2ECAA0FD16B34A8F00308098 /* Tabbar Icons */ = {
+			isa = PBXGroup;
+			children = (
+				2ECAA0FE16B34B1000308098 /* book.png */,
+				2ECAA0FF16B34B1000308098 /* book@2x.png */,
+				2ECAA10016B34B1000308098 /* magnifier.png */,
+				2ECAA10116B34B1000308098 /* magnifier@2x.png */,
+			);
+			name = "Tabbar Icons";
+			sourceTree = "<group>";
+		};
 		2EEF555016A98420005AB989 /* View Layer */ = {
 			isa = PBXGroup;
 			children = (
+				2ECAA0FA16B3442B00308098 /* UIView+Additions.h */,
+				2ECAA0FB16B3442B00308098 /* UIView+Additions.m */,
 				2EEF555C16A98673005AB989 /* SuggestFooterView.h */,
 				2EEF555D16A98673005AB989 /* SuggestFooterView.m */,
 				2EEF555216A9847B005AB989 /* SuggestFooterView.xib */,
@@ -367,6 +392,10 @@
 				2ECAA0E416B3149200308098 /* ShowRecipesViewController.xib in Resources */,
 				2ECAA0EA16B3189700308098 /* RecipeDetailsViewController.xib in Resources */,
 				2ECAA0F916B332D700308098 /* RecipeDB.sqlite in Resources */,
+				2ECAA10216B34B1000308098 /* book.png in Resources */,
+				2ECAA10316B34B1000308098 /* book@2x.png in Resources */,
+				2ECAA10416B34B1000308098 /* magnifier.png in Resources */,
+				2ECAA10516B34B1000308098 /* magnifier@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,6 +425,7 @@
 				2E1279D016B271AB00DD4619 /* JCSuperPriorityQueue.mm in Sources */,
 				2ECAA0E316B3149200308098 /* ShowRecipesViewController.m in Sources */,
 				2ECAA0E916B3189700308098 /* RecipeDetailsViewController.m in Sources */,
+				2ECAA0FC16B3442B00308098 /* UIView+Additions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

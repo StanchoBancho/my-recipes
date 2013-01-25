@@ -9,12 +9,17 @@
 #import "KDTree.h"
 #import "Ingredient.h"
 #import "SQLiteReader.h"
+#import "JCPriorityQueue.h"
+
 @interface KDTree()
 
 @property(nonatomic, strong) SQLiteReader* dbReader;
 @property(nonatomic, strong) Node* root;
 @property(nonatomic, strong) Recipe* searchPoint;
-@property(nonatomic, strong) Node* currentBest;
+
+@property(nonatomic, strong) JCPriorityQueue* currentBestPQ;
+
+
 @property(nonatomic, strong) NSMutableArray* allRecipes;
 @end
 
@@ -196,13 +201,22 @@
 }
 
 
--(Recipe*)theNearestNeighbour
+-(NSMutableArray*)theNearestNeighbour
 {
+    self.currentBestPQ = [[JCPriorityQueue alloc] init];
     [self calculateNearestNeighbourWithCurrentNode:self.root];
     
-        NSLog(@"FINAL distance is :%f", [self distanceBetweenRecipeOne:self.currentBest.location andRecipeTwo:self.searchPoint]);
     
-    return self.currentBest.location;
+    NSMutableArray* result = [[NSMutableArray alloc] init];
+    while ([self.currentBestPQ count] > 1) {
+        Node* node = [self.currentBestPQ pop];
+        [result addObject:node.location];
+        
+        if([self.currentBestPQ count] == 1){
+            NSLog(@"FINAL distance is :%f", [self distanceBetweenRecipeOne:node.location andRecipeTwo:self.searchPoint]);
+        }
+    }
+    return result;
 }
 
 #pragma mark - utility methods
@@ -220,7 +234,8 @@
         }
         if(planeMakingIngredient){
             double sphereCenterImportentIngredientValue = 0.0f;
-            for(Ingredient* i in self.currentBest.location.ingredients){
+            Node* currentWorst = self.currentBestPQ.first;
+            for(Ingredient* i in currentWorst.location.ingredients){
                 if([i.name isEqualToString:planeMakingIngredient.name]){
                     sphereCenterImportentIngredientValue = i.realValue;
                     break;
@@ -237,16 +252,27 @@
 
 -(void)checkIsNodeBetterThanCurrentBestAndUpdateIfNeeded:(Node*)newNode
 {
-    if(self.currentBest == nil){
-        self.currentBest = newNode;
+    if([self.currentBestPQ count] == 1){
+        double distToSearchPoint = [self distanceBetweenRecipeOne:newNode.location andRecipeTwo:self.searchPoint];
+        [newNode setDistanceToSearchPoint:distToSearchPoint];
+        [self.currentBestPQ addObject:newNode];
     }
     else{
         //check is current better than currentBest
-        Recipe* secondRecipe = self.searchPoint;
-        double distBetweenCurrentBestAndSearchPoint = [self distanceBetweenRecipeOne:self.currentBest.location andRecipeTwo:secondRecipe];
-        double distBetweenCurrentAndSearchPoint = [self distanceBetweenRecipeOne:newNode.location andRecipeTwo:self.searchPoint];
-        if(distBetweenCurrentAndSearchPoint < distBetweenCurrentBestAndSearchPoint){
-            self.currentBest = newNode;
+        Node* currentWorstNode = (Node*)[self.currentBestPQ first];
+        double distFromCurrentWorstToSearchPoint = currentWorstNode.distanceToSearchPoint;
+        double distFromNewNodeAndSearchPoint = [self distanceBetweenRecipeOne:newNode.location andRecipeTwo:self.searchPoint];
+        if([self.currentBestPQ count] < 11){
+            //add it no matter its distance cause we do not have enough
+            [newNode setDistanceToSearchPoint:distFromNewNodeAndSearchPoint];
+            [self.currentBestPQ addObject:newNode];
+        }
+        else{
+            if(distFromCurrentWorstToSearchPoint > distFromNewNodeAndSearchPoint){
+                [self.currentBestPQ pop];
+                [newNode setDistanceToSearchPoint:distFromNewNodeAndSearchPoint];
+                [self.currentBestPQ addObject:newNode];
+            }
         }
     }
 }

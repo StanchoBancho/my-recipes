@@ -14,7 +14,7 @@
 
 -(id)initWithIngredients:(NSMutableArray*)ingredients;
 
--(Recipe*)theNearestNeighbour;
+-(NSMutableArray*)theNearestNeighbour;
 -(Recipe*)trivialSearch;
 -(void)print;
 

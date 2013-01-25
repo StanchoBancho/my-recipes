@@ -13,6 +13,7 @@
 #import "AddIngredientViewController.h"
 #import "KDTree.h"
 #import "ShowRecipesViewController.h"
+#import "UIView+Additions.h"
 
 @interface SearchRecipeViewController ()<UITableViewDataSource, UITabBarDelegate, AddIngredientDelegate>
 
@@ -61,7 +62,7 @@ static NSString* addIngredientCellName = @"AddIngredientCell";
         self.footerView = [nibObjects objectAtIndex:0];
         [self.footerView.sugestButton addTarget:self action:@selector(suggestButtonPressed:) forControlEvents:UIControlEventTouchDown];
     }
-    [self.ingredientsTableView reloadData];
+[self.ingredientsTableView reloadData];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -72,52 +73,63 @@ static NSString* addIngredientCellName = @"AddIngredientCell";
 
 -(IBAction)suggestButtonPressed:(id)sender
 {
-    @autoreleasepool {
-        
-        
-        NSTimeInterval timeNeededForKDTreeInit = 0.0f;
-        NSDate* startDate = [NSDate date];
-        
-        KDTree* aTree = [[KDTree alloc] initWithIngredients:self.ingredients];
-        NSDate* endDate = [NSDate date];
-        timeNeededForKDTreeInit = [endDate timeIntervalSinceDate:startDate];
-        NSLog(@"--------------------------");
-        NSLog(@"Time For KD Tree creation is: %f", timeNeededForKDTreeInit);
-        Recipe* nearestNeighBour = [aTree theNearestNeighbour];
-        endDate = [NSDate date];
-        timeNeededForKDTreeInit = [endDate timeIntervalSinceDate:startDate];
-        NSLog(@"Total time For KD Tree creation & search is: %f", timeNeededForKDTreeInit);
-        NSLog(@"NEARESH NEIGHBOUR IS : %@",nearestNeighBour.name);
-        NSLog(@"Ingredients:");
-        for(Ingredient* i in nearestNeighBour.ingredients){
-            NSLog(@"%@  %f",i.name, i.realValue);
+    [self.ingredientsTableView setUserInteractionEnabled:NO];
+    
+    UIView* loadingView = [UIView presentPositiveNotifyingViewWithTitle:@"Suggesting..."onView:self.ingredientsTableView];
+    [self.ingredientsTableView addSubview:loadingView];
+    dispatch_queue_t backgroundQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(backgroundQueue, ^{
+        @autoreleasepool {
+            NSTimeInterval timeNeededForKDTreeInit = 0.0f;
+            NSDate* startDate = [NSDate date];
+            
+            KDTree* aTree = [[KDTree alloc] initWithIngredients:self.ingredients];
+            NSDate* endDate = [NSDate date];
+            timeNeededForKDTreeInit = [endDate timeIntervalSinceDate:startDate];
+            NSLog(@"--------------------------");
+            NSLog(@"Time For KD Tree creation is: %f", timeNeededForKDTreeInit);
+            NSMutableArray* allNearestNeighBours = [aTree theNearestNeighbour];
+            for(Recipe* nearestNeighBour in allNearestNeighBours){
+                
+                endDate = [NSDate date];
+                timeNeededForKDTreeInit = [endDate timeIntervalSinceDate:startDate];
+                NSLog(@"Total time For KD Tree creation & search is: %f", timeNeededForKDTreeInit);
+                NSLog(@"NEARESH NEIGHBOUR IS : %@",nearestNeighBour.name);
+                //            NSLog(@"Ingredients:");
+                //            for(Ingredient* i in nearestNeighBour.ingredients){
+                //                NSLog(@"%@  %f",i.name, i.realValue);
+                //            }
+            }
+            
+            NSLog(@"--------------------------");
+            startDate = [NSDate date];
+            Recipe* trivialAnswer = [aTree trivialSearch];
+            endDate = [NSDate date];
+            timeNeededForKDTreeInit = [endDate timeIntervalSinceDate:startDate];
+            NSLog(@"Total time For trivial search: %f", timeNeededForKDTreeInit);
+            NSLog(@"NEARESH NEIGHBOUR IS : %@",trivialAnswer.name);
+            //        NSLog(@"Ingredients:");
+            //        for(Ingredient* i in trivialAnswer.ingredients){
+            //            NSLog(@"%@  %f",i.name, i.realValue);
+            //        }
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                //present the result vc
+                ShowRecipesViewController *recipesVC = [[ShowRecipesViewController alloc] initWithNibName:@"ShowRecipesViewController" bundle:nil];
+                recipesVC.datasource = allNearestNeighBours;
+                [loadingView removeFromSuperview];
+                
+                [UIView  beginAnimations: @"Showinfo"context: nil];
+                [UIView setAnimationCurve: UIViewAnimationCurveEaseInOut];
+                [UIView setAnimationDuration:1.f];
+                [self.ingredientsTableView setUserInteractionEnabled:YES];
+                [self.navigationController pushViewController:recipesVC animated:NO];
+                [UIView setAnimationTransition:UIViewAnimationTransitionCurlUp forView:self.navigationController.view cache:NO];
+                [UIView commitAnimations];
+            });
         }
-        
-        
-        NSLog(@"--------------------------");
-        startDate = [NSDate date];
-        Recipe* trivialAnswer = [aTree trivialSearch];
-        endDate = [NSDate date];
-        timeNeededForKDTreeInit = [endDate timeIntervalSinceDate:startDate];
-        NSLog(@"Total time For trivial search: %f", timeNeededForKDTreeInit);
-        NSLog(@"NEARESH NEIGHBOUR IS : %@",trivialAnswer.name);
-        NSLog(@"Ingredients:");
-        for(Ingredient* i in trivialAnswer.ingredients){
-            NSLog(@"%@  %f",i.name, i.realValue);
-        }
-        
-        
-        ShowRecipesViewController *recipesVC = [[ShowRecipesViewController alloc] initWithNibName:@"ShowRecipesViewController" bundle:nil];
-        recipesVC.datasource = [[NSMutableArray alloc] initWithObjects:nearestNeighBour, nil];
-        
-        [UIView  beginAnimations: @"Showinfo"context: nil];
-        [UIView setAnimationCurve: UIViewAnimationCurveEaseInOut];
-        [UIView setAnimationDuration:1.f];
-        [self.navigationController pushViewController:recipesVC animated:NO];
-        [UIView setAnimationTransition:UIViewAnimationTransitionCurlUp forView:self.navigationController.view cache:NO];
-        [UIView commitAnimations];
-        
-    }
+    });
 }
 
 #pragma mark - UITableView DataSource
