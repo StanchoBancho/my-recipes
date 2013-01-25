@@ -124,4 +124,9 @@
     [self setIngredientsSearchBar:nil];
     [super viewDidUnload];
 }
+
+- (IBAction)cancelButtonPressed:(id)sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 @end

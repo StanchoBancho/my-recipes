@@ -14,7 +14,7 @@
 @property (nonatomic, strong) NSString* name;
 @property (nonatomic, strong) NSString* measure;
 @property (nonatomic, strong) NSNumber* quantity;
-@property (nonatomic, strong) NSNumber* realValue;
+@property (nonatomic, assign) CGFloat realValue;
 
 - (id)initWithName:(NSString*)_name amount:(NSString*)_amount andMeasure:(NSString*)_measure;
 

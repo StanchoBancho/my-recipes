@@ -18,7 +18,8 @@ static int maxIngredients = 0;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-   // [self secondParseData];
+    
+    //[self secondParseData];
     return YES;
 }
 
@@ -155,7 +156,11 @@ static int maxIngredients = 0;
             for(Ingredient* i in r.ingredients){
                 NSString* ingredientId = [self putIngredient:i ifNeededAndReadItsId:dbReader];
                 if(ingredientId){
-                    NSString* insertSetStatement = [NSString stringWithFormat:@"INSERT INTO 'Relation' (ingredientFk, recipeFk, quantity, measure, realValue) VALUES (%d, %d, %f, '%@', %f)",[ingredientId intValue], [recipeId intValue], [i.quantity floatValue], i.measure, [i.realValue doubleValue]];
+                    NSString* insertSetStatement = [NSString stringWithFormat:@"INSERT INTO 'Relation' (ingredientFk, recipeFk, quantity, measure, realValue) VALUES (%d, %d, %f, '%@', %@)",[ingredientId intValue], [recipeId intValue], [i.quantity floatValue], i.measure, [NSString stringWithFormat:@"%.2f",i.realValue]];
+                    
+                    //NSLog(@"real value - %@", [NSString stringWithFormat:@"%.2f",i.realValue]);
+//                    NSString* insertSetStatement = [NSString stringWithFormat:@"INSERT INTO 'Relation' (ingredientFk, recipeFk, quantity, measure, realValue) VALUES (%d, %d, %f, '%@', 130.58)",[ingredientId intValue], [recipeId intValue], [i.quantity floatValue], i.measure];
+
                     BOOL resultOfAddInSet = [dbReader executeSQLStatement:insertSetStatement];
                     if (!resultOfAddInSet) {
                         NSLog(@"losho");

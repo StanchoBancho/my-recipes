@@ -11,10 +11,11 @@
 
 @interface KDTree : NSObject
 
-@property(nonatomic, strong) Node* root;
 
 -(id)initWithIngredients:(NSMutableArray*)ingredients;
 
+-(Recipe*)theNearestNeighbour;
+-(Recipe*)trivialSearch;
 -(void)print;
 
 @end

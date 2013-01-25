@@ -10,6 +10,7 @@
 
 @interface Recipe : NSObject
 
+@property (nonatomic, assign) BOOL used;
 @property (nonatomic, strong) NSString* pid;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *howTo;

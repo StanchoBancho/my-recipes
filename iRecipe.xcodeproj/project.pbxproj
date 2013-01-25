@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E1279CF16B271AB00DD4619 /* JCPriorityQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E1279CC16B271AB00DD4619 /* JCPriorityQueue.m */; };
+		2E1279D016B271AB00DD4619 /* JCSuperPriorityQueue.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2E1279CE16B271AB00DD4619 /* JCSuperPriorityQueue.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		2E2CE72416AAD33400E1534D /* RecipeDB.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2E2CE72316AAD33400E1534D /* RecipeDB.sqlite */; };
 		2E30873416ADF11E0071EB5A /* BrowseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E30873216ADF11E0071EB5A /* BrowseViewController.m */; };
 		2E30873516ADF11E0071EB5A /* BrowseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E30873316ADF11E0071EB5A /* BrowseViewController.xib */; };
@@ -43,6 +45,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2E1279CB16B271AB00DD4619 /* JCPriorityQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCPriorityQueue.h; sourceTree = "<group>"; };
+		2E1279CC16B271AB00DD4619 /* JCPriorityQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCPriorityQueue.m; sourceTree = "<group>"; };
+		2E1279CD16B271AB00DD4619 /* JCSuperPriorityQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCSuperPriorityQueue.h; sourceTree = "<group>"; };
+		2E1279CE16B271AB00DD4619 /* JCSuperPriorityQueue.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JCSuperPriorityQueue.mm; sourceTree = "<group>"; };
 		2E2CE72316AAD33400E1534D /* RecipeDB.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = RecipeDB.sqlite; sourceTree = "<group>"; };
 		2E30873116ADF11E0071EB5A /* BrowseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrowseViewController.h; sourceTree = "<group>"; };
 		2E30873216ADF11E0071EB5A /* BrowseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrowseViewController.m; sourceTree = "<group>"; };
@@ -110,6 +116,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E1279CA16B2716900DD4619 /* Priority Queue */ = {
+			isa = PBXGroup;
+			children = (
+				2E1279CB16B271AB00DD4619 /* JCPriorityQueue.h */,
+				2E1279CC16B271AB00DD4619 /* JCPriorityQueue.m */,
+				2E1279CD16B271AB00DD4619 /* JCSuperPriorityQueue.h */,
+				2E1279CE16B271AB00DD4619 /* JCSuperPriorityQueue.mm */,
+			);
+			name = "Priority Queue";
+			sourceTree = "<group>";
+		};
 		2E30872E16ADF0F10071EB5A /* Sugest Tab */ = {
 			isa = PBXGroup;
 			children = (
@@ -217,6 +234,7 @@
 		2EAB3D7E166FEF4F00FA8572 /* Data Layer */ = {
 			isa = PBXGroup;
 			children = (
+				2E1279CA16B2716900DD4619 /* Priority Queue */,
 				2E6A736F16B1887E0040FE7D /* k-d Tree */,
 				2EAB3D88166FF3C400FA8572 /* Data Objects */,
 				2EAB3D7F166FEF6700FA8572 /* SQLiteReader.h */,
@@ -352,6 +370,8 @@
 				2E6A737316B188D40040FE7D /* Node.m in Sources */,
 				2E6A737616B18D860040FE7D /* KDTree.m in Sources */,
 				2E8C9B0716B1D4D600E08D7A /* AddAmountViewController.m in Sources */,
+				2E1279CF16B271AB00DD4619 /* JCPriorityQueue.m in Sources */,
+				2E1279D016B271AB00DD4619 /* JCSuperPriorityQueue.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

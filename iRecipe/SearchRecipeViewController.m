@@ -31,14 +31,14 @@ static NSString* addIngredientCellName = @"AddIngredientCell";
     if(self){
         [self setView:[[[NSBundle mainBundle] loadNibNamed:@"SearchRecipeViewController" owner:self options:nil] objectAtIndex:0]];
         self.ingredients = [NSMutableArray array];
-        }
+    }
     return self;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-   
+    
     [self.navigationItem setTitle:@"Ingredients"];
     
     [self.ingredientsTableView setEditing:YES];
@@ -54,24 +54,51 @@ static NSString* addIngredientCellName = @"AddIngredientCell";
     
     [self.ingredientsTableView reloadData];
     
-    }
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
 
-#pragma mark - Action methods 
+#pragma mark - Action methods
 
 -(IBAction)suggestButtonPressed:(id)sender
 {
-    NSTimeInterval timeNeededForKDTreeInit = 0.0f;
-    NSDate* startDate = [NSDate date];
-    KDTree* aTree = [[KDTree alloc] initWithIngredients:self.ingredients];
-    NSDate* endDate = [NSDate date];
-    timeNeededForKDTreeInit = [endDate timeIntervalSinceDate:startDate];
-    NSLog(@"Time For KD Tree creation is: %f", timeNeededForKDTreeInit);
-    [aTree print];
+    @autoreleasepool {
+        
+        
+        NSTimeInterval timeNeededForKDTreeInit = 0.0f;
+        NSDate* startDate = [NSDate date];
+        
+        KDTree* aTree = [[KDTree alloc] initWithIngredients:self.ingredients];
+        NSDate* endDate = [NSDate date];
+        timeNeededForKDTreeInit = [endDate timeIntervalSinceDate:startDate];
+        NSLog(@"--------------------------");
+        NSLog(@"Time For KD Tree creation is: %f", timeNeededForKDTreeInit);
+        Recipe* nearestNeighBour = [aTree theNearestNeighbour];
+        endDate = [NSDate date];
+        timeNeededForKDTreeInit = [endDate timeIntervalSinceDate:startDate];
+        NSLog(@"Total time For KD Tree creation & search is: %f", timeNeededForKDTreeInit);
+        NSLog(@"NEARESH NEIGHBOUR IS : %@",nearestNeighBour.name);
+        NSLog(@"Ingredients:");
+        for(Ingredient* i in nearestNeighBour.ingredients){
+            NSLog(@"%@  %f",i.name, i.realValue);
+        }
+        
+        
+        NSLog(@"--------------------------");
+        startDate = [NSDate date];
+        Recipe* trivialAnswer = [aTree trivialSearch];
+        endDate = [NSDate date];
+        timeNeededForKDTreeInit = [endDate timeIntervalSinceDate:startDate];
+        NSLog(@"Total time For trivial search: %f", timeNeededForKDTreeInit);
+        NSLog(@"NEARESH NEIGHBOUR IS : %@",trivialAnswer.name);
+        NSLog(@"Ingredients:");
+        for(Ingredient* i in trivialAnswer.ingredients){
+            NSLog(@"%@  %f",i.name, i.realValue);
+        }
+    }
 }
 
 #pragma mark - UITableView DataSource
@@ -94,7 +121,7 @@ static NSString* addIngredientCellName = @"AddIngredientCell";
         IngredientCell* cell = [tableView dequeueReusableCellWithIdentifier:ingredientCellName];
         Ingredient* currentIngredient = [self.ingredients objectAtIndex:indexPath.row-1];
         [cell.ingredient setText:currentIngredient.name];
-        [cell.quantity setText:[currentIngredient.quantity stringValue]];
+        [cell.quantity setText:[NSString stringWithFormat:@"%f", currentIngredient.realValue]];
         [cell.measure setText:currentIngredient.measure];
         [cell setEditingAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
         [cell setShouldIndentWhileEditing:YES];
@@ -146,7 +173,7 @@ static NSString* addIngredientCellName = @"AddIngredientCell";
         AddIngredientViewController* addIngredientVC = [[AddIngredientViewController alloc] initWithNibName:@"AddIngredientViewController" bundle:[NSBundle mainBundle]];
         [addIngredientVC setDelegate:self];
         UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:addIngredientVC];
-
+        
         [self.navigationController presentViewController:navController animated:YES completion:nil];
     }
 }

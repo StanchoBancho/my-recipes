@@ -55,7 +55,7 @@
     if(self.delegate && [self.delegate respondsToSelector:@selector(dissmissWithIngredient:)]){
         Ingredient* i = [[Ingredient alloc] init];
         [i setName:self.selectedIngredient];
-        [i setQuantity:[NSNumber numberWithDouble:self.amountTextField.text.doubleValue]];
+        [i setRealValue:self.amountTextField.text.doubleValue];
         SQLiteReader* dbReader = [[SQLiteReader alloc] init];
         NSString* selectIngredientId = [NSString stringWithFormat:@"SELECT id FROM Ingredient WHERE name = '%@'", i.name];
         NSMutableArray* resultFromSelect = [dbReader readDBWithQuery:selectIngredientId];
