@@ -13,7 +13,6 @@
 
 @property(nonatomic, strong) SQLiteReader* dbReader;
 @property(nonatomic, strong) Node* root;
-@property(nonatomic, strong) NSMutableArray* ingredients;
 @property(nonatomic, strong) Recipe* searchPoint;
 @property(nonatomic, strong) Node* currentBest;
 @property(nonatomic, strong) NSMutableArray* allRecipes;
@@ -24,7 +23,7 @@
 -(double)distanceBetweenRecipeOne:(Recipe*)recipeOne andRecipeTwo:(Recipe*)recipeTwo
 {
     double result = 0.0f;
-    for (Ingredient* i in self.ingredients) {
+    for (Ingredient* i in self.searchPoint.ingredients) {
         //get the first ingredient
         Ingredient* one = nil;
         for (Ingredient* i1 in recipeOne.ingredients) {
@@ -141,14 +140,14 @@
     return newRecipe;
 }
 
--(NSMutableArray*)allRecipesThatMatchThisIngredients:(NSMutableArray*)ingredients
+-(NSMutableArray*)allRecipesThatMatchExistingIngridients
 {
     //select desired recipe ids
     NSMutableString* selectRecipeIdStatement =[NSMutableString stringWithFormat:@"SELECT DISTINCT recipeFk FROM Relation WHERE "];
-    for (int i = 0; i < ingredients.count; i++) {
-        Ingredient* ingredient = [ingredients objectAtIndex:i];
+    for (int i = 0; i < self.searchPoint.ingredients.count; i++) {
+        Ingredient* ingredient = [self.searchPoint.ingredients objectAtIndex:i];
         [selectRecipeIdStatement appendFormat:@"ingredientFk = %@",ingredient.pid];
-        if(i != [ingredients count] - 1){
+        if(i != [self.searchPoint.ingredients count] - 1){
             [selectRecipeIdStatement appendFormat:@" OR "];
         }
     }
@@ -165,10 +164,12 @@
 -(id)initWithIngredients:(NSMutableArray*)ingredients{
     self = [super init];
     if(self){
-        self.searchPoint = nil;
-        self.ingredients = ingredients;
+        Recipe* searchPoint = [[Recipe alloc] init];
+        [searchPoint setIngredients:ingredients];
+        self.searchPoint = searchPoint;
+
         self.dbReader = [[SQLiteReader alloc] init];
-        NSMutableArray* allNeedRecipes = [self allRecipesThatMatchThisIngredients:ingredients];
+        NSMutableArray* allNeedRecipes = [self allRecipesThatMatchExistingIngridients];
         self.allRecipes = allNeedRecipes;
         NSLog(@"recipe count:%d",[allNeedRecipes count]);
         Node* root = [[Node alloc] initWithRecipes:allNeedRecipes andIngredients:ingredients andDepth:0];
@@ -197,10 +198,6 @@
 
 -(Recipe*)theNearestNeighbour
 {
-    Recipe* searchPoint = [[Recipe alloc] init];
-    [searchPoint setIngredients:self.ingredients];
-    self.searchPoint = searchPoint;
-    
     [self calculateNearestNeighbourWithCurrentNode:self.root];
     
         NSLog(@"FINAL distance is :%f", [self distanceBetweenRecipeOne:self.currentBest.location andRecipeTwo:self.searchPoint]);
@@ -252,7 +249,6 @@
             self.currentBest = newNode;
         }
     }
-
 }
 
 -(void)calculateNearestNeighbourWithCurrentNode:(Node*)current
@@ -260,9 +256,14 @@
     if(current == nil){
         return;
     }
+    if([current.location used] == YES){
+        return;
+    }
+    
     [current.location setUsed:YES];
+    
     //calculate where should we go
-    Ingredient* importentIngredient = [self.ingredients objectAtIndex:current.depth];
+    Ingredient* importentIngredient = [self.searchPoint.ingredients objectAtIndex:current.depth];
     Recipe* currentLocation = current.location;
     Ingredient* ingredientInThisLocation = nil;
     for(Ingredient* i in currentLocation.ingredients){
@@ -293,7 +294,7 @@
         if(sphereRadius >= distanceBetweenShereCenterAndPlane){
             //there is intersection
             Node* destination = current.parent.leftChild;
-            if(destination && destination.location && ![destination.location used]){
+            if(destination && destination.location){
                 [self calculateNearestNeighbourWithCurrentNode:destination];
             }
         }
@@ -312,7 +313,7 @@
         if(sphereRadius >= distanceBetweenShereCenterAndPlane){
             //there is intersection
             Node* destination = current.parent.rightChild;
-            if(destination && destination.location && ![destination.location used]){
+            if(destination && destination.location){
                 [self calculateNearestNeighbourWithCurrentNode:destination];
             }
         }

@@ -12,6 +12,7 @@
 #import "Ingredient.h"
 #import "AddIngredientViewController.h"
 #import "KDTree.h"
+#import "ShowRecipesViewController.h"
 
 @interface SearchRecipeViewController ()<UITableViewDataSource, UITabBarDelegate, AddIngredientDelegate>
 
@@ -48,14 +49,20 @@ static NSString* addIngredientCellName = @"AddIngredientCell";
     UINib* cellNib = [UINib nibWithNibName:@"IngredientCell" bundle:[NSBundle mainBundle]];
     [self.ingredientsTableView registerNib:cellNib forCellReuseIdentifier:ingredientCellName];
     
-    NSArray *nibObjects = [[NSBundle mainBundle] loadNibNamed:@"SuggestFooterView" owner:self options:nil];
-    self.footerView = [nibObjects objectAtIndex:0];
-    [self.footerView.sugestButton addTarget:self action:@selector(suggestButtonPressed:) forControlEvents:UIControlEventTouchDown];
-    
     [self.ingredientsTableView reloadData];
     
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    if([self.ingredients count] > 0){
+        NSArray *nibObjects = [[NSBundle mainBundle] loadNibNamed:@"SuggestFooterView" owner:self options:nil];
+        self.footerView = [nibObjects objectAtIndex:0];
+        [self.footerView.sugestButton addTarget:self action:@selector(suggestButtonPressed:) forControlEvents:UIControlEventTouchDown];
+    }
+    [self.ingredientsTableView reloadData];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
@@ -98,6 +105,18 @@ static NSString* addIngredientCellName = @"AddIngredientCell";
         for(Ingredient* i in trivialAnswer.ingredients){
             NSLog(@"%@  %f",i.name, i.realValue);
         }
+        
+        
+        ShowRecipesViewController *recipesVC = [[ShowRecipesViewController alloc] initWithNibName:@"ShowRecipesViewController" bundle:nil];
+        recipesVC.datasource = [[NSMutableArray alloc] initWithObjects:nearestNeighBour, nil];
+        
+        [UIView  beginAnimations: @"Showinfo"context: nil];
+        [UIView setAnimationCurve: UIViewAnimationCurveEaseInOut];
+        [UIView setAnimationDuration:1.f];
+        [self.navigationController pushViewController:recipesVC animated:NO];
+        [UIView setAnimationTransition:UIViewAnimationTransitionCurlUp forView:self.navigationController.view cache:NO];
+        [UIView commitAnimations];
+        
     }
 }
 
@@ -121,7 +140,7 @@ static NSString* addIngredientCellName = @"AddIngredientCell";
         IngredientCell* cell = [tableView dequeueReusableCellWithIdentifier:ingredientCellName];
         Ingredient* currentIngredient = [self.ingredients objectAtIndex:indexPath.row-1];
         [cell.ingredient setText:currentIngredient.name];
-        [cell.quantity setText:[NSString stringWithFormat:@"%f", currentIngredient.realValue]];
+        [cell.quantity setText:[NSString stringWithFormat:@"%.2f", currentIngredient.realValue]];
         [cell.measure setText:currentIngredient.measure];
         [cell setEditingAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
         [cell setShouldIndentWhileEditing:YES];
@@ -166,6 +185,17 @@ static NSString* addIngredientCellName = @"AddIngredientCell";
     }
 }
 
+- (void)tableView:(UITableView *)tableView commitEditingStyle: (UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(editingStyle == UITableViewCellEditingStyleDelete){
+        [self.ingredients removeObjectAtIndex:indexPath.row - 1];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationBottom];
+        if([self.ingredients count] == 0){
+            [tableView reloadData];
+        }
+    }
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -173,7 +203,7 @@ static NSString* addIngredientCellName = @"AddIngredientCell";
         AddIngredientViewController* addIngredientVC = [[AddIngredientViewController alloc] initWithNibName:@"AddIngredientViewController" bundle:[NSBundle mainBundle]];
         [addIngredientVC setDelegate:self];
         UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:addIngredientVC];
-        
+        [navController.navigationBar setBarStyle:UIBarStyleBlack];
         [self.navigationController presentViewController:navController animated:YES completion:nil];
     }
 }

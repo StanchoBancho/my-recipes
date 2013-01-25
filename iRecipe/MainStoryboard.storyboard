@@ -28,7 +28,7 @@
             <objects>
                 <navigationController definesPresentationContext="YES" id="iO9-AI-ged" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Suggest" id="ALa-18-4LV"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="f8h-2E-LSm">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackOpaque" id="f8h-2E-LSm">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -59,7 +59,7 @@
             <objects>
                 <navigationController definesPresentationContext="YES" id="kYw-u7-t1c" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Browse" id="cRW-4W-xef"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="LWL-4W-Qsy">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackOpaque" id="LWL-4W-Qsy">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -89,10 +89,14 @@
     <classes>
         <class className="BrowseViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BrowseViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="categoryTableView" candidateClass="UITableView"/>
+            </relationships>
         </class>
         <class className="SearchRecipeViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchRecipeViewController.h"/>
             <relationships>
+                <relationship kind="action" name="suggestButtonPressed:"/>
                 <relationship kind="outlet" name="ingredientsTableView" candidateClass="UITableView"/>
             </relationships>
         </class>

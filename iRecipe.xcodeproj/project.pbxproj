@@ -34,6 +34,10 @@
 		2EAB3D87166FF31900FA8572 /* TXTParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EAB3D86166FF31900FA8572 /* TXTParser.m */; };
 		2EAB3D8B166FF41B00FA8572 /* Recipe.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EAB3D8A166FF41B00FA8572 /* Recipe.m */; };
 		2EAB3D8E166FF84600FA8572 /* Ingredient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EAB3D8D166FF84600FA8572 /* Ingredient.m */; };
+		2ECAA0E316B3149200308098 /* ShowRecipesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ECAA0E116B3149100308098 /* ShowRecipesViewController.m */; };
+		2ECAA0E416B3149200308098 /* ShowRecipesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2ECAA0E216B3149200308098 /* ShowRecipesViewController.xib */; };
+		2ECAA0E916B3189700308098 /* RecipeDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ECAA0E716B3189700308098 /* RecipeDetailsViewController.m */; };
+		2ECAA0EA16B3189700308098 /* RecipeDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2ECAA0E816B3189700308098 /* RecipeDetailsViewController.xib */; };
 		2EEF555316A9847B005AB989 /* SuggestFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EEF555216A9847B005AB989 /* SuggestFooterView.xib */; };
 		2EEF555E16A98673005AB989 /* SuggestFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EEF555D16A98673005AB989 /* SuggestFooterView.m */; };
 		2EEF556016A98907005AB989 /* IngredientCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EEF555F16A98907005AB989 /* IngredientCell.xib */; };
@@ -87,6 +91,12 @@
 		2EAB3D8A166FF41B00FA8572 /* Recipe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Recipe.m; sourceTree = "<group>"; };
 		2EAB3D8C166FF84600FA8572 /* Ingredient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ingredient.h; sourceTree = "<group>"; };
 		2EAB3D8D166FF84600FA8572 /* Ingredient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ingredient.m; sourceTree = "<group>"; };
+		2ECAA0E016B3149100308098 /* ShowRecipesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowRecipesViewController.h; sourceTree = "<group>"; };
+		2ECAA0E116B3149100308098 /* ShowRecipesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowRecipesViewController.m; sourceTree = "<group>"; };
+		2ECAA0E216B3149200308098 /* ShowRecipesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShowRecipesViewController.xib; sourceTree = "<group>"; };
+		2ECAA0E616B3189700308098 /* RecipeDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeDetailsViewController.h; sourceTree = "<group>"; };
+		2ECAA0E716B3189700308098 /* RecipeDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeDetailsViewController.m; sourceTree = "<group>"; };
+		2ECAA0E816B3189700308098 /* RecipeDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecipeDetailsViewController.xib; sourceTree = "<group>"; };
 		2EEF555216A9847B005AB989 /* SuggestFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SuggestFooterView.xib; sourceTree = "<group>"; };
 		2EEF555C16A98673005AB989 /* SuggestFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuggestFooterView.h; sourceTree = "<group>"; };
 		2EEF555D16A98673005AB989 /* SuggestFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuggestFooterView.m; sourceTree = "<group>"; };
@@ -139,6 +149,12 @@
 				2E8C9B0416B1D4D600E08D7A /* AddAmountViewController.h */,
 				2E8C9B0516B1D4D600E08D7A /* AddAmountViewController.m */,
 				2E8C9B0616B1D4D600E08D7A /* AddAmountViewController.xib */,
+				2ECAA0E016B3149100308098 /* ShowRecipesViewController.h */,
+				2ECAA0E116B3149100308098 /* ShowRecipesViewController.m */,
+				2ECAA0E216B3149200308098 /* ShowRecipesViewController.xib */,
+				2ECAA0E616B3189700308098 /* RecipeDetailsViewController.h */,
+				2ECAA0E716B3189700308098 /* RecipeDetailsViewController.m */,
+				2ECAA0E816B3189700308098 /* RecipeDetailsViewController.xib */,
 			);
 			name = "Sugest Tab";
 			sourceTree = "<group>";
@@ -345,6 +361,8 @@
 				2E50941016AC464500EABF2D /* MainStoryboard.storyboard in Resources */,
 				2E30873516ADF11E0071EB5A /* BrowseViewController.xib in Resources */,
 				2E8C9B0816B1D4D600E08D7A /* AddAmountViewController.xib in Resources */,
+				2ECAA0E416B3149200308098 /* ShowRecipesViewController.xib in Resources */,
+				2ECAA0EA16B3189700308098 /* RecipeDetailsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,6 +390,8 @@
 				2E8C9B0716B1D4D600E08D7A /* AddAmountViewController.m in Sources */,
 				2E1279CF16B271AB00DD4619 /* JCPriorityQueue.m in Sources */,
 				2E1279D016B271AB00DD4619 /* JCSuperPriorityQueue.mm in Sources */,
+				2ECAA0E316B3149200308098 /* ShowRecipesViewController.m in Sources */,
+				2ECAA0E916B3189700308098 /* RecipeDetailsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

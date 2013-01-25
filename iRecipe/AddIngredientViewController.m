@@ -40,6 +40,7 @@
 {
     [super viewDidLoad];
     
+    self.title = @"Select Ingredient";
     UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelButtonPressed:)];
     [self.navigationItem setLeftBarButtonItem:cancelButton];
     
