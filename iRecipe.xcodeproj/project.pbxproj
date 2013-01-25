@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		2E1279CF16B271AB00DD4619 /* JCPriorityQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E1279CC16B271AB00DD4619 /* JCPriorityQueue.m */; };
 		2E1279D016B271AB00DD4619 /* JCSuperPriorityQueue.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2E1279CE16B271AB00DD4619 /* JCSuperPriorityQueue.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		2E2CE72416AAD33400E1534D /* RecipeDB.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2E2CE72316AAD33400E1534D /* RecipeDB.sqlite */; };
+		2E2CE72416AAD33400E1534D /* BlankRecipeDB.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2E2CE72316AAD33400E1534D /* BlankRecipeDB.sqlite */; };
 		2E30873416ADF11E0071EB5A /* BrowseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E30873216ADF11E0071EB5A /* BrowseViewController.m */; };
 		2E30873516ADF11E0071EB5A /* BrowseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E30873316ADF11E0071EB5A /* BrowseViewController.xib */; };
 		2E50941016AC464500EABF2D /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E50940F16AC464500EABF2D /* MainStoryboard.storyboard */; };
@@ -53,7 +53,7 @@
 		2E1279CC16B271AB00DD4619 /* JCPriorityQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCPriorityQueue.m; sourceTree = "<group>"; };
 		2E1279CD16B271AB00DD4619 /* JCSuperPriorityQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCSuperPriorityQueue.h; sourceTree = "<group>"; };
 		2E1279CE16B271AB00DD4619 /* JCSuperPriorityQueue.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JCSuperPriorityQueue.mm; sourceTree = "<group>"; };
-		2E2CE72316AAD33400E1534D /* RecipeDB.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = RecipeDB.sqlite; sourceTree = "<group>"; };
+		2E2CE72316AAD33400E1534D /* BlankRecipeDB.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = BlankRecipeDB.sqlite; sourceTree = "<group>"; };
 		2E30873116ADF11E0071EB5A /* BrowseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrowseViewController.h; sourceTree = "<group>"; };
 		2E30873216ADF11E0071EB5A /* BrowseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrowseViewController.m; sourceTree = "<group>"; };
 		2E30873316ADF11E0071EB5A /* BrowseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BrowseViewController.xib; sourceTree = "<group>"; };
@@ -234,7 +234,7 @@
 		2EAB3D60166FEF2400FA8572 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				2E2CE72316AAD33400E1534D /* RecipeDB.sqlite */,
+				2E2CE72316AAD33400E1534D /* BlankRecipeDB.sqlite */,
 				2EAAADD816A85D9800D076E3 /* recipes */,
 				2EAB3D61166FEF2400FA8572 /* iRecipe-Info.plist */,
 				2EAB3D62166FEF2400FA8572 /* InfoPlist.strings */,
@@ -357,7 +357,7 @@
 				2EEF556016A98907005AB989 /* IngredientCell.xib in Resources */,
 				2EEF556516A9979C005AB989 /* AddIngredientCell.xib in Resources */,
 				2EEF557216A9C170005AB989 /* AddIngredientViewController.xib in Resources */,
-				2E2CE72416AAD33400E1534D /* RecipeDB.sqlite in Resources */,
+				2E2CE72416AAD33400E1534D /* BlankRecipeDB.sqlite in Resources */,
 				2E50941016AC464500EABF2D /* MainStoryboard.storyboard in Resources */,
 				2E30873516ADF11E0071EB5A /* BrowseViewController.xib in Resources */,
 				2E8C9B0816B1D4D600E08D7A /* AddAmountViewController.xib in Resources */,
@@ -470,11 +470,15 @@
 		2EAB3D7A166FEF2400FA8572 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Dimitar Dobrev (PMBE6NFJV7)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Dimitar Dobrev (PMBE6NFJV7)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iRecipe/iRecipe-Prefix.pch";
 				INFOPLIST_FILE = "iRecipe/iRecipe-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "3E96E48E-2A3A-42FC-BD17-CC927B5397EE";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3E96E48E-2A3A-42FC-BD17-CC927B5397EE";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -483,11 +487,15 @@
 		2EAB3D7B166FEF2400FA8572 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iRecipe/iRecipe-Prefix.pch";
 				INFOPLIST_FILE = "iRecipe/iRecipe-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
