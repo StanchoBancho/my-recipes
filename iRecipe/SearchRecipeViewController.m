@@ -77,7 +77,7 @@ static NSString* addIngredientCellName = @"AddIngredientCell";
     
     UIView* loadingView = [UIView presentPositiveNotifyingViewWithTitle:@"Suggesting..."onView:self.view];
     [self.view addSubview:loadingView];
-    dispatch_queue_t backgroundQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_queue_t backgroundQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0);
     dispatch_async(backgroundQueue, ^{
         @autoreleasepool {
             NSTimeInterval timeNeededForKDTreeInit = 0.0f;
@@ -121,6 +121,7 @@ static NSString* addIngredientCellName = @"AddIngredientCell";
                 //present the result vc
                 ShowRecipesViewController *recipesVC = [[ShowRecipesViewController alloc] initWithNibName:@"ShowRecipesViewController" bundle:nil];
                 recipesVC.datasource = allRecipes;
+                recipesVC.titleOfTheNavigationBar = @"Suggested Recipes";
                 [loadingView removeFromSuperview];
                 
                 [UIView  beginAnimations: @"Showinfo"context: nil];

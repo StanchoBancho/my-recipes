@@ -10,6 +10,7 @@
 
 @interface ShowRecipesViewController : UIViewController
 
+@property(nonatomic, strong) NSString* titleOfTheNavigationBar;
 @property (nonatomic, strong) NSMutableArray *datasource;
 
 @end

@@ -28,7 +28,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.navigationItem setTitle:@"Suggested Recipes"];
+    [self.navigationItem setTitle:self.titleOfTheNavigationBar];
     // Do any additional setup after loading the view from its nib.
 }
 
