@@ -11,7 +11,7 @@
 
 @implementation Node
 
--(void)sortIngredients:(NSMutableArray*)recipes inOrderOfIngredient:(Ingredient*)ingredient
+-(void)sortRecipes:(NSMutableArray*)recipes inOrderOfIngredient:(Ingredient*)ingredient
 {
     [recipes sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
         Recipe* recipe1 = (Recipe*) obj1;
@@ -87,6 +87,18 @@
     return result;
 }
 
+-(Ingredient*)getImportentIngredientWithName:(NSString*)ingredientName
+{
+    Ingredient* result = nil;
+    for(Ingredient* i in self.location.ingredients){
+        if([i.name isEqualToString:ingredientName]){
+            result = i;
+            break;
+        }
+    }
+    return result;
+}
+
 -(id)initWithRecipes:(NSMutableArray*)recipes andIngredients:(NSMutableArray*)ingredients andDepth:(NSInteger) depth
 {
     self = [super init];
@@ -94,40 +106,48 @@
         if(!recipes || [recipes count] == 0){
             return nil;
         }
+        NSString* nameOfImportantIngredient = nil;
         if(depth == [ingredients count]){
             [self setDepth:0];
         }
         else{
             [self setDepth:depth];
         }
-        self.distanceToSearchPoint = DBL_MAX;
+        nameOfImportantIngredient = [(Ingredient*)[ingredients objectAtIndex:self.depth] name];
+        self.distanceToSearchPoint = INT_MAX;
         if([recipes count] == 1){
             self.location = [recipes lastObject];
+            self.igredientForThisDepth = [self getImportentIngredientWithName:nameOfImportantIngredient];
         }
         else{
             //set location
             Ingredient* importantIngredient = (Ingredient*)[ingredients objectAtIndex:self.depth];
-            [self sortIngredients:recipes inOrderOfIngredient:importantIngredient];
+            [self sortRecipes:recipes inOrderOfIngredient:importantIngredient];
             NSUInteger medianIndex =  [recipes count] / 2; // Find the index of the middle element
             Recipe* median = (Recipe*)[recipes objectAtIndex:medianIndex];
             NSUInteger locationIndex = [self getTheLocationIndexInIngredients:recipes andPivot:median andImportentIngredient:importantIngredient];
             self.location = [recipes objectAtIndex:locationIndex];
-            
-            //create left child
-            NSUInteger leftLength = locationIndex == 0 ? 0 : (locationIndex - 1);
-            NSRange leftRange = NSMakeRange(0, leftLength);
-            NSMutableArray* leftRecipes = [NSMutableArray arrayWithArray:[recipes subarrayWithRange:leftRange]];
-            Node* leftChild = [[Node alloc] initWithRecipes:leftRecipes andIngredients:ingredients andDepth:(self.depth+1)];
-            [leftChild setParent:self];
-            [self setLeftChild:leftChild];
-            
-            //create right child
-            NSUInteger rightLocation = locationIndex == ([recipes count] - 1) ? [recipes count] - 1 : (locationIndex + 1);
-            NSRange rightRange = NSMakeRange(rightLocation, [recipes count] - rightLocation);
-            NSMutableArray* rightRecipes = [NSMutableArray arrayWithArray:[recipes subarrayWithRange:rightRange]];
-            Node* rightChild = [[Node alloc] initWithRecipes:rightRecipes andIngredients:ingredients andDepth:(self.depth+1)];
-            [rightChild setParent:self];
-            [self setRightChild:rightChild];
+            self.igredientForThisDepth = [self getImportentIngredientWithName:nameOfImportantIngredient];
+            NSMutableArray* leftRecipes = [NSMutableArray array];
+            NSMutableArray* rightRecipes = [NSMutableArray array];
+            for (NSUInteger i = 0; i < recipes.count; i++) {
+                if(i < locationIndex){
+                    [leftRecipes addObject:[recipes objectAtIndex:i]];
+                }
+                if(i > locationIndex){
+                    [rightRecipes addObject:[recipes objectAtIndex:i]];
+                }
+            }
+            if([leftRecipes count] > 0){
+                Node* leftChild = [[Node alloc] initWithRecipes:leftRecipes andIngredients:ingredients andDepth:(self.depth+1)];
+                [leftChild setParent:self];
+                [self setLeftChild:leftChild];
+            }
+            if([rightRecipes count] > 0){
+                Node* rightChild = [[Node alloc] initWithRecipes:rightRecipes andIngredients:ingredients andDepth:(self.depth+1)];
+                [rightChild setParent:self];
+                [self setRightChild:rightChild];
+            }
         }
     }
     return self;
@@ -144,7 +164,7 @@
 
 - (NSInteger)value
 {
-    return (NSInteger)floor(self.distanceToSearchPoint);
+    return -self.distanceToSearchPoint;
 }
 
 @end

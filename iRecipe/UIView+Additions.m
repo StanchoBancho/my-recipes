@@ -28,7 +28,7 @@
 //    [checkMark setFrame:CGRectMake(0, 0, 73.0, 42.0)];
 //    checkMark.center = CGPointMake(postedView.bounds.size.width / 2, 30);
     
-    UILabel *postLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 80, 120, 40)];
+    UILabel *postLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 75, 120, 40)];
     postLabel.textAlignment = UITextAlignmentCenter;
     postLabel.numberOfLines = 0;
     postLabel.textColor = [UIColor whiteColor];
@@ -39,14 +39,14 @@
     [parentView addSubview:postedView];
     postedView.center = CGPointMake(parentView.bounds.size.width / 2, parentView.bounds.size.height / 2);
     
-    [UIView animateWithDuration:0.25 delay:2.0 options:UIViewAnimationCurveLinear animations:^{
-        [postedView setAlpha:0];
-        postedView.transform = CGAffineTransformScale(postedView.transform, 1.10, 1.10);
-    }completion:^(BOOL finished){
-        if (finished) {
-            [postedView removeFromSuperview];
-        }
-    }];
+//    [UIView animateWithDuration:0.25 delay:2.0 options:UIViewAnimationCurveLinear animations:^{
+//        [postedView setAlpha:0];
+//        postedView.transform = CGAffineTransformScale(postedView.transform, 1.10, 1.10);
+//    }completion:^(BOOL finished){
+//        if (finished) {
+//            [postedView removeFromSuperview];
+//        }
+//    }];
     return postedView;
 }
 

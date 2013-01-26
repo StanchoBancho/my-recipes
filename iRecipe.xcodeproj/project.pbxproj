@@ -156,18 +156,7 @@
 				2EAB3D71166FEF2400FA8572 /* SearchRecipeViewController.h */,
 				2EAB3D72166FEF2400FA8572 /* SearchRecipeViewController.m */,
 				2EAB3D74166FEF2400FA8572 /* SearchRecipeViewController.xib */,
-				2EEF556E16A9C170005AB989 /* AddIngredientViewController.h */,
-				2EEF556F16A9C170005AB989 /* AddIngredientViewController.m */,
-				2EEF557016A9C170005AB989 /* AddIngredientViewController.xib */,
-				2E8C9B0416B1D4D600E08D7A /* AddAmountViewController.h */,
-				2E8C9B0516B1D4D600E08D7A /* AddAmountViewController.m */,
-				2E8C9B0616B1D4D600E08D7A /* AddAmountViewController.xib */,
-				2ECAA0E016B3149100308098 /* ShowRecipesViewController.h */,
-				2ECAA0E116B3149100308098 /* ShowRecipesViewController.m */,
-				2ECAA0E216B3149200308098 /* ShowRecipesViewController.xib */,
-				2ECAA0E616B3189700308098 /* RecipeDetailsViewController.h */,
-				2ECAA0E716B3189700308098 /* RecipeDetailsViewController.m */,
-				2ECAA0E816B3189700308098 /* RecipeDetailsViewController.xib */,
+				2ECAA10916B34F7500308098 /* Add Ingredient */,
 			);
 			name = "Sugest Tab";
 			sourceTree = "<group>";
@@ -185,6 +174,7 @@
 		2E54279116A8BBBC00085B3C /* Controller Layer */ = {
 			isa = PBXGroup;
 			children = (
+				2ECAA10616B34DDE00308098 /* Common */,
 				2E30872E16ADF0F10071EB5A /* Sugest Tab */,
 				2E30873016ADF0FE0071EB5A /* Browse Tab */,
 			);
@@ -296,6 +286,48 @@
 				2ECAA10116B34B1000308098 /* magnifier@2x.png */,
 			);
 			name = "Tabbar Icons";
+			sourceTree = "<group>";
+		};
+		2ECAA10616B34DDE00308098 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				2ECAA10716B34DED00308098 /* Recipes Previewer */,
+				2ECAA10816B34F4500308098 /* Recipe Details */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
+		2ECAA10716B34DED00308098 /* Recipes Previewer */ = {
+			isa = PBXGroup;
+			children = (
+				2ECAA0E016B3149100308098 /* ShowRecipesViewController.h */,
+				2ECAA0E116B3149100308098 /* ShowRecipesViewController.m */,
+				2ECAA0E216B3149200308098 /* ShowRecipesViewController.xib */,
+			);
+			name = "Recipes Previewer";
+			sourceTree = "<group>";
+		};
+		2ECAA10816B34F4500308098 /* Recipe Details */ = {
+			isa = PBXGroup;
+			children = (
+				2ECAA0E616B3189700308098 /* RecipeDetailsViewController.h */,
+				2ECAA0E716B3189700308098 /* RecipeDetailsViewController.m */,
+				2ECAA0E816B3189700308098 /* RecipeDetailsViewController.xib */,
+			);
+			name = "Recipe Details";
+			sourceTree = "<group>";
+		};
+		2ECAA10916B34F7500308098 /* Add Ingredient */ = {
+			isa = PBXGroup;
+			children = (
+				2EEF556E16A9C170005AB989 /* AddIngredientViewController.h */,
+				2EEF556F16A9C170005AB989 /* AddIngredientViewController.m */,
+				2EEF557016A9C170005AB989 /* AddIngredientViewController.xib */,
+				2E8C9B0416B1D4D600E08D7A /* AddAmountViewController.h */,
+				2E8C9B0516B1D4D600E08D7A /* AddAmountViewController.m */,
+				2E8C9B0616B1D4D600E08D7A /* AddAmountViewController.xib */,
+			);
+			name = "Add Ingredient";
 			sourceTree = "<group>";
 		};
 		2EEF555016A98420005AB989 /* View Layer */ = {

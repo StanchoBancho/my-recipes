@@ -35,6 +35,7 @@ static NSString* categoryCellIdentifier = @"categoryCellIdentifier";
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self.categoryTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:categoryCellIdentifier];
+    [self.navigationItem setTitle:@"Categories"];
 }
 
 -(void)viewWillAppear:(BOOL)animated

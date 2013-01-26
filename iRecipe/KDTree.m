@@ -18,14 +18,14 @@
 @property(nonatomic, strong) Recipe* searchPoint;
 
 @property(nonatomic, strong) JCPriorityQueue* currentBestPQ;
-
+@property(nonatomic, strong) NSMutableSet* currentBestSet;
 
 @property(nonatomic, strong) NSMutableArray* allRecipes;
 @end
 
 @implementation KDTree
 
--(double)distanceBetweenRecipeOne:(Recipe*)recipeOne andRecipeTwo:(Recipe*)recipeTwo
+-(NSInteger)distanceBetweenRecipeOne:(Recipe*)recipeOne andRecipeTwo:(Recipe*)recipeTwo
 {
     double result = 0.0f;
     for (Ingredient* i in self.searchPoint.ingredients) {
@@ -54,9 +54,13 @@
         if(two){
             value2 = two.realValue;
         }
-        result += pow((value1 - value2), 2.0f);
+//        if(one && two)
+//        {
+            result += pow((value1 - value2), 2.0f);
+//        }
     }
-    return result;
+    
+    return (NSInteger)floor(result);
 }
 
 #pragma mark - Initialization methods
@@ -83,30 +87,30 @@
         NSString* measure = [iRelation objectAtIndex:4];
         [i setMeasure:measure];
         
-//        //forth way
-//        NSString *val = [iRelation objectAtIndex:5];
-//        //if ([val hasSuffix:@".0"]) {
-//            NSRange r = [val rangeOfString:@"."];
-//            r.length = val.length - r.location;
-//            val = [val stringByReplacingCharactersInRange:r withString:@".58"];
-//        //}
-//        
-//        [i setRealValue:[val doubleValue]];
+        //        //forth way
+        //        NSString *val = [iRelation objectAtIndex:5];
+        //        //if ([val hasSuffix:@".0"]) {
+        //            NSRange r = [val rangeOfString:@"."];
+        //            r.length = val.length - r.location;
+        //            val = [val stringByReplacingCharactersInRange:r withString:@".58"];
+        //        //}
+        //
+        //        [i setRealValue:[val doubleValue]];
         
-//third way
-//        NSScanner *scn = [NSScanner scannerWithString:[iRelation objectAtIndex:5]];
-//        double ingredientRealValue = 0.0f;
-//        [scn scanDouble:&ingredientRealValue];
-//        ingredientRealValue += 0.001;
-//        [i setRealValue:ingredientRealValue];
+        //third way
+        //        NSScanner *scn = [NSScanner scannerWithString:[iRelation objectAtIndex:5]];
+        //        double ingredientRealValue = 0.0f;
+        //        [scn scanDouble:&ingredientRealValue];
+        //        ingredientRealValue += 0.001;
+        //        [i setRealValue:ingredientRealValue];
         
-//second way
-//        NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-//        [formatter setNumberStyle: NSNumberFormatterDecimalStyle];
-//        //NSNumber* value = [formatter numberFromString: [iRelation objectAtIndex:5]];
-//        [i setRealValue:[[formatter numberFromString: [iRelation objectAtIndex:5]] doubleValue]];
-
-//first way
+        //second way
+        //        NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+        //        [formatter setNumberStyle: NSNumberFormatterDecimalStyle];
+        //        //NSNumber* value = [formatter numberFromString: [iRelation objectAtIndex:5]];
+        //        [i setRealValue:[[formatter numberFromString: [iRelation objectAtIndex:5]] doubleValue]];
+        
+        //first way
         NSString* realValueString = [NSString stringWithFormat:@"%.2f", [[iRelation objectAtIndex:5] doubleValue]];
         double realValue = [realValueString doubleValue];
         [i setRealValue:realValue];
@@ -172,7 +176,7 @@
         Recipe* searchPoint = [[Recipe alloc] init];
         [searchPoint setIngredients:ingredients];
         self.searchPoint = searchPoint;
-
+        
         self.dbReader = [[SQLiteReader alloc] init];
         NSMutableArray* allNeedRecipes = [self allRecipesThatMatchExistingIngridients];
         self.allRecipes = allNeedRecipes;
@@ -186,17 +190,17 @@
 #pragma mark - Operations methods
 
 -(Recipe*)trivialSearch
-{   double minDistance = DBL_MAX;
+{   NSInteger minDistance = INT_MAX;
     Recipe* result = nil;
     for(Recipe* r in self.allRecipes){
-        double curretnDisttance = [self distanceBetweenRecipeOne:r andRecipeTwo:self.searchPoint];
+        NSInteger curretnDisttance = [self distanceBetweenRecipeOne:r andRecipeTwo:self.searchPoint];
         //NSLog(@"distance is :%f",curretnDisttance);
         if(curretnDisttance < minDistance){
             minDistance = curretnDisttance;
             result = r;
         }
     }
-    NSLog(@"FINAL distance is :%f", [self distanceBetweenRecipeOne:result andRecipeTwo:self.searchPoint]);
+    NSLog(@"FINAL distance is :%d" , [self distanceBetweenRecipeOne:result andRecipeTwo:self.searchPoint] );
     return result;
 }
 
@@ -204,73 +208,75 @@
 -(NSMutableArray*)theNearestNeighbour
 {
     self.currentBestPQ = [[JCPriorityQueue alloc] init];
+    self.currentBestSet = [[NSMutableSet alloc] init];
     [self calculateNearestNeighbourWithCurrentNode:self.root];
     
     
     NSMutableArray* result = [[NSMutableArray alloc] init];
     while ([self.currentBestPQ count] > 1) {
         Node* node = [self.currentBestPQ pop];
-        [result addObject:node.location];
-        
-        if([self.currentBestPQ count] == 1){
-            NSLog(@"FINAL distance is :%f", [self distanceBetweenRecipeOne:node.location andRecipeTwo:self.searchPoint]);
-        }
+        [result addObject:node];
     }
     return result;
 }
 
 #pragma mark - utility methods
 
--(double)distanceBetweenCenterOfSphereAndParrentLocationPlaneOfNode:(Node*)node
+-(NSInteger)distanceBetweenCenterOfSphereAndParrentLocationPlaneOfNode:(Node*)node
 {
-    //sphere center is currentBest
-    Node* parent = node.parent;
-    double result = DBL_MAX;
+    Node* parent = node.parent;   
     if(node && parent){
+        double result = 0.0f;
         NSUInteger detph = parent.depth;
-        Ingredient* planeMakingIngredient = nil;
-        if(parent.location && parent.location.ingredients && parent.location.ingredients.count > detph){
-            planeMakingIngredient = [parent.location.ingredients objectAtIndex:detph];
+      
+        //get the sphere center importent ingredient
+        Ingredient* sphereImportantIgredient = (Ingredient*)[[self.searchPoint ingredients] objectAtIndex:detph];
+        double sphereCenterImportentIngredientValue = [sphereImportantIgredient realValue];
+
+        //get the plane importent ingredient
+        double planeImportentIngredientValue = 0.0f;
+        Ingredient* planeImportantIngredient = parent.igredientForThisDepth;
+        if(planeImportantIngredient){
+            planeImportentIngredientValue = [planeImportantIngredient realValue];
         }
-        if(planeMakingIngredient){
-            double sphereCenterImportentIngredientValue = 0.0f;
-            Node* currentWorst = self.currentBestPQ.first;
-            for(Ingredient* i in currentWorst.location.ingredients){
-                if([i.name isEqualToString:planeMakingIngredient.name]){
-                    sphereCenterImportentIngredientValue = i.realValue;
-                    break;
-                }
-            }
-            //NSNumber* planeMakingIngredientNumber = planeMakingIngredient.realValue;
-            double planeMakingIngredientValue = planeMakingIngredient.realValue;
-            
-            result = pow((planeMakingIngredientValue - sphereCenterImportentIngredientValue), 2.0f);
-        }
+        
+        result = pow((planeImportentIngredientValue - sphereCenterImportentIngredientValue), 2.0f);
+        return (NSInteger)floor(result);
     }
-    return result;
+    else{
+        //if there is no parent return negative number to check the other hyper plane
+        return -1;
+    }
 }
 
--(void)checkIsNodeBetterThanCurrentBestAndUpdateIfNeeded:(Node*)newNode
+-(void)updateCurrentBestPQWithNode:(Node*)newNode
 {
     if([self.currentBestPQ count] == 1){
-        double distToSearchPoint = [self distanceBetweenRecipeOne:newNode.location andRecipeTwo:self.searchPoint];
+        NSInteger distToSearchPoint = [self distanceBetweenRecipeOne:newNode.location andRecipeTwo:self.searchPoint];
+        if(distToSearchPoint < 0)
+        {
+            NSLog(@"FAck");
+        }
         [newNode setDistanceToSearchPoint:distToSearchPoint];
         [self.currentBestPQ addObject:newNode];
     }
     else{
-        //check is current better than currentBest
+        //check is current better than currentWorst
         Node* currentWorstNode = (Node*)[self.currentBestPQ first];
-        double distFromCurrentWorstToSearchPoint = currentWorstNode.distanceToSearchPoint;
-        double distFromNewNodeAndSearchPoint = [self distanceBetweenRecipeOne:newNode.location andRecipeTwo:self.searchPoint];
+        NSInteger distFromCurrentWorstToSearchPoint = currentWorstNode.distanceToSearchPoint;
+        NSInteger distFromNewNodeAndSearchPoint = [self distanceBetweenRecipeOne:newNode.location andRecipeTwo:self.searchPoint];
+        [newNode setDistanceToSearchPoint:distFromNewNodeAndSearchPoint];
+        if(distFromNewNodeAndSearchPoint < 0)
+        {
+            NSLog(@"FAck");
+        }
         if([self.currentBestPQ count] < 11){
             //add it no matter its distance cause we do not have enough
-            [newNode setDistanceToSearchPoint:distFromNewNodeAndSearchPoint];
             [self.currentBestPQ addObject:newNode];
         }
         else{
             if(distFromCurrentWorstToSearchPoint > distFromNewNodeAndSearchPoint){
                 [self.currentBestPQ pop];
-                [newNode setDistanceToSearchPoint:distFromNewNodeAndSearchPoint];
                 [self.currentBestPQ addObject:newNode];
             }
         }
@@ -287,7 +293,7 @@
     }
     
     [current.location setUsed:YES];
-    
+    NSLog(@"Current Location name is: %@",current.location.name);
     //calculate where should we go
     Ingredient* importentIngredient = [self.searchPoint.ingredients objectAtIndex:current.depth];
     Recipe* currentLocation = current.location;
@@ -303,8 +309,8 @@
         valueOfIngredientAtThisLocation = ingredientInThisLocation.realValue;
     }
     //improve if needed
-    [self checkIsNodeBetterThanCurrentBestAndUpdateIfNeeded:current];
-
+    [self updateCurrentBestPQWithNode:current];
+    
     //check where should we go?
     if(importentIngredient.realValue >= valueOfIngredientAtThisLocation){
         
@@ -315,8 +321,8 @@
         }
         
         //check is there intersection between parent Location Plane and search point hyper sphere
-        double sphereRadius = [self distanceBetweenRecipeOne:current.location andRecipeTwo:self.searchPoint];
-        double distanceBetweenShereCenterAndPlane = [self distanceBetweenCenterOfSphereAndParrentLocationPlaneOfNode:current];
+        NSInteger sphereRadius = [self distanceBetweenRecipeOne:current.location andRecipeTwo:self.searchPoint];
+        NSInteger distanceBetweenShereCenterAndPlane = [self distanceBetweenCenterOfSphereAndParrentLocationPlaneOfNode:current];
         if(sphereRadius >= distanceBetweenShereCenterAndPlane){
             //there is intersection
             Node* destination = current.parent.leftChild;
@@ -332,10 +338,10 @@
             //we are not in child => go deeper
             [self calculateNearestNeighbourWithCurrentNode:current.leftChild];
         }
-
+        
         //check is there intersection between parent Location Plane and search point hyper sphere
-        double sphereRadius = [self distanceBetweenRecipeOne:current.location andRecipeTwo:self.searchPoint];
-        double distanceBetweenShereCenterAndPlane = [self distanceBetweenCenterOfSphereAndParrentLocationPlaneOfNode:current];
+        NSInteger sphereRadius = [self distanceBetweenRecipeOne:current.location andRecipeTwo:self.searchPoint];
+        NSInteger distanceBetweenShereCenterAndPlane = [self distanceBetweenCenterOfSphereAndParrentLocationPlaneOfNode:current];
         if(sphereRadius >= distanceBetweenShereCenterAndPlane){
             //there is intersection
             Node* destination = current.parent.rightChild;

@@ -28,6 +28,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.navigationItem setTitle:@"Suggested Recipes"];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -62,7 +63,9 @@
 
 #pragma mark - UITableViewDelegate methods
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     RecipeDetailsViewController *recipeVC = [[RecipeDetailsViewController alloc] initWithNibName:@"RecipeDetailsViewController" bundle:nil];
     recipeVC.recipe = [self.datasource objectAtIndex:indexPath.row];
     [self.navigationController pushViewController:recipeVC animated:YES];

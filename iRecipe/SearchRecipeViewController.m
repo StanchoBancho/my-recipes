@@ -75,28 +75,31 @@ static NSString* addIngredientCellName = @"AddIngredientCell";
 {
     [self.ingredientsTableView setUserInteractionEnabled:NO];
     
-    UIView* loadingView = [UIView presentPositiveNotifyingViewWithTitle:@"Suggesting..."onView:self.ingredientsTableView];
-    [self.ingredientsTableView addSubview:loadingView];
+    UIView* loadingView = [UIView presentPositiveNotifyingViewWithTitle:@"Suggesting..."onView:self.view];
+    [self.view addSubview:loadingView];
     dispatch_queue_t backgroundQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_async(backgroundQueue, ^{
         @autoreleasepool {
             NSTimeInterval timeNeededForKDTreeInit = 0.0f;
+            //suggest with k-d tree
             NSDate* startDate = [NSDate date];
-            
             KDTree* aTree = [[KDTree alloc] initWithIngredients:self.ingredients];
             NSDate* endDate = [NSDate date];
             timeNeededForKDTreeInit = [endDate timeIntervalSinceDate:startDate];
             NSLog(@"--------------------------");
             NSLog(@"Time For KD Tree creation is: %f", timeNeededForKDTreeInit);
+            startDate = [NSDate date];
             NSMutableArray* allNearestNeighBours = [aTree theNearestNeighbour];
-            for(Recipe* nearestNeighBour in allNearestNeighBours){
+            endDate = [NSDate date];
+            timeNeededForKDTreeInit = [endDate timeIntervalSinceDate:startDate];
+            NSLog(@"Time for search is: %f", timeNeededForKDTreeInit);
+            NSMutableArray* allRecipes = [[NSMutableArray alloc] initWithCapacity:[allNearestNeighBours count]];
+            for(Node* nearestNeighBour in allNearestNeighBours){
+                NSLog(@"A near newighbour With Distance:%d is : %@",nearestNeighBour.distanceToSearchPoint,nearestNeighBour.location.name);
+                [allRecipes insertObject:nearestNeighBour.location atIndex:0];
                 
-                endDate = [NSDate date];
-                timeNeededForKDTreeInit = [endDate timeIntervalSinceDate:startDate];
-                NSLog(@"Total time For KD Tree creation & search is: %f", timeNeededForKDTreeInit);
-                NSLog(@"NEARESH NEIGHBOUR IS : %@",nearestNeighBour.name);
                 //            NSLog(@"Ingredients:");
-                //            for(Ingredient* i in nearestNeighBour.ingredients){
+                //            for(Ingredient* i in nearestNeighBour.location.ingredients){
                 //                NSLog(@"%@  %f",i.name, i.realValue);
                 //            }
             }
@@ -117,7 +120,7 @@ static NSString* addIngredientCellName = @"AddIngredientCell";
                 
                 //present the result vc
                 ShowRecipesViewController *recipesVC = [[ShowRecipesViewController alloc] initWithNibName:@"ShowRecipesViewController" bundle:nil];
-                recipesVC.datasource = allNearestNeighBours;
+                recipesVC.datasource = allRecipes;
                 [loadingView removeFromSuperview];
                 
                 [UIView  beginAnimations: @"Showinfo"context: nil];
@@ -142,6 +145,7 @@ static NSString* addIngredientCellName = @"AddIngredientCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if(indexPath.row == 0){
         UITableViewCell* addIngredientCell = [tableView dequeueReusableCellWithIdentifier:addIngredientCellName];
         [addIngredientCell setEditingAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
@@ -154,7 +158,7 @@ static NSString* addIngredientCellName = @"AddIngredientCell";
         [cell.ingredient setText:currentIngredient.name];
         [cell.quantity setText:[NSString stringWithFormat:@"%.2f", currentIngredient.realValue]];
         [cell.measure setText:currentIngredient.measure];
-        [cell setEditingAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+        [cell setEditingAccessoryType:UITableViewCellAccessoryNone];
         [cell setShouldIndentWhileEditing:YES];
         return cell;
     }
@@ -212,11 +216,17 @@ static NSString* addIngredientCellName = @"AddIngredientCell";
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if(indexPath.row == 0){
-        AddIngredientViewController* addIngredientVC = [[AddIngredientViewController alloc] initWithNibName:@"AddIngredientViewController" bundle:[NSBundle mainBundle]];
-        [addIngredientVC setDelegate:self];
-        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:addIngredientVC];
-        [navController.navigationBar setBarStyle:UIBarStyleBlack];
-        [self.navigationController presentViewController:navController animated:YES completion:nil];
+        if([self.ingredients count] == 10){
+            UIAlertView* tooMuchRecipeAllertView = [[UIAlertView alloc] initWithTitle:@"Too much ingredients!" message:@"Sorry but our app is still not very smart... So it cannot suggest with more than 10 ingredients." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+            [tooMuchRecipeAllertView show];
+        }
+        else{
+            AddIngredientViewController* addIngredientVC = [[AddIngredientViewController alloc] initWithNibName:@"AddIngredientViewController" bundle:[NSBundle mainBundle]];
+            [addIngredientVC setDelegate:self];
+            UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:addIngredientVC];
+            [navController.navigationBar setBarStyle:UIBarStyleBlack];
+            [self.navigationController presentViewController:navController animated:YES completion:nil];
+        }
     }
 }
 
