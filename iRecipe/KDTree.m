@@ -179,6 +179,7 @@
 {
     self = [super init];
     if(self){
+        NSDate* startDate = [NSDate date];
         self.delegate = delegate;
         Recipe* searchPoint = [[Recipe alloc] init];
         [searchPoint setIngredients:ingredients];
@@ -188,7 +189,14 @@
         NSMutableArray* allNeedRecipes = [self allRecipesThatMatchExistingIngridients];
         self.allRecipes = allNeedRecipes;
         NSLog(@"recipe count:%d",[allNeedRecipes count]);
+        NSDate* endDate = [NSDate date];
+        NSTimeInterval timeNeededForKDTreeInit = [endDate timeIntervalSinceDate:startDate];
+        NSLog(@"Time neede for fetchind DX :%f",timeNeededForKDTreeInit);
+        startDate = [NSDate date];
         Node* root = [[Node alloc] initWithRecipes:allNeedRecipes andIngredients:ingredients andDepth:0];
+        endDate = [NSDate date];
+        timeNeededForKDTreeInit = [endDate timeIntervalSinceDate:startDate];
+        NSLog(@"Time neede for creating of KDTree :%f",timeNeededForKDTreeInit);
         self.root = root;
     }
     return self;

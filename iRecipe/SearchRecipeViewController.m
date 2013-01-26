@@ -83,20 +83,17 @@ static NSString* addIngredientCellName = @"AddIngredientCell";
         @autoreleasepool {
             NSTimeInterval timeNeededForKDTreeInit = 0.0f;
             //suggest with k-d tree
-            NSDate* startDate = [NSDate date];
+            
             KDTree* aTree = [[KDTree alloc] initWithIngredients:self.ingredients andDelegate:self];
+            NSLog(@"--------------------------");
+            NSDate* startDate = [NSDate date];
+            NSMutableArray* allNearestNeighBours = [aTree theNearestNeighbour];
             NSDate* endDate = [NSDate date];
             timeNeededForKDTreeInit = [endDate timeIntervalSinceDate:startDate];
-            NSLog(@"--------------------------");
-            NSLog(@"Time For KD Tree creation is: %f", timeNeededForKDTreeInit);
-            startDate = [NSDate date];
-            NSMutableArray* allNearestNeighBours = [aTree theNearestNeighbour];
-            endDate = [NSDate date];
-            timeNeededForKDTreeInit = [endDate timeIntervalSinceDate:startDate];
-            NSLog(@"Time for search is: %f", timeNeededForKDTreeInit);
+            NSLog(@"Time for KDTree search is: %f", timeNeededForKDTreeInit);
             NSMutableArray* allRecipes = [[NSMutableArray alloc] initWithCapacity:[allNearestNeighBours count]];
             for(Node* nearestNeighBour in allNearestNeighBours){
-                NSLog(@"A near newighbour With Distance:%d is : %@",nearestNeighBour.distanceToSearchPoint,nearestNeighBour.location.name);
+//                NSLog(@"A near newighbour With Distance:%d is : %@",nearestNeighBour.distanceToSearchPoint,nearestNeighBour.location.name);
                 [allRecipes insertObject:nearestNeighBour.location atIndex:0];
                 
                 //            NSLog(@"Ingredients:");
@@ -111,11 +108,11 @@ static NSString* addIngredientCellName = @"AddIngredientCell";
             endDate = [NSDate date];
             timeNeededForKDTreeInit = [endDate timeIntervalSinceDate:startDate];
             NSLog(@"Total time For trivial search: %f", timeNeededForKDTreeInit);
-            NSLog(@"NEARESH NEIGHBOUR IS : %@",trivialAnswer.name);
-            //        NSLog(@"Ingredients:");
-            //        for(Ingredient* i in trivialAnswer.ingredients){
-            //            NSLog(@"%@  %f",i.name, i.realValue);
-            //        }
+//            NSLog(@"NEARESH NEIGHBOUR IS : %@",trivialAnswer.name);
+//            //        NSLog(@"Ingredients:");
+//            //        for(Ingredient* i in trivialAnswer.ingredients){
+//            //            NSLog(@"%@  %f",i.name, i.realValue);
+//            //        }
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 
