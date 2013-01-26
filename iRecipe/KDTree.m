@@ -98,11 +98,19 @@
         [i setName:ingredientName];
         
         //setup maxRealValue
-        NSString* posibleMaxValueStatement = [NSString stringWithFormat:@"SELECT MAX(realValue) FROM Relation WHERE IngredientFk=%@", i.pid];
-        NSMutableArray* resultFromMaxValueSelect = [self.dbReader readDBWithQuery:posibleMaxValueStatement];
-        NSString* maxRealValueString = [NSString stringWithFormat:@"%.2f", [[[resultFromMaxValueSelect objectAtIndex:0] objectAtIndex:0] doubleValue]];
-        double maxRealValue = [maxRealValueString doubleValue];
-        [i setMaxRealValue:maxRealValue];
+        for(Ingredient* existingIngredient in self.searchPoint.ingredients){
+            if([i.name isEqualToString:existingIngredient.name]){
+                i.maxRealValue = existingIngredient.maxRealValue;
+                break;
+            }
+        }
+        
+        
+//        NSString* posibleMaxValueStatement = [NSString stringWithFormat:@"SELECT MAX(realValue) FROM Relation WHERE IngredientFk=%@", i.pid];
+//        NSMutableArray* resultFromMaxValueSelect = [self.dbReader readDBWithQuery:posibleMaxValueStatement];
+//        NSString* maxRealValueString = [NSString stringWithFormat:@"%.2f", [[[resultFromMaxValueSelect objectAtIndex:0] objectAtIndex:0] doubleValue]];
+//        double maxRealValue = [maxRealValueString doubleValue];
+//        [i setMaxRealValue:maxRealValue];
         
         [ingredients addObject:i];
     }

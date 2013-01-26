@@ -258,10 +258,8 @@
 				2E1279CA16B2716900DD4619 /* Priority Queue */,
 				2E6A736F16B1887E0040FE7D /* k-d Tree */,
 				2EAB3D88166FF3C400FA8572 /* Data Objects */,
-				2EAB3D7F166FEF6700FA8572 /* SQLiteReader.h */,
-				2EAB3D80166FEF6700FA8572 /* SQLiteReader.m */,
-				2EAB3D85166FF31900FA8572 /* TXTParser.h */,
-				2EAB3D86166FF31900FA8572 /* TXTParser.m */,
+				2ECAA10D16B395E300308098 /* Parsers */,
+				2ECAA10E16B395F500308098 /* Managers */,
 			);
 			name = "Data Layer";
 			sourceTree = "<group>";
@@ -328,6 +326,24 @@
 				2E8C9B0616B1D4D600E08D7A /* AddAmountViewController.xib */,
 			);
 			name = "Add Ingredient";
+			sourceTree = "<group>";
+		};
+		2ECAA10D16B395E300308098 /* Parsers */ = {
+			isa = PBXGroup;
+			children = (
+				2EAB3D85166FF31900FA8572 /* TXTParser.h */,
+				2EAB3D86166FF31900FA8572 /* TXTParser.m */,
+			);
+			name = Parsers;
+			sourceTree = "<group>";
+		};
+		2ECAA10E16B395F500308098 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				2EAB3D7F166FEF6700FA8572 /* SQLiteReader.h */,
+				2EAB3D80166FEF6700FA8572 /* SQLiteReader.m */,
+			);
+			name = Managers;
 			sourceTree = "<group>";
 		};
 		2EEF555016A98420005AB989 /* View Layer */ = {
