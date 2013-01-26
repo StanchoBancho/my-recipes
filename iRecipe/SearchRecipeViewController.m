@@ -15,11 +15,12 @@
 #import "ShowRecipesViewController.h"
 #import "UIView+Additions.h"
 
-@interface SearchRecipeViewController ()<UITableViewDataSource, UITabBarDelegate, AddIngredientDelegate>
+@interface SearchRecipeViewController ()<UITableViewDataSource, UITabBarDelegate, AddIngredientDelegate, ProgresVisualizer>
 
 @property (nonatomic, strong) SuggestFooterView* footerView;
 @property (nonatomic, strong) IBOutlet UITableView* ingredientsTableView;
 @property (nonatomic, strong) NSMutableArray* ingredients;
+@property (nonatomic, strong) CustomLoadingView* loadingView;
 @end
 
 static NSString* ingredientCellName = @"IngredientCell";
@@ -75,15 +76,15 @@ static NSString* addIngredientCellName = @"AddIngredientCell";
 {
     [self.ingredientsTableView setUserInteractionEnabled:NO];
     
-    UIView* loadingView = [UIView presentPositiveNotifyingViewWithTitle:@"Suggesting..."onView:self.view];
-    [self.view addSubview:loadingView];
+    self.loadingView = [UIView presentCustomLoadingViewWithTitle:@"Suggesting..."onView:self.view];
+    [self.view addSubview:self.loadingView];
     dispatch_queue_t backgroundQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0);
     dispatch_async(backgroundQueue, ^{
         @autoreleasepool {
             NSTimeInterval timeNeededForKDTreeInit = 0.0f;
             //suggest with k-d tree
             NSDate* startDate = [NSDate date];
-            KDTree* aTree = [[KDTree alloc] initWithIngredients:self.ingredients];
+            KDTree* aTree = [[KDTree alloc] initWithIngredients:self.ingredients andDelegate:self];
             NSDate* endDate = [NSDate date];
             timeNeededForKDTreeInit = [endDate timeIntervalSinceDate:startDate];
             NSLog(@"--------------------------");
@@ -122,7 +123,7 @@ static NSString* addIngredientCellName = @"AddIngredientCell";
                 ShowRecipesViewController *recipesVC = [[ShowRecipesViewController alloc] initWithNibName:@"ShowRecipesViewController" bundle:nil];
                 recipesVC.datasource = allRecipes;
                 recipesVC.titleOfTheNavigationBar = @"Suggested Recipes";
-                [loadingView removeFromSuperview];
+                [self.loadingView removeFromSuperview];
                 
                 [UIView  beginAnimations: @"Showinfo"context: nil];
                 [UIView setAnimationCurve: UIViewAnimationCurveEaseInOut];
@@ -240,4 +241,12 @@ static NSString* addIngredientCellName = @"AddIngredientCell";
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+#pragma mark - ProgresVisualizer delegate
+
+-(void)theProgressOfTheTaskIs:(float)progress
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.loadingView.progress setProgress:progress];
+    });
+}
 @end

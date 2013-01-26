@@ -18,8 +18,10 @@
 @property(nonatomic, strong) Recipe* searchPoint;
 
 @property(nonatomic, strong) JCPriorityQueue* currentBestPQ;
-
 @property(nonatomic, strong) NSMutableArray* allRecipes;
+
+@property(nonatomic, weak)id<ProgresVisualizer>delegate;
+
 @end
 
 @implementation KDTree
@@ -152,18 +154,32 @@
         }
     }
     NSMutableArray* result = [[NSMutableArray alloc] init];
+
     NSMutableArray* recipeIds = [self.dbReader readDBWithQuery:selectRecipeIdStatement];
+    [self.delegate theProgressOfTheTaskIs:0.1f];
+    //this task will move the progress from 0.1f to 0,9f
+    int allRecipes = [recipeIds count];
+    int currentReadRecipes = 0;
+
     for(NSMutableArray* ids in recipeIds){
+        currentReadRecipes++;
+        if(currentReadRecipes % 10){
+            float theProgress = 0.7 * ((float)currentReadRecipes / (float)allRecipes);
+            [self.delegate theProgressOfTheTaskIs:theProgress];
+        }
         NSString* recipeId = [ids objectAtIndex:0];
         Recipe* recipe = [self populateRecipeWithId:recipeId];
         [result addObject:recipe];
     }
+    [self.delegate theProgressOfTheTaskIs:0.81];
     return result;
 }
 
--(id)initWithIngredients:(NSMutableArray*)ingredients{
+-(id)initWithIngredients:(NSMutableArray*)ingredients andDelegate: (id<ProgresVisualizer>)delegate
+{
     self = [super init];
     if(self){
+        self.delegate = delegate;
         Recipe* searchPoint = [[Recipe alloc] init];
         [searchPoint setIngredients:ingredients];
         self.searchPoint = searchPoint;
@@ -191,6 +207,7 @@
             result = r;
         }
     }
+    [self.delegate theProgressOfTheTaskIs:1.0f];
     NSLog(@"FINAL distance is :%d" , [self distanceBetweenRecipeOne:result andRecipeTwo:self.searchPoint] );
     return result;
 }
@@ -205,6 +222,7 @@
         Node* node = [self.currentBestPQ pop];
         [result addObject:node];
     }
+    [self.delegate theProgressOfTheTaskIs:0.95f];
     return result;
 }
 

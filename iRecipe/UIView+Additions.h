@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CustomLoadingView.h"
 
 @interface UIView (Additions)
 
-+(UIView*)presentPositiveNotifyingViewWithTitle:(NSString*)title onView:(UIView*)parentView;
++(CustomLoadingView*)presentCustomLoadingViewWithTitle:(NSString*)title onView:(UIView*)parentView;
+
++(UIView*)presentBasicViewWithTitle:(NSString*)title onView:(UIView*)parentView;
 
 @end

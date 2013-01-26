@@ -168,7 +168,7 @@ static NSString* categoryCellIdentifier = @"categoryCellIdentifier";
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     [self.categoryTableView setUserInteractionEnabled:NO];
     
-    UIView* loadingView = [UIView presentPositiveNotifyingViewWithTitle:@"Loading..."onView:self.view];
+    UIView* loadingView = [UIView presentBasicViewWithTitle:@"Loading..."onView:self.view];
     [self.view addSubview:loadingView];
     dispatch_queue_t backgroundQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0);
     dispatch_async(backgroundQueue, ^{

@@ -44,6 +44,7 @@
 		2ECAA10316B34B1000308098 /* book@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2ECAA0FF16B34B1000308098 /* book@2x.png */; };
 		2ECAA10416B34B1000308098 /* magnifier.png in Resources */ = {isa = PBXBuildFile; fileRef = 2ECAA10016B34B1000308098 /* magnifier.png */; };
 		2ECAA10516B34B1000308098 /* magnifier@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2ECAA10116B34B1000308098 /* magnifier@2x.png */; };
+		2ECAA11116B39D8500308098 /* CustomLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ECAA11016B39D8500308098 /* CustomLoadingView.m */; };
 		2EEF555316A9847B005AB989 /* SuggestFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EEF555216A9847B005AB989 /* SuggestFooterView.xib */; };
 		2EEF555E16A98673005AB989 /* SuggestFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EEF555D16A98673005AB989 /* SuggestFooterView.m */; };
 		2EEF556016A98907005AB989 /* IngredientCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EEF555F16A98907005AB989 /* IngredientCell.xib */; };
@@ -110,6 +111,8 @@
 		2ECAA0FF16B34B1000308098 /* book@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "book@2x.png"; sourceTree = "<group>"; };
 		2ECAA10016B34B1000308098 /* magnifier.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = magnifier.png; sourceTree = "<group>"; };
 		2ECAA10116B34B1000308098 /* magnifier@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "magnifier@2x.png"; sourceTree = "<group>"; };
+		2ECAA10F16B39D8500308098 /* CustomLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomLoadingView.h; sourceTree = "<group>"; };
+		2ECAA11016B39D8500308098 /* CustomLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomLoadingView.m; sourceTree = "<group>"; };
 		2EEF555216A9847B005AB989 /* SuggestFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SuggestFooterView.xib; sourceTree = "<group>"; };
 		2EEF555C16A98673005AB989 /* SuggestFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuggestFooterView.h; sourceTree = "<group>"; };
 		2EEF555D16A98673005AB989 /* SuggestFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuggestFooterView.m; sourceTree = "<group>"; };
@@ -349,6 +352,8 @@
 		2EEF555016A98420005AB989 /* View Layer */ = {
 			isa = PBXGroup;
 			children = (
+				2ECAA10F16B39D8500308098 /* CustomLoadingView.h */,
+				2ECAA11016B39D8500308098 /* CustomLoadingView.m */,
 				2ECAA0FA16B3442B00308098 /* UIView+Additions.h */,
 				2ECAA0FB16B3442B00308098 /* UIView+Additions.m */,
 				2EEF555C16A98673005AB989 /* SuggestFooterView.h */,
@@ -474,6 +479,7 @@
 				2ECAA0E316B3149200308098 /* ShowRecipesViewController.m in Sources */,
 				2ECAA0E916B3189700308098 /* RecipeDetailsViewController.m in Sources */,
 				2ECAA0FC16B3442B00308098 /* UIView+Additions.m in Sources */,
+				2ECAA11116B39D8500308098 /* CustomLoadingView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
