@@ -18,7 +18,6 @@
 @property(nonatomic, strong) Recipe* searchPoint;
 
 @property(nonatomic, strong) JCPriorityQueue* currentBestPQ;
-@property(nonatomic, strong) NSMutableSet* currentBestSet;
 
 @property(nonatomic, strong) NSMutableArray* allRecipes;
 @end
@@ -47,19 +46,19 @@
         }
         double value1 = 0.0f;
         if(one){
-            value1 = one.realValue;
+            value1 = one.realValue / one.maxRealValue;
         }
         
         double value2 = 0.0f;
         if(two){
-            value2 = two.realValue;
+            value2 = two.realValue / two.maxRealValue;
         }
 //        if(one && two)
 //        {
             result += pow((value1 - value2), 2.0f);
 //        }
     }
-    
+    result *= 10000;
     return (NSInteger)floor(result);
 }
 
@@ -76,6 +75,7 @@
         //setup each ingredient
         Ingredient* i = [[Ingredient alloc] init];
         
+        //setup pid, quantity, measure & realValue
         NSString* ingredientFk = [iRelation objectAtIndex:1];
         [i setPid:ingredientFk];
         
@@ -87,30 +87,6 @@
         NSString* measure = [iRelation objectAtIndex:4];
         [i setMeasure:measure];
         
-        //        //forth way
-        //        NSString *val = [iRelation objectAtIndex:5];
-        //        //if ([val hasSuffix:@".0"]) {
-        //            NSRange r = [val rangeOfString:@"."];
-        //            r.length = val.length - r.location;
-        //            val = [val stringByReplacingCharactersInRange:r withString:@".58"];
-        //        //}
-        //
-        //        [i setRealValue:[val doubleValue]];
-        
-        //third way
-        //        NSScanner *scn = [NSScanner scannerWithString:[iRelation objectAtIndex:5]];
-        //        double ingredientRealValue = 0.0f;
-        //        [scn scanDouble:&ingredientRealValue];
-        //        ingredientRealValue += 0.001;
-        //        [i setRealValue:ingredientRealValue];
-        
-        //second way
-        //        NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-        //        [formatter setNumberStyle: NSNumberFormatterDecimalStyle];
-        //        //NSNumber* value = [formatter numberFromString: [iRelation objectAtIndex:5]];
-        //        [i setRealValue:[[formatter numberFromString: [iRelation objectAtIndex:5]] doubleValue]];
-        
-        //first way
         NSString* realValueString = [NSString stringWithFormat:@"%.2f", [[iRelation objectAtIndex:5] doubleValue]];
         double realValue = [realValueString doubleValue];
         [i setRealValue:realValue];
@@ -120,6 +96,13 @@
         NSMutableArray* ingredientNameResult = [self.dbReader readDBWithQuery:selectIngredientName];
         NSString* ingredientName = [[ingredientNameResult objectAtIndex:0] objectAtIndex:0];
         [i setName:ingredientName];
+        
+        //setup maxRealValue
+        NSString* posibleMaxValueStatement = [NSString stringWithFormat:@"SELECT MAX(realValue) FROM Relation WHERE IngredientFk=%@", i.pid];
+        NSMutableArray* resultFromMaxValueSelect = [self.dbReader readDBWithQuery:posibleMaxValueStatement];
+        NSString* maxRealValueString = [NSString stringWithFormat:@"%.2f", [[[resultFromMaxValueSelect objectAtIndex:0] objectAtIndex:0] doubleValue]];
+        double maxRealValue = [maxRealValueString doubleValue];
+        [i setMaxRealValue:maxRealValue];
         
         [ingredients addObject:i];
     }
@@ -208,10 +191,7 @@
 -(NSMutableArray*)theNearestNeighbour
 {
     self.currentBestPQ = [[JCPriorityQueue alloc] init];
-    self.currentBestSet = [[NSMutableSet alloc] init];
     [self calculateNearestNeighbourWithCurrentNode:self.root];
-    
-    
     NSMutableArray* result = [[NSMutableArray alloc] init];
     while ([self.currentBestPQ count] > 1) {
         Node* node = [self.currentBestPQ pop];
@@ -231,16 +211,17 @@
       
         //get the sphere center importent ingredient
         Ingredient* sphereImportantIgredient = (Ingredient*)[[self.searchPoint ingredients] objectAtIndex:detph];
-        double sphereCenterImportentIngredientValue = [sphereImportantIgredient realValue];
+        double sphereCenterImportentIngredientValue = [sphereImportantIgredient realValue] / [sphereImportantIgredient maxRealValue];
 
         //get the plane importent ingredient
         double planeImportentIngredientValue = 0.0f;
         Ingredient* planeImportantIngredient = parent.igredientForThisDepth;
         if(planeImportantIngredient){
-            planeImportentIngredientValue = [planeImportantIngredient realValue];
+            planeImportentIngredientValue = [planeImportantIngredient realValue] / [planeImportantIngredient maxRealValue];
         }
         
         result = pow((planeImportentIngredientValue - sphereCenterImportentIngredientValue), 2.0f);
+        result *= 10000;
         return (NSInteger)floor(result);
     }
     else{
@@ -293,7 +274,7 @@
     }
     
     [current.location setUsed:YES];
-    NSLog(@"Current Location name is: %@",current.location.name);
+  //  NSLog(@"Current Location name is: %@",current.location.name);
     //calculate where should we go
     Ingredient* importentIngredient = [self.searchPoint.ingredients objectAtIndex:current.depth];
     Recipe* currentLocation = current.location;

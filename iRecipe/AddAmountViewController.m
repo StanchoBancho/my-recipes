@@ -80,11 +80,20 @@
         Ingredient* i = [[Ingredient alloc] init];
         [i setName:self.selectedIngredient];
         [i setRealValue:self.amountTextField.text.doubleValue];
+        
+        //setup name
         SQLiteReader* dbReader = [[SQLiteReader alloc] init];
         NSString* selectIngredientId = [NSString stringWithFormat:@"SELECT id FROM Ingredient WHERE name = '%@'", i.name];
         NSMutableArray* resultFromSelect = [dbReader readDBWithQuery:selectIngredientId];
         [i setPid:[[resultFromSelect objectAtIndex:0] objectAtIndex:0]];
         [self.delegate dissmissWithIngredient:i];
+        
+        //setup maxRealValue
+        NSString* posibleMaxValueStatement = [NSString stringWithFormat:@"SELECT MAX(realValue) FROM Relation WHERE IngredientFk=%@", i.pid];
+        NSMutableArray* resultFromMaxValueSelect = [dbReader readDBWithQuery:posibleMaxValueStatement];
+        NSString* maxRealValueString = [NSString stringWithFormat:@"%.2f", [[[resultFromMaxValueSelect objectAtIndex:0] objectAtIndex:0] doubleValue]];
+        double maxRealValue = [maxRealValueString doubleValue];
+        [i setMaxRealValue:maxRealValue];
     }
 }
 
